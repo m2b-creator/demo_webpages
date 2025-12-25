@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev -p 3698",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "next start -p 3698",
+    "lint": "eslint",
+    "pm2:start": "pm2 start npm --name demo_webpages -- run dev",
+    "pm2:stop": "pm2 stop demo_webpages",
+    "pm2:restart": "pm2 restart demo_webpages"
   },
   "dependencies": {
     "clsx": "^2.1.1",
