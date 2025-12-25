@@ -1,12 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import { ArrowDown, Mail, MapPin, Phone, Send } from "lucide-react";
 import { demos } from "@/lib/themes";
 import { DemoGrid } from "@/components/showcase";
 import { CustomCursor } from "@/components/effects";
 import { CookieConsentProvider, useCookieConsent } from "@/components/ui/CookieBanner";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useRef } from "react";
+import { Magnetic } from "@/components/animations/ParallaxScroll";
 
 // Animated text reveal component with hover effects
 function AnimatedTitle() {
@@ -262,46 +263,93 @@ function SiteFooter() {
   const { openSettings } = useCookieConsent();
 
   return (
-    <footer className="relative border-t border-white/5 px-6 md:px-12 lg:px-20 py-12">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <a href="https://m2b.solutions" className="flex items-center group">
+    <motion.footer
+      className="relative border-t border-white/5 px-6 md:px-12 lg:px-20 py-12"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <motion.div
+        className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+        }}
+      >
+        <motion.a
+          href="https://m2b.solutions"
+          className="flex items-center group"
+          variants={{
+            hidden: { opacity: 0, x: -20 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          whileHover={{ scale: 1.05 }}
+        >
           <img
             src="https://m2b.solutions/LogoStretched.webp"
             alt="M2B Solutions"
             className="h-8 w-auto brightness-0 invert group-hover:opacity-80 transition-opacity"
           />
-        </a>
+        </motion.a>
 
-        <p className="text-sm text-zinc-500">
+        <motion.p
+          className="text-sm text-zinc-500"
+          variants={{
+            hidden: { opacity: 0, y: 10 },
+            visible: { opacity: 1, y: 0 },
+          }}
+        >
           © 2026 M2B Solutions. Alle Rechte vorbehalten.
-        </p>
+        </motion.p>
 
-        <div className="flex items-center gap-4 flex-wrap justify-center">
-          <a
-            href="https://m2b.solutions/impressum"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-zinc-400 hover:text-white transition-colors"
-          >
-            Impressum
-          </a>
-          <a
-            href="https://m2b.solutions/datenschutz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-zinc-400 hover:text-white transition-colors"
-          >
-            Datenschutz
-          </a>
-          <button
+        <motion.div
+          className="flex items-center gap-4 flex-wrap justify-center"
+          variants={{
+            hidden: { opacity: 0, x: 20 },
+            visible: { opacity: 1, x: 0 },
+          }}
+        >
+          {[
+            { href: "https://m2b.solutions/impressum", label: "Impressum" },
+            { href: "https://m2b.solutions/datenschutz", label: "Datenschutz" },
+          ].map((link, i) => (
+            <motion.a
+              key={i}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative text-sm text-zinc-400 hover:text-white transition-colors py-1 group"
+              whileHover={{ x: 3 }}
+            >
+              {link.label}
+              <motion.span
+                className="absolute bottom-0 left-0 w-full h-px bg-cyan-400 origin-left"
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.2 }}
+              />
+            </motion.a>
+          ))}
+          <motion.button
             onClick={openSettings}
-            className="text-sm text-zinc-400 hover:text-white transition-colors"
+            className="relative text-sm text-zinc-400 hover:text-white transition-colors py-1 group"
+            whileHover={{ x: 3 }}
           >
             Cookie-Einstellungen
-          </button>
-        </div>
-      </div>
-    </footer>
+            <motion.span
+              className="absolute bottom-0 left-0 w-full h-px bg-cyan-400 origin-left"
+              initial={{ scaleX: 0 }}
+              whileHover={{ scaleX: 1 }}
+              transition={{ duration: 0.2 }}
+            />
+          </motion.button>
+        </motion.div>
+      </motion.div>
+    </motion.footer>
   );
 }
 
@@ -313,25 +361,66 @@ function ContactSection() {
     <section id="contact" className="relative px-6 md:px-12 lg:px-20 py-32">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent pointer-events-none" />
 
-      <motion.div
-        className="max-w-7xl mx-auto"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
+      <div className="max-w-7xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <span className="text-sm font-medium text-cyan-400 uppercase tracking-widest">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15 } },
+          }}
+        >
+          <motion.span
+            className="inline-block text-sm font-medium text-cyan-400 uppercase tracking-widest"
+            variants={{
+              hidden: { opacity: 0, y: 20, scale: 0.9 },
+              visible: { opacity: 1, y: 0, scale: 1 },
+            }}
+          >
+            <motion.span
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              className="inline-block"
+            >
+              ✦
+            </motion.span>{" "}
             Kontakt
-          </span>
-          <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Lassen Sie uns zusammenarbeiten
-          </h2>
-          <p className="mt-4 text-lg text-zinc-400 max-w-2xl mx-auto">
+          </motion.span>
+          <motion.h2
+            className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            {"Lassen Sie uns zusammenarbeiten".split(" ").map((word, i) => (
+              <motion.span
+                key={i}
+                className="inline-block mr-4"
+                whileHover={{ 
+                  scale: 1.1, 
+                  color: "#22d3ee",
+                  textShadow: "0 0 30px rgba(34, 211, 238, 0.5)"
+                }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.h2>
+          <motion.p
+            className="mt-4 text-lg text-zinc-400 max-w-2xl mx-auto"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             Haben Sie ein Projekt im Sinn? Wir freuen uns darauf, mehr zu erfahren. Schreiben Sie uns und lassen Sie uns gemeinsam etwas Großartiges erschaffen.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {consent === "accepted" ? (
           <div className="grid lg:grid-cols-2 gap-16">
@@ -452,7 +541,7 @@ function ContactSection() {
             </div>
           </motion.div>
         )}
-      </motion.div>
+      </div>
     </section>
   );
 }
@@ -479,6 +568,194 @@ function FloatingOrb({
         ease: "easeInOut",
       }}
     />
+  );
+}
+
+// Animated floating particles
+function FloatingParticles() {
+  const particles = Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 4 + 2,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 10 + 15,
+    delay: Math.random() * 5,
+  }));
+
+  return (
+    <div className="fixed inset-0 pointer-events-none overflow-hidden">
+      {particles.map((particle) => (
+        <motion.div
+          key={particle.id}
+          className="absolute rounded-full bg-cyan-400/20"
+          style={{
+            width: particle.size,
+            height: particle.size,
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+          }}
+          animate={{
+            y: [0, -100, 0],
+            x: [0, Math.random() * 50 - 25, 0],
+            opacity: [0.2, 0.6, 0.2],
+            scale: [1, 1.5, 1],
+          }}
+          transition={{
+            duration: particle.duration,
+            delay: particle.delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+// Text marquee for technologies
+function TextMarquee() {
+  const technologies = [
+    "React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion",
+    "Node.js", "PostgreSQL", "Prisma", "Vercel", "Figma",
+    "React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion",
+    "Node.js", "PostgreSQL", "Prisma", "Vercel", "Figma",
+  ];
+
+  return (
+    <div className="relative overflow-hidden py-8 border-y border-white/5">
+      <motion.div
+        className="flex gap-12 whitespace-nowrap"
+        animate={{ x: [0, -1920] }}
+        transition={{
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 30,
+            ease: "linear",
+          },
+        }}
+      >
+        {technologies.map((tech, index) => (
+          <span
+            key={index}
+            className="text-2xl md:text-3xl font-bold text-zinc-700 hover:text-cyan-400 transition-colors cursor-default"
+          >
+            {tech}
+          </span>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
+
+
+// Section header with stagger animations
+function SectionHeader({
+  label,
+  title,
+  description,
+}: {
+  label: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <motion.div
+      className="max-w-7xl mx-auto mb-16"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: { staggerChildren: 0.15 },
+        },
+      }}
+    >
+      <motion.span
+        className="inline-block text-sm font-medium text-cyan-400 uppercase tracking-widest"
+        variants={{
+          hidden: { opacity: 0, y: 20, scale: 0.9 },
+          visible: { opacity: 1, y: 0, scale: 1 },
+        }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.span
+          className="inline-block"
+          animate={{ opacity: [1, 0.5, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          ✦
+        </motion.span>{" "}
+        {label}
+      </motion.span>
+      <motion.h2
+        className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      >
+        {title.split(" ").map((word, i) => (
+          <motion.span
+            key={i}
+            className="inline-block mr-4"
+            whileHover={{ scale: 1.05, color: "#22d3ee" }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            {word}
+          </motion.span>
+        ))}
+      </motion.h2>
+      <motion.p
+        className="mt-4 text-lg text-zinc-400 max-w-2xl"
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        transition={{ duration: 0.5 }}
+      >
+        {description}
+      </motion.p>
+    </motion.div>
+  );
+}
+
+// Glowing scroll indicator
+function ScrollIndicator() {
+  return (
+    <motion.div
+      className="absolute bottom-12 left-1/2 -translate-x-1/2"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.5 }}
+    >
+      <motion.div
+        className="relative flex flex-col items-center gap-2 text-zinc-500"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <span className="text-xs uppercase tracking-widest">Scrollen</span>
+        <div className="relative">
+          <motion.div
+            className="absolute inset-0 bg-cyan-400/30 blur-md rounded-full"
+            animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+          <motion.div
+            className="w-6 h-10 rounded-full border-2 border-zinc-600 flex justify-center pt-2"
+          >
+            <motion.div
+              className="w-1 h-2 bg-cyan-400 rounded-full"
+              animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </motion.div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -524,6 +801,9 @@ export default function HomePage() {
           }}
         />
 
+        {/* Floating particles */}
+        <FloatingParticles />
+
         {/* Hero Section */}
         <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20">
           {/* Navigation */}
@@ -556,7 +836,7 @@ export default function HomePage() {
               </a>
               <motion.a
                 href="#contact"
-                className="px-4 py-2 text-sm font-medium rounded-xl border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 transition-colors"
+                className="px-4 py-2 text-sm font-medium rounded-xl border border-white/20 text-white hover:bg-white/10 transition-colors"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -570,16 +850,33 @@ export default function HomePage() {
             <div className="space-y-8">
               <AnimatedTitle />
 
-              <motion.p
-                className="max-w-xl text-lg md:text-xl text-zinc-400 leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
+              <motion.div
+                className="max-w-xl text-lg md:text-xl text-zinc-400 leading-relaxed overflow-hidden"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: {},
+                  visible: { transition: { staggerChildren: 0.02, delayChildren: 0.8 } },
+                }}
               >
-                Wir entwickeln beeindruckende, vollständig responsive Websites mit
-                modernem Design, flüssigen Animationen und außergewöhnlicher
-                Benutzererfahrung. Entdecken Sie, was wir für Sie erstellen können.
-              </motion.p>
+                {"Wir entwickeln beeindruckende, vollständig responsive Websites mit modernem Design, flüssigen Animationen und außergewöhnlicher Benutzererfahrung. Entdecken Sie, was wir für Sie erstellen können.".split(" ").map((word, i) => (
+                  <motion.span
+                    key={i}
+                    className="inline-block mr-[0.3em]"
+                    variants={{
+                      hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
+                      visible: { 
+                        opacity: 1, 
+                        y: 0, 
+                        filter: "blur(0px)",
+                        transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+                      },
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </motion.div>
 
               <motion.div
                 className="flex flex-wrap gap-4 pt-4"
@@ -587,66 +884,59 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
               >
-                <motion.a
-                  href="#demos"
-                  className="inline-flex items-center justify-center gap-2.5 h-14 px-8 text-lg font-medium rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_4px_20px_-4px_rgba(6,182,212,0.5)] hover:shadow-[0_8px_30px_-4px_rgba(6,182,212,0.6)] transition-shadow"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Projekte ansehen
-                  <ArrowDown className="w-4 h-4" />
-                </motion.a>
-                <motion.a
-                  href="#contact"
-                  className="inline-flex items-center justify-center h-14 px-8 text-lg font-medium rounded-xl text-white hover:bg-white/10 transition-colors border border-white/20"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Kontakt aufnehmen
-                </motion.a>
+                <Magnetic strength={0.15}>
+                  <motion.a
+                    href="#demos"
+                    className="relative inline-flex items-center justify-center gap-2.5 h-14 px-8 text-lg font-medium rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_4px_20px_-4px_rgba(6,182,212,0.5)] hover:shadow-[0_8px_30px_-4px_rgba(6,182,212,0.6)] transition-shadow overflow-hidden group"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500"
+                      initial={{ x: "-100%", opacity: 0 }}
+                      whileHover={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.4 }}
+                    />
+                    <span className="relative z-10 flex items-center gap-2.5">
+                      Projekte ansehen
+                      <motion.span
+                        animate={{ y: [0, 3, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        <ArrowDown className="w-4 h-4" />
+                      </motion.span>
+                    </span>
+                  </motion.a>
+                </Magnetic>
+                <Magnetic strength={0.15}>
+                  <motion.a
+                    href="#contact"
+                    className="inline-flex items-center justify-center h-14 px-8 text-lg font-medium rounded-xl text-white hover:bg-white/10 transition-colors border border-white/20"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Kontakt aufnehmen
+                  </motion.a>
+                </Magnetic>
               </motion.div>
             </div>
           </div>
 
           {/* Scroll indicator */}
-          <motion.div
-            className="absolute bottom-12 left-1/2 -translate-x-1/2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-          >
-            <motion.div
-              className="flex flex-col items-center gap-2 text-zinc-500"
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <span className="text-xs uppercase tracking-widest">Scrollen</span>
-              <ArrowDown className="w-4 h-4" />
-            </motion.div>
-          </motion.div>
+          <ScrollIndicator />
         </section>
+
+        {/* Text Marquee */}
+        <TextMarquee />
 
         {/* Demos Section */}
         <section id="demos" className="relative px-6 md:px-12 lg:px-20 py-32">
           {/* Section header */}
-          <motion.div
-            className="max-w-7xl mx-auto mb-16"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <span className="text-sm font-medium text-cyan-400 uppercase tracking-widest">
-              Portfolio
-            </span>
-            <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Was wir für Sie erstellen können
-            </h2>
-            <p className="mt-4 text-lg text-zinc-400 max-w-2xl">
-              Von Restaurants bis Immobilien, E-Commerce bis SaaS — jede Branche
-              verdient eine beeindruckende Webpräsenz. Hier sehen Sie, was wir für Sie entwickeln können.
-            </p>
-          </motion.div>
+          <SectionHeader
+            label="Portfolio"
+            title="Was wir für Sie erstellen können"
+            description="Von Restaurants bis Immobilien, E-Commerce bis SaaS — jede Branche verdient eine beeindruckende Webpräsenz. Hier sehen Sie, was wir für Sie entwickeln können."
+          />
 
           {/* Demo grid */}
           <div className="max-w-7xl mx-auto">
