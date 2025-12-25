@@ -8,3 +8,4 @@ export {
   CardFooter,
 } from "./Card";
 export { Input, Textarea } from "./Input";
+export { DemoImage, AvatarImage } from "./Image";

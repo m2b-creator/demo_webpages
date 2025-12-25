@@ -44,15 +44,15 @@ export function ThemeProvider({ theme, children }: ThemeProviderProps) {
     if (scheme) setCurrentScheme(scheme);
   };
 
+  const contextValue: ThemeContextValue = {
+    currentScheme,
+    availableSchemes: theme.schemes,
+    setScheme,
+    themeName: theme.name,
+  };
+
   return (
-    <ThemeContext.Provider
-      value={{
-        currentScheme,
-        availableSchemes: theme.schemes,
-        setScheme,
-        themeName: theme.name,
-      }}
-    >
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );

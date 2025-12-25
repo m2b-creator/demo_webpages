@@ -4,12 +4,14 @@ import { forwardRef, useState, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils/cn";
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CardProps {
   children: React.ReactNode;
   variant?: "default" | "elevated" | "outline" | "gradient";
   hover?: "lift" | "tilt" | "glow" | "none";
   padding?: "none" | "sm" | "md" | "lg";
   as?: "div" | "article" | "section";
+  className?: string;
+  onClick?: () => void;
 }
 
 const paddingClasses = {
@@ -46,8 +48,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       variant = "default",
       hover = "lift",
       padding = "md",
-      as: Component = "div",
-      ...props
+      onClick,
     },
     ref
   ) => {
@@ -132,7 +133,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
           stiffness: 300,
           damping: 25,
         }}
-        {...props}
+        onClick={onClick}
       >
         {/* Gradient border effect */}
         {variant === "gradient" && (
