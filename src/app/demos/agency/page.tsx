@@ -11,82 +11,82 @@ import { agencyTheme } from "@/lib/themes";
 const services = [
   {
     icon: Palette,
-    title: "Brand Identity",
-    description: "Strategic brand development that captures your essence and resonates with your audience.",
+    title: "Markenidentität",
+    description: "Strategische Markenentwicklung, die Ihr Wesen einfängt und bei Ihrer Zielgruppe Anklang findet.",
   },
   {
     icon: Code,
-    title: "Web Development",
-    description: "Custom digital experiences built with cutting-edge technology and pixel-perfect design.",
+    title: "Webentwicklung",
+    description: "Maßgeschneiderte digitale Erlebnisse mit modernster Technologie und pixelgenauem Design.",
   },
   {
     icon: Megaphone,
-    title: "Digital Marketing",
-    description: "Data-driven campaigns that amplify your message and drive measurable results.",
+    title: "Digitales Marketing",
+    description: "Datengesteuerte Kampagnen, die Ihre Botschaft verstärken und messbare Ergebnisse liefern.",
   },
   {
     icon: TrendingUp,
-    title: "Growth Strategy",
-    description: "Comprehensive growth plans that transform startups into market leaders.",
+    title: "Wachstumsstrategie",
+    description: "Umfassende Wachstumspläne, die Startups zu Marktführern entwickeln.",
   },
 ];
 
 const caseStudies = [
   {
     client: "TechVision",
-    category: "Web Design & Development",
-    title: "Redefining the future of AI interfaces",
-    stats: { metric: "+340%", label: "User Engagement" },
+    category: "Webdesign & Entwicklung",
+    title: "Die Zukunft der KI-Schnittstellen neu definieren",
+    stats: { metric: "+340%", label: "Nutzer-Engagement" },
   },
   {
     client: "Bloom Beauty",
-    category: "Brand Identity",
-    title: "A fresh take on sustainable beauty",
-    stats: { metric: "2.5M", label: "Social Reach" },
+    category: "Markenidentität",
+    title: "Ein frischer Blick auf nachhaltige Schönheit",
+    stats: { metric: "2,5M", label: "Soziale Reichweite" },
   },
   {
     client: "FinFlow",
-    category: "Digital Product",
-    title: "Banking reimagined for Gen Z",
-    stats: { metric: "$12M", label: "Series A Raised" },
+    category: "Digitales Produkt",
+    title: "Banking neu gedacht für Generation Z",
+    stats: { metric: "€12M", label: "Series A Finanzierung" },
   },
   {
     client: "Atlas Travel",
-    category: "Marketing Campaign",
-    title: "Wanderlust: A global adventure",
-    stats: { metric: "+180%", label: "Conversions" },
+    category: "Marketingkampagne",
+    title: "Fernweh: Ein globales Abenteuer",
+    stats: { metric: "+180%", label: "Konversionen" },
   },
 ];
 
 const testimonials = [
   {
-    quote: "Working with them was transformative. They didn't just build a website—they built a brand experience that our customers love.",
+    quote: "Die Zusammenarbeit war transformativ. Sie haben nicht nur eine Website gebaut – sie haben ein Markenerlebnis geschaffen, das unsere Kunden lieben.",
     author: "Sarah Chen",
     role: "CEO",
     company: "TechVision",
     rating: 5,
   },
   {
-    quote: "The most creative team we've ever worked with. They pushed boundaries while staying true to our vision.",
+    quote: "Das kreativste Team, mit dem wir je gearbeitet haben. Sie haben Grenzen überschritten und sind dabei unserer Vision treu geblieben.",
     author: "Marcus Johnson",
     role: "CMO",
     company: "Bloom Beauty",
     rating: 5,
   },
   {
-    quote: "Our conversion rates doubled within the first month of launch. The ROI speaks for itself.",
+    quote: "Unsere Konversionsraten haben sich im ersten Monat nach dem Launch verdoppelt. Der ROI spricht für sich.",
     author: "Elena Rodriguez",
-    role: "Founder",
+    role: "Gründerin",
     company: "FinFlow",
     rating: 5,
   },
 ];
 
 const stats = [
-  { value: "150+", label: "Projects Delivered" },
-  { value: "50M+", label: "Users Reached" },
-  { value: "98%", label: "Client Retention" },
-  { value: "12", label: "Industry Awards" },
+  { value: "150+", label: "Abgeschlossene Projekte" },
+  { value: "50M+", label: "Erreichte Nutzer" },
+  { value: "98%", label: "Kundenbindung" },
+  { value: "12", label: "Branchenauszeichnungen" },
 ];
 
 export default function AgencyDemo() {
@@ -100,12 +100,12 @@ export default function AgencyDemo() {
           </span>
         }
         links={[
-          { label: "Work", href: "#work" },
-          { label: "Services", href: "#services" },
-          { label: "About", href: "#about" },
-          { label: "Contact", href: "#contact" },
+          { label: "Arbeiten", href: "#work" },
+          { label: "Leistungen", href: "#services" },
+          { label: "Über uns", href: "#about" },
+          { label: "Kontakt", href: "#contact" },
         ]}
-        ctaText="Start Project"
+        ctaText="Projekt starten"
       />
 
       {/* Hero */}
@@ -125,7 +125,7 @@ export default function AgencyDemo() {
             >
               <Sparkles className="w-5 h-5 text-[var(--color-primary)]" />
               <span className="text-sm font-medium text-[var(--color-muted-foreground)]">
-                Award-Winning Digital Agency
+                Preisgekrönte Digitalagentur
               </span>
             </motion.div>
 
@@ -135,11 +135,11 @@ export default function AgencyDemo() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              We craft
+              Wir gestalten
               <br />
-              <span className="text-[var(--color-primary)]">digital</span>
+              <span className="text-[var(--color-primary)]">digitale</span>
               <br />
-              experiences
+              Erlebnisse
             </motion.h1>
 
             <motion.p
@@ -148,7 +148,7 @@ export default function AgencyDemo() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              We&apos;re a creative studio that transforms bold ideas into memorable digital products and brand experiences.
+              Wir sind ein Kreativstudio, das mutige Ideen in unvergessliche digitale Produkte und Markenerlebnisse verwandelt.
             </motion.p>
 
             <motion.div
@@ -158,10 +158,10 @@ export default function AgencyDemo() {
               transition={{ delay: 0.6 }}
             >
               <Button size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                View Our Work
+                Unsere Arbeiten ansehen
               </Button>
               <Button variant="outline" size="lg">
-                Get in Touch
+                Kontakt aufnehmen
               </Button>
             </motion.div>
           </motion.div>
@@ -194,14 +194,14 @@ export default function AgencyDemo() {
             <div className="flex justify-between items-end mb-16">
               <div>
                 <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                  Selected Work
+                  Ausgewählte Arbeiten
                 </span>
                 <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-foreground)]">
-                  Case Studies
+                  Fallstudien
                 </h2>
               </div>
               <Button variant="ghost" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                View All
+                Alle ansehen
               </Button>
             </div>
           </ScrollReveal>
@@ -269,9 +269,9 @@ export default function AgencyDemo() {
 
       {/* Services */}
       <Features
-        badge="What We Do"
-        title="Services"
-        subtitle="Full-service digital solutions for ambitious brands"
+        badge="Was wir machen"
+        title="Leistungen"
+        subtitle="Umfassende digitale Lösungen für ambitionierte Marken"
         features={services}
         columns={4}
         variant="cards"
@@ -284,16 +284,16 @@ export default function AgencyDemo() {
             <ScrollReveal direction="left">
               <div>
                 <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                  About Us
+                  Über uns
                 </span>
                 <h2 className="mt-4 text-3xl md:text-4xl font-bold text-[var(--color-foreground)]">
-                  We believe great design is good business
+                  Wir glauben, dass großartiges Design gutes Geschäft ist
                 </h2>
                 <p className="mt-6 text-[var(--color-muted-foreground)] leading-relaxed">
-                  Founded in 2015, we&apos;ve grown from a small design studio to a full-service digital agency. Our team of 25+ creatives, strategists, and technologists work together to deliver exceptional results for brands worldwide.
+                  2015 gegründet, sind wir von einem kleinen Designstudio zu einer Full-Service-Digitalagentur gewachsen. Unser Team aus über 25 Kreativen, Strategen und Technologen arbeitet zusammen, um außergewöhnliche Ergebnisse für Marken weltweit zu liefern.
                 </p>
                 <p className="mt-4 text-[var(--color-muted-foreground)] leading-relaxed">
-                  We don&apos;t just create—we collaborate. Every project is a partnership, and we measure our success by yours.
+                  Wir erstellen nicht nur – wir arbeiten zusammen. Jedes Projekt ist eine Partnerschaft, und wir messen unseren Erfolg an Ihrem.
                 </p>
                 <div className="flex items-center gap-6 mt-8">
                   <div className="flex -space-x-3">
@@ -307,7 +307,7 @@ export default function AgencyDemo() {
                     ))}
                   </div>
                   <span className="text-sm text-[var(--color-muted-foreground)]">
-                    25+ talented creatives
+                    25+ talentierte Kreative
                   </span>
                 </div>
               </div>
@@ -328,9 +328,9 @@ export default function AgencyDemo() {
 
       {/* Testimonials */}
       <Testimonials
-        badge="Client Love"
-        title="What They Say"
-        subtitle="Don't just take our word for it"
+        badge="Kundenstimmen"
+        title="Was sie sagen"
+        subtitle="Verlassen Sie sich nicht nur auf unser Wort"
         testimonials={testimonials}
         variant="cards"
       />
@@ -338,21 +338,21 @@ export default function AgencyDemo() {
       {/* CTA */}
       <CTA
         variant="gradient"
-        title="Have a Project in Mind?"
-        subtitle="Let's create something amazing together. Get in touch to start the conversation."
-        primaryCTA={{ text: "Start a Project" }}
-        secondaryCTA={{ text: "View Process" }}
+        title="Haben Sie ein Projekt im Sinn?"
+        subtitle="Lassen Sie uns gemeinsam etwas Großartiges erschaffen. Kontaktieren Sie uns, um das Gespräch zu beginnen."
+        primaryCTA={{ text: "Projekt starten" }}
+        secondaryCTA={{ text: "Prozess ansehen" }}
       />
 
       {/* Contact */}
       <Contact
-        badge="Get in Touch"
-        title="Let's Talk"
-        subtitle="Ready to bring your vision to life?"
+        badge="Kontakt aufnehmen"
+        title="Lassen Sie uns sprechen"
+        subtitle="Bereit, Ihre Vision zum Leben zu erwecken?"
         contactInfo={{
-          email: "hello@pixelagency.com",
-          phone: "+1 (555) 123-4567",
-          address: "123 Creative Blvd, NYC 10001",
+          email: "hallo@pixelagentur.de",
+          phone: "+49 (30) 123-4567",
+          address: "Kreativstraße 123, 10115 Berlin",
         }}
         variant="centered"
       />
@@ -364,26 +364,26 @@ export default function AgencyDemo() {
             PIXEL<span className="text-[var(--color-primary)]">.</span>
           </span>
         }
-        description="Award-winning digital agency crafting memorable brand experiences."
+        description="Preisgekrönte Digitalagentur, die unvergessliche Markenerlebnisse gestaltet."
         columns={[
           {
-            title: "Work",
+            title: "Arbeiten",
             links: [
-              { label: "Case Studies", href: "#" },
-              { label: "Industries", href: "#" },
-              { label: "Capabilities", href: "#" },
+              { label: "Fallstudien", href: "#" },
+              { label: "Branchen", href: "#" },
+              { label: "Kompetenzen", href: "#" },
             ],
           },
           {
-            title: "Company",
+            title: "Unternehmen",
             links: [
-              { label: "About", href: "#" },
-              { label: "Careers", href: "#" },
-              { label: "Contact", href: "#" },
+              { label: "Über uns", href: "#" },
+              { label: "Karriere", href: "#" },
+              { label: "Kontakt", href: "#" },
             ],
           },
           {
-            title: "Follow",
+            title: "Folgen",
             links: [
               { label: "Instagram", href: "#" },
               { label: "Dribbble", href: "#" },

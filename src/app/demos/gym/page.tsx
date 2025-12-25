@@ -11,98 +11,98 @@ import { gymTheme } from "@/lib/themes";
 const classes = [
   {
     name: "HIIT Training",
-    description: "High-intensity interval training for maximum calorie burn",
-    duration: "45 min",
-    level: "Advanced",
+    description: "Hochintensives Intervalltraining für maximale Kalorienverbrennung",
+    duration: "45 Min",
+    level: "Fortgeschritten",
     trainer: "Mike Johnson",
     icon: Flame,
   },
   {
-    name: "Strength & Power",
-    description: "Build muscle and increase strength with compound movements",
-    duration: "60 min",
-    level: "Intermediate",
+    name: "Kraft & Power",
+    description: "Muskelaufbau und Kraftsteigerung mit Grundübungen",
+    duration: "60 Min",
+    level: "Mittelstufe",
     trainer: "Sarah Chen",
     icon: Dumbbell,
   },
   {
     name: "Yoga Flow",
-    description: "Improve flexibility and mindfulness through flowing poses",
-    duration: "60 min",
-    level: "All Levels",
+    description: "Verbessern Sie Flexibilität und Achtsamkeit durch fließende Posen",
+    duration: "60 Min",
+    level: "Alle Level",
     trainer: "Emma Wilson",
     icon: Heart,
   },
   {
-    name: "Spin Class",
-    description: "High-energy cycling workout with motivating music",
-    duration: "45 min",
-    level: "All Levels",
+    name: "Spinning",
+    description: "Energiegeladenes Radtraining mit motivierender Musik",
+    duration: "45 Min",
+    level: "Alle Level",
     trainer: "James Miller",
     icon: Zap,
   },
 ];
 
 const trainers = [
-  { name: "Mike Johnson", specialty: "Strength & Conditioning", experience: "10+ years" },
-  { name: "Sarah Chen", specialty: "Olympic Lifting", experience: "8 years" },
-  { name: "Emma Wilson", specialty: "Yoga & Wellness", experience: "12 years" },
-  { name: "James Miller", specialty: "Cardio & HIIT", experience: "6 years" },
+  { name: "Mike Johnson", specialty: "Kraft & Kondition", experience: "10+ Jahre" },
+  { name: "Sarah Chen", specialty: "Olympisches Heben", experience: "8 Jahre" },
+  { name: "Emma Wilson", specialty: "Yoga & Wellness", experience: "12 Jahre" },
+  { name: "James Miller", specialty: "Cardio & HIIT", experience: "6 Jahre" },
 ];
 
 const memberships = [
   {
     name: "Basic",
-    price: "$29",
-    period: "/month",
-    features: ["Gym access", "Locker room", "Basic equipment", "Mobile app"],
+    price: "€29",
+    period: "/Monat",
+    features: ["Studiozugang", "Umkleide", "Grundausstattung", "Mobile App"],
     popular: false,
   },
   {
     name: "Premium",
-    price: "$59",
-    period: "/month",
-    features: ["All Basic features", "Group classes", "Personal training (1x/mo)", "Sauna & steam", "Nutrition plan"],
+    price: "€59",
+    period: "/Monat",
+    features: ["Alle Basic-Leistungen", "Gruppenkurse", "Personal Training (1x/Mo)", "Sauna & Dampfbad", "Ernährungsplan"],
     popular: true,
   },
   {
     name: "Elite",
-    price: "$99",
-    period: "/month",
-    features: ["All Premium features", "Unlimited PT sessions", "Priority booking", "Guest passes", "Recovery zone"],
+    price: "€99",
+    period: "/Monat",
+    features: ["Alle Premium-Leistungen", "Unbegrenzte PT-Sessions", "Prioritäts-Buchung", "Gästepässe", "Recovery-Zone"],
     popular: false,
   },
 ];
 
 const testimonials = [
   {
-    quote: "I've lost 30 pounds in 3 months! The trainers here are incredible and keep me motivated every day.",
+    quote: "Ich habe 15 kg in 3 Monaten verloren! Die Trainer hier sind unglaublich und motivieren mich jeden Tag.",
     author: "David Martinez",
-    role: "Member",
-    company: "6 months",
+    role: "Mitglied",
+    company: "6 Monate",
     rating: 5,
   },
   {
-    quote: "Best gym I've ever been to. The facilities are top-notch and the community is so supportive.",
+    quote: "Das beste Fitnessstudio, in dem ich je war. Die Ausstattung ist erstklassig und die Gemeinschaft so unterstützend.",
     author: "Lisa Thompson",
-    role: "Member",
-    company: "2 years",
+    role: "Mitglied",
+    company: "2 Jahre",
     rating: 5,
   },
   {
-    quote: "The group classes are amazing! I've made so many friends while getting in the best shape of my life.",
+    quote: "Die Gruppenkurse sind fantastisch! Ich habe so viele Freunde gefunden, während ich in die beste Form meines Lebens gekommen bin.",
     author: "Kevin Park",
-    role: "Member",
-    company: "1 year",
+    role: "Mitglied",
+    company: "1 Jahr",
     rating: 5,
   },
 ];
 
 const stats = [
-  { value: "5000+", label: "Active Members" },
-  { value: "50+", label: "Weekly Classes" },
-  { value: "20+", label: "Expert Trainers" },
-  { value: "24/7", label: "Always Open" },
+  { value: "5000+", label: "Aktive Mitglieder" },
+  { value: "50+", label: "Wöchentliche Kurse" },
+  { value: "20+", label: "Experten-Trainer" },
+  { value: "24/7", label: "Immer geöffnet" },
 ];
 
 export default function GymDemo() {
@@ -119,12 +119,12 @@ export default function GymDemo() {
           </div>
         }
         links={[
-          { label: "Classes", href: "#classes" },
-          { label: "Membership", href: "#membership" },
-          { label: "Trainers", href: "#trainers" },
-          { label: "Contact", href: "#contact" },
+          { label: "Kurse", href: "#classes" },
+          { label: "Mitgliedschaft", href: "#membership" },
+          { label: "Trainer", href: "#trainers" },
+          { label: "Kontakt", href: "#contact" },
         ]}
-        ctaText="Join Now"
+        ctaText="Jetzt starten"
       />
 
       {/* Hero */}
@@ -143,30 +143,30 @@ export default function GymDemo() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                🔥 Transform Your Body
+                🔥 Transformieren Sie Ihren Körper
               </motion.span>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-[var(--color-foreground)] leading-none tracking-tight">
-                PUSH YOUR
+                ÜBERSCHREITE DEINE
                 <br />
-                <span className="text-[var(--color-primary)]">LIMITS</span>
+                <span className="text-[var(--color-primary)]">GRENZEN</span>
               </h1>
               <p className="mt-6 text-xl text-[var(--color-muted-foreground)] max-w-lg">
-                Join the most advanced fitness facility in the city. State-of-the-art equipment, expert trainers, and a community that pushes you to be your best.
+                Werde Teil der modernsten Fitnessanlage der Stadt. Erstklassige Ausstattung, erfahrene Trainer und eine Gemeinschaft, die dich zu deinem Besten antreibt.
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
                 <Button size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                  Start Free Trial
+                  Kostenlos testen
                 </Button>
                 <Button variant="outline" size="lg" leftIcon={<Play className="w-4 h-4" />}>
-                  Virtual Tour
+                  Virtuelle Tour
                 </Button>
               </div>
 
               {/* Quick Stats */}
               <div className="flex gap-8 mt-12">
                 {[
-                  { value: "4.9", label: "Rating", icon: Star },
-                  { value: "5K+", label: "Members", icon: Users },
+                  { value: "4.9", label: "Bewertung", icon: Star },
+                  { value: "5K+", label: "Mitglieder", icon: Users },
                 ].map((stat, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
@@ -210,8 +210,8 @@ export default function GymDemo() {
                     <Flame className="w-6 h-6 text-[var(--color-accent)]" />
                   </div>
                   <div>
-                    <div className="font-bold text-[var(--color-foreground)]">500+ Cal</div>
-                    <div className="text-sm text-[var(--color-muted-foreground)]">Avg. per session</div>
+                    <div className="font-bold text-[var(--color-foreground)]">500+ Kcal</div>
+                    <div className="text-sm text-[var(--color-muted-foreground)]">Durchschn. pro Training</div>
                   </div>
                 </div>
               </motion.div>
@@ -229,13 +229,13 @@ export default function GymDemo() {
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                Our Classes
+                Unsere Kurse
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-foreground)]">
-                Train Like a Champion
+                Trainiere wie ein Champion
               </h2>
               <p className="mt-4 text-[var(--color-muted-foreground)]">
-                From high-intensity workouts to mindful movement, find the perfect class for your goals
+                Von hochintensiven Workouts bis zu achtsamer Bewegung – finde den perfekten Kurs für deine Ziele
               </p>
             </div>
           </ScrollReveal>
@@ -284,7 +284,7 @@ export default function GymDemo() {
 
           <div className="text-center mt-12">
             <Button variant="outline" size="lg" leftIcon={<Calendar className="w-4 h-4" />}>
-              View Full Schedule
+              Vollständigen Kursplan ansehen
             </Button>
           </div>
         </div>
@@ -296,13 +296,13 @@ export default function GymDemo() {
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                Membership Plans
+                Mitgliedschaftspläne
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-foreground)]">
-                Choose Your Path
+                Wähle deinen Weg
               </h2>
               <p className="mt-4 text-[var(--color-muted-foreground)]">
-                Flexible plans designed to fit your fitness journey
+                Flexible Pläne, die zu deiner Fitnessreise passen
               </p>
             </div>
           </ScrollReveal>
@@ -332,7 +332,7 @@ export default function GymDemo() {
                 >
                   {plan.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[var(--color-primary)] text-white text-xs font-bold rounded-full">
-                      MOST POPULAR
+                      AM BELIEBTESTEN
                     </div>
                   )}
                   <div className="text-center mb-6">
@@ -355,7 +355,7 @@ export default function GymDemo() {
                     ))}
                   </ul>
                   <Button variant={plan.popular ? "primary" : "outline"} className="w-full">
-                    Get Started
+                    Jetzt starten
                   </Button>
                 </Card>
               </motion.div>
@@ -366,9 +366,9 @@ export default function GymDemo() {
 
       {/* Testimonials */}
       <Testimonials
-        badge="Success Stories"
-        title="Real Results, Real People"
-        subtitle="See what our members have achieved"
+        badge="Erfolgsgeschichten"
+        title="Echte Ergebnisse, echte Menschen"
+        subtitle="Sehen Sie, was unsere Mitglieder erreicht haben"
         testimonials={testimonials}
         variant="cards"
       />
@@ -376,22 +376,22 @@ export default function GymDemo() {
       {/* CTA */}
       <CTA
         variant="gradient"
-        title="Ready to Transform?"
-        subtitle="Start your 7-day free trial today. No commitment, no credit card required."
-        primaryCTA={{ text: "Start Free Trial" }}
-        secondaryCTA={{ text: "Contact Us" }}
+        title="Bereit zur Transformation?"
+        subtitle="Starten Sie heute Ihre 7-tägige kostenlose Testphase. Keine Verpflichtung, keine Kreditkarte erforderlich."
+        primaryCTA={{ text: "Kostenlos testen" }}
+        secondaryCTA={{ text: "Kontaktieren Sie uns" }}
       />
 
       {/* Contact */}
       <Contact
-        badge="Visit Us"
-        title="Get in Touch"
-        subtitle="Ready to start your fitness journey?"
+        badge="Besuchen Sie uns"
+        title="Kontakt aufnehmen"
+        subtitle="Bereit, Ihre Fitnessreise zu starten?"
         contactInfo={{
-          email: "hello@ironforge.fit",
-          phone: "+1 (555) 123-4567",
-          address: "456 Fitness Blvd, Los Angeles, CA 90001",
-          hours: "Open 24/7",
+          email: "hallo@ironforge.de",
+          phone: "+49 (30) 123-4567",
+          address: "Fitnessallee 456, 10115 Berlin",
+          hours: "Geöffnet 24/7",
         }}
         variant="centered"
       />
@@ -406,33 +406,33 @@ export default function GymDemo() {
             <span className="text-xl font-bold tracking-tight">IRONFORGE</span>
           </div>
         }
-        description="The most advanced fitness facility in the city. Transform your body, transform your life."
+        description="Die modernste Fitnessanlage der Stadt. Transformiere deinen Körper, transformiere dein Leben."
         columns={[
           {
-            title: "Programs",
+            title: "Programme",
             links: [
-              { label: "Classes", href: "#" },
+              { label: "Kurse", href: "#" },
               { label: "Personal Training", href: "#" },
-              { label: "Nutrition", href: "#" },
+              { label: "Ernährung", href: "#" },
               { label: "Recovery", href: "#" },
             ],
           },
           {
-            title: "Membership",
+            title: "Mitgliedschaft",
             links: [
-              { label: "Pricing", href: "#" },
-              { label: "Corporate", href: "#" },
-              { label: "Student", href: "#" },
+              { label: "Preise", href: "#" },
+              { label: "Firmenkunden", href: "#" },
+              { label: "Studenten", href: "#" },
               { label: "FAQ", href: "#" },
             ],
           },
           {
-            title: "Company",
+            title: "Unternehmen",
             links: [
-              { label: "About", href: "#" },
-              { label: "Careers", href: "#" },
+              { label: "Über uns", href: "#" },
+              { label: "Karriere", href: "#" },
               { label: "Blog", href: "#" },
-              { label: "Contact", href: "#" },
+              { label: "Kontakt", href: "#" },
             ],
           },
         ]}

@@ -10,41 +10,41 @@ import { portfolioTheme } from "@/lib/themes";
 
 const projects = [
   {
-    title: "E-commerce Platform",
-    category: "Web Development",
-    description: "A modern e-commerce solution with real-time inventory and payment processing.",
+    title: "E-Commerce-Plattform",
+    category: "Webentwicklung",
+    description: "Eine moderne E-Commerce-Lösung mit Echtzeit-Inventar und Zahlungsabwicklung.",
     tags: ["Next.js", "Stripe", "PostgreSQL"],
     featured: true,
   },
   {
-    title: "AI Dashboard",
-    category: "UI/UX Design",
-    description: "Analytics dashboard for machine learning model performance monitoring.",
+    title: "KI-Dashboard",
+    category: "UI/UX-Design",
+    description: "Analytics-Dashboard zur Überwachung der Leistung von Machine-Learning-Modellen.",
     tags: ["React", "D3.js", "Python"],
     featured: true,
   },
   {
     title: "Mobile Banking App",
-    category: "Mobile Development",
-    description: "Secure mobile banking application with biometric authentication.",
+    category: "Mobile Entwicklung",
+    description: "Sichere Mobile-Banking-Anwendung mit biometrischer Authentifizierung.",
     tags: ["React Native", "Node.js", "AWS"],
   },
   {
     title: "SaaS Landing Page",
-    category: "Web Design",
-    description: "High-converting landing page for a B2B software product.",
+    category: "Webdesign",
+    description: "Hochkonvertierende Landing Page für ein B2B-Softwareprodukt.",
     tags: ["Figma", "Webflow", "GSAP"],
   },
   {
-    title: "Healthcare Portal",
+    title: "Gesundheitsportal",
     category: "Full Stack",
-    description: "Patient management system with HIPAA-compliant data handling.",
+    description: "Patientenverwaltungssystem mit datenschutzkonformer Datenverarbeitung.",
     tags: ["Vue.js", "Django", "Docker"],
   },
   {
-    title: "NFT Marketplace",
+    title: "NFT-Marktplatz",
     category: "Web3",
-    description: "Decentralized marketplace for digital collectibles and art.",
+    description: "Dezentraler Marktplatz für digitale Sammlerstücke und Kunst.",
     tags: ["Solidity", "React", "IPFS"],
   },
 ];
@@ -60,22 +60,22 @@ const skills = [
 
 const experience = [
   {
-    role: "Senior Frontend Engineer",
-    company: "TechCorp Inc.",
-    period: "2022 - Present",
-    description: "Leading frontend architecture for enterprise SaaS products.",
+    role: "Senior Frontend-Entwickler",
+    company: "TechCorp GmbH",
+    period: "2022 - Heute",
+    description: "Leitung der Frontend-Architektur für Enterprise-SaaS-Produkte.",
   },
   {
-    role: "Full Stack Developer",
+    role: "Full Stack-Entwickler",
     company: "StartupXYZ",
     period: "2020 - 2022",
-    description: "Built and scaled core product features from 0 to 100k users.",
+    description: "Entwicklung und Skalierung von Kernproduktfunktionen von 0 auf 100.000 Nutzer.",
   },
   {
-    role: "Junior Developer",
-    company: "Agency Creative",
+    role: "Junior-Entwickler",
+    company: "Kreativagentur",
     period: "2018 - 2020",
-    description: "Developed custom web solutions for diverse client portfolio.",
+    description: "Entwicklung maßgeschneiderter Weblösungen für ein vielfältiges Kundenportfolio.",
   },
 ];
 
@@ -86,12 +86,12 @@ export default function PortfolioDemo() {
       <DemoNav
         logo={<span className="text-2xl font-bold">JD.</span>}
         links={[
-          { label: "Work", href: "#work" },
-          { label: "About", href: "#about" },
-          { label: "Skills", href: "#skills" },
-          { label: "Contact", href: "#contact" },
+          { label: "Projekte", href: "#work" },
+          { label: "Über mich", href: "#about" },
+          { label: "Fähigkeiten", href: "#skills" },
+          { label: "Kontakt", href: "#contact" },
         ]}
-        ctaText="Hire Me"
+        ctaText="Kontaktieren"
         variant="transparent"
       />
 
@@ -104,20 +104,20 @@ export default function PortfolioDemo() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <span className="text-[var(--color-primary)] font-medium">Hello, I&apos;m</span>
+              <span className="text-[var(--color-primary)] font-medium">Hallo, ich bin</span>
               <h1 className="mt-4 text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-foreground)] tracking-tight">
-                John Doe
+                Max Mustermann
               </h1>
               <p className="mt-2 text-2xl md:text-3xl text-[var(--color-muted-foreground)]">
-                Full Stack Developer & Designer
+                Full Stack-Entwickler & Designer
               </p>
               <p className="mt-6 text-lg text-[var(--color-muted-foreground)] max-w-lg leading-relaxed">
-                I craft exceptional digital experiences that combine beautiful design with robust engineering. Specializing in React, Node.js, and modern web technologies.
+                Ich entwickle außergewöhnliche digitale Erlebnisse, die schönes Design mit robuster Technik verbinden. Spezialisiert auf React, Node.js und moderne Webtechnologien.
               </p>
 
               <div className="flex flex-wrap gap-4 mt-8">
-                <Button size="lg">View My Work</Button>
-                <Button variant="outline" size="lg">Download CV</Button>
+                <Button size="lg">Meine Arbeit ansehen</Button>
+                <Button variant="outline" size="lg">Lebenslauf herunterladen</Button>
               </div>
 
               {/* Social links */}
@@ -170,7 +170,7 @@ export default function PortfolioDemo() {
                   transition={{ delay: 0.8, type: "spring" }}
                 >
                   <div className="text-3xl font-bold text-[var(--color-primary)]">5+</div>
-                  <div className="text-sm text-[var(--color-muted-foreground)]">Years Experience</div>
+                  <div className="text-sm text-[var(--color-muted-foreground)]">Jahre Erfahrung</div>
                 </motion.div>
               </Magnetic>
               <Magnetic strength={0.2}>
@@ -181,7 +181,7 @@ export default function PortfolioDemo() {
                   transition={{ delay: 0.9, type: "spring" }}
                 >
                   <div className="text-3xl font-bold text-[var(--color-primary)]">50+</div>
-                  <div className="text-sm text-[var(--color-muted-foreground)]">Projects Completed</div>
+                  <div className="text-sm text-[var(--color-muted-foreground)]">Abgeschlossene Projekte</div>
                 </motion.div>
               </Magnetic>
             </motion.div>
@@ -198,10 +198,10 @@ export default function PortfolioDemo() {
                 Portfolio
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-foreground)]">
-                Featured Projects
+                Ausgewählte Projekte
               </h2>
               <p className="mt-4 text-[var(--color-muted-foreground)]">
-                A selection of my recent work across various industries and technologies
+                Eine Auswahl meiner jüngsten Arbeiten aus verschiedenen Branchen und Technologien
               </p>
             </div>
           </ScrollReveal>
@@ -248,7 +248,7 @@ export default function PortfolioDemo() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        View Project <ArrowUpRight className="w-4 h-4" />
+                        Projekt ansehen <ArrowUpRight className="w-4 h-4" />
                       </motion.button>
                     </motion.div>
                   </div>
@@ -287,13 +287,13 @@ export default function PortfolioDemo() {
             <ScrollReveal direction="left">
               <div>
                 <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                  Skills
+                  Fähigkeiten
                 </span>
                 <h2 className="mt-4 text-3xl md:text-4xl font-bold text-[var(--color-foreground)]">
-                  Technical Expertise
+                  Technische Expertise
                 </h2>
                 <p className="mt-4 text-[var(--color-muted-foreground)]">
-                  I&apos;m constantly learning and expanding my skill set. Here are the technologies I work with most frequently.
+                  Ich lerne ständig dazu und erweitere meine Fähigkeiten. Hier sind die Technologien, mit denen ich am häufigsten arbeite.
                 </p>
 
                 <div className="mt-10 space-y-6">
@@ -323,10 +323,10 @@ export default function PortfolioDemo() {
             <ScrollReveal direction="right" delay={0.2}>
               <div>
                 <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                  Experience
+                  Erfahrung
                 </span>
                 <h2 className="mt-4 text-3xl md:text-4xl font-bold text-[var(--color-foreground)]">
-                  Work History
+                  Beruflicher Werdegang
                 </h2>
 
                 <div className="mt-10 space-y-8">
@@ -353,29 +353,29 @@ export default function PortfolioDemo() {
       {/* CTA */}
       <CTA
         variant="dark"
-        title="Let's Work Together"
-        subtitle="I'm always interested in hearing about new projects and opportunities."
-        primaryCTA={{ text: "Get in Touch" }}
-        secondaryCTA={{ text: "Download Resume" }}
+        title="Lassen Sie uns zusammenarbeiten"
+        subtitle="Ich bin immer interessiert an neuen Projekten und Möglichkeiten."
+        primaryCTA={{ text: "Kontakt aufnehmen" }}
+        secondaryCTA={{ text: "Lebenslauf herunterladen" }}
       />
 
       {/* Contact */}
       <Contact
-        badge="Contact"
-        title="Say Hello"
-        subtitle="Have a project in mind? Let's talk about it."
+        badge="Kontakt"
+        title="Sagen Sie Hallo"
+        subtitle="Haben Sie ein Projekt im Sinn? Lassen Sie uns darüber sprechen."
         contactInfo={{
-          email: "hello@johndoe.dev",
-          phone: "+1 (555) 123-4567",
-          address: "San Francisco, CA",
+          email: "hallo@maxmustermann.dev",
+          phone: "+49 (30) 123-4567",
+          address: "Berlin, Deutschland",
         }}
         variant="centered"
       />
 
       {/* Footer */}
       <Footer
-        logo={<span className="text-2xl font-bold">JD.</span>}
-        description="Full Stack Developer & Designer based in San Francisco."
+        logo={<span className="text-2xl font-bold">MM.</span>}
+        description="Full Stack-Entwickler & Designer aus Berlin."
         socialLinks={[
           { icon: <Github className="w-5 h-5" />, href: "#", label: "GitHub" },
           { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },

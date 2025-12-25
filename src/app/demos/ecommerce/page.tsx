@@ -10,79 +10,79 @@ import { ecommerceTheme } from "@/lib/themes";
 
 const products = [
   {
-    name: "Premium Leather Jacket",
-    price: "$299",
-    originalPrice: "$399",
+    name: "Premium Lederjacke",
+    price: "€299",
+    originalPrice: "€399",
     rating: 4.9,
     reviews: 128,
-    category: "Outerwear",
-    badge: "Best Seller",
+    category: "Oberbekleidung",
+    badge: "Bestseller",
   },
   {
-    name: "Classic White Sneakers",
-    price: "$149",
+    name: "Klassische weiße Sneaker",
+    price: "€149",
     rating: 4.8,
     reviews: 256,
-    category: "Footwear",
-    badge: "New",
+    category: "Schuhe",
+    badge: "Neu",
   },
   {
-    name: "Minimalist Watch",
-    price: "$199",
+    name: "Minimalistische Uhr",
+    price: "€199",
     rating: 4.7,
     reviews: 89,
-    category: "Accessories",
+    category: "Accessoires",
   },
   {
-    name: "Wool Blend Coat",
-    price: "$449",
-    originalPrice: "$549",
+    name: "Wollmantel",
+    price: "€449",
+    originalPrice: "€549",
     rating: 4.9,
     reviews: 67,
-    category: "Outerwear",
+    category: "Oberbekleidung",
     badge: "Sale",
   },
   {
-    name: "Cashmere Sweater",
-    price: "$179",
+    name: "Kaschmir-Pullover",
+    price: "€179",
     rating: 4.6,
     reviews: 145,
-    category: "Knitwear",
+    category: "Strickwaren",
   },
   {
-    name: "Leather Crossbody Bag",
-    price: "$249",
+    name: "Leder-Umhängetasche",
+    price: "€249",
     rating: 4.8,
     reviews: 92,
-    category: "Bags",
+    category: "Taschen",
     badge: "Trending",
   },
 ];
 
 const categories = [
-  { name: "New Arrivals", count: 124, icon: "✨" },
-  { name: "Best Sellers", count: 89, icon: "🔥" },
-  { name: "Outerwear", count: 56, icon: "🧥" },
-  { name: "Footwear", count: 78, icon: "👟" },
-  { name: "Accessories", count: 145, icon: "⌚" },
+  { name: "Neuheiten", count: 124, icon: "✨" },
+  { name: "Bestseller", count: 89, icon: "🔥" },
+  { name: "Oberbekleidung", count: 56, icon: "🧥" },
+  { name: "Schuhe", count: 78, icon: "👟" },
+  { name: "Accessoires", count: 145, icon: "⌚" },
   { name: "Sale", count: 34, icon: "🏷️" },
 ];
 
 const features = [
   {
     icon: Truck,
-    title: "Free Shipping",
-    description: "On orders over $100",
+    title: "Kostenloser Versand",
+    description: "Ab €100 Bestellwert",
   },
   {
     icon: RefreshCw,
-    title: "Easy Returns",
-    description: "30-day return policy",
+    title: "Einfache Rückgabe",
+    description: "30 Tage Rückgaberecht",
   },
   {
     icon: Shield,
-    title: "Secure Payment",
-    description: "100% secure checkout",
+    title: "Sichere Zahlung",
+    description: "100% sicherer Checkout",
   },
 ];
 
@@ -93,12 +93,12 @@ export default function EcommerceDemo() {
       <DemoNav
         logo={<span className="text-2xl font-bold tracking-tight">MAISON</span>}
         links={[
-          { label: "New", href: "#" },
-          { label: "Women", href: "#" },
-          { label: "Men", href: "#" },
+          { label: "Neu", href: "#" },
+          { label: "Damen", href: "#" },
+          { label: "Herren", href: "#" },
           { label: "Sale", href: "#" },
         ]}
-        ctaText="Cart (3)"
+        ctaText="Warenkorb (3)"
       />
 
       {/* Hero Banner */}
@@ -111,22 +111,22 @@ export default function EcommerceDemo() {
               transition={{ duration: 0.7 }}
             >
               <span className="text-sm font-medium text-[var(--color-accent)] uppercase tracking-widest">
-                Winter Collection 2024
+                Winterkollektion 2025
               </span>
               <h1 className="mt-4 text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-foreground)] tracking-tight leading-none">
-                Elevate Your
+                Heben Sie Ihren
                 <br />
-                <span className="text-[var(--color-muted-foreground)]">Everyday Style</span>
+                <span className="text-[var(--color-muted-foreground)]">Alltags-Stil hervor</span>
               </h1>
               <p className="mt-6 text-lg text-[var(--color-muted-foreground)] max-w-md">
-                Discover our curated collection of premium essentials designed for modern living.
+                Entdecken Sie unsere kuratierte Kollektion hochwertiger Essentials für modernes Leben.
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
                 <Button size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                  Shop Collection
+                  Kollektion shoppen
                 </Button>
                 <Button variant="outline" size="lg">
-                  View Lookbook
+                  Lookbook ansehen
                 </Button>
               </div>
             </motion.div>
@@ -173,11 +173,11 @@ export default function EcommerceDemo() {
             <div className="flex justify-between items-end mb-10">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-foreground)]">
-                  Shop by Category
+                  Nach Kategorie shoppen
                 </h2>
               </div>
               <Button variant="ghost" rightIcon={<ChevronRight className="w-4 h-4" />}>
-                View All
+                Alle ansehen
               </Button>
             </div>
           </ScrollReveal>
@@ -211,7 +211,7 @@ export default function EcommerceDemo() {
                     {category.name}
                   </h3>
                   <p className="text-xs text-[var(--color-muted-foreground)] mt-1">
-                    {category.count} items
+                    {category.count} Artikel
                   </p>
                 </Card>
               </motion.div>
@@ -227,18 +227,18 @@ export default function EcommerceDemo() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-foreground)]">
-                  Featured Products
+                  Ausgewählte Produkte
                 </h2>
                 <p className="text-[var(--color-muted-foreground)] mt-1">
-                  Hand-picked pieces for the season
+                  Handverlesene Stücke für die Saison
                 </p>
               </div>
               <div className="flex gap-3">
                 <Button variant="outline" size="sm" leftIcon={<Filter className="w-4 h-4" />}>
-                  Filter
+                  Filtern
                 </Button>
                 <Button variant="outline" size="sm" leftIcon={<Search className="w-4 h-4" />}>
-                  Search
+                  Suchen
                 </Button>
               </div>
             </div>
@@ -290,7 +290,7 @@ export default function EcommerceDemo() {
                     {/* Add to Cart */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent translate-y-full group-hover:translate-y-0 transition-transform">
                       <Button variant="secondary" size="sm" className="w-full">
-                        Add to Cart
+                        In den Warenkorb
                       </Button>
                     </div>
                   </div>
@@ -333,7 +333,7 @@ export default function EcommerceDemo() {
 
           <div className="text-center mt-12">
             <Button variant="outline" size="lg">
-              View All Products
+              Alle Produkte ansehen
             </Button>
           </div>
         </div>
@@ -342,41 +342,41 @@ export default function EcommerceDemo() {
       {/* Newsletter CTA */}
       <CTA
         variant="dark"
-        title="Join the MAISON Club"
-        subtitle="Subscribe for exclusive access to new arrivals, sales, and members-only offers."
-        primaryCTA={{ text: "Subscribe" }}
+        title="Werden Sie Teil des MAISON Clubs"
+        subtitle="Abonnieren Sie für exklusiven Zugang zu Neuheiten, Sale-Aktionen und Mitglieder-Angeboten."
+        primaryCTA={{ text: "Jetzt abonnieren" }}
       />
 
       {/* Footer */}
       <Footer
         logo={<span className="text-2xl font-bold tracking-tight">MAISON</span>}
-        description="Premium fashion and lifestyle essentials for the modern individual."
+        description="Premium Mode und Lifestyle-Essentials für den modernen Menschen."
         columns={[
           {
             title: "Shop",
             links: [
-              { label: "New Arrivals", href: "#" },
-              { label: "Best Sellers", href: "#" },
+              { label: "Neuheiten", href: "#" },
+              { label: "Bestseller", href: "#" },
               { label: "Sale", href: "#" },
-              { label: "Gift Cards", href: "#" },
+              { label: "Geschenkkarten", href: "#" },
             ],
           },
           {
-            title: "Help",
+            title: "Hilfe",
             links: [
-              { label: "Shipping", href: "#" },
-              { label: "Returns", href: "#" },
-              { label: "Sizing Guide", href: "#" },
-              { label: "Contact", href: "#" },
+              { label: "Versand", href: "#" },
+              { label: "Rückgabe", href: "#" },
+              { label: "Größenratgeber", href: "#" },
+              { label: "Kontakt", href: "#" },
             ],
           },
           {
-            title: "Company",
+            title: "Unternehmen",
             links: [
-              { label: "About", href: "#" },
-              { label: "Careers", href: "#" },
-              { label: "Sustainability", href: "#" },
-              { label: "Press", href: "#" },
+              { label: "Über uns", href: "#" },
+              { label: "Karriere", href: "#" },
+              { label: "Nachhaltigkeit", href: "#" },
+              { label: "Presse", href: "#" },
             ],
           },
         ]}

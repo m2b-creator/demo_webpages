@@ -10,59 +10,59 @@ import { realEstateTheme } from "@/lib/themes";
 
 const properties = [
   {
-    title: "Modern Luxury Villa",
-    location: "Beverly Hills, CA",
-    price: "$4,250,000",
+    title: "Moderne Luxusvilla",
+    location: "Berlin-Grunewald",
+    price: "€4.250.000",
     beds: 5,
     baths: 4,
-    sqft: "5,200",
+    sqft: "480",
     type: "Villa",
     featured: true,
   },
   {
-    title: "Downtown Penthouse",
-    location: "Manhattan, NY",
-    price: "$3,850,000",
+    title: "Penthouse in der City",
+    location: "München Maxvorstadt",
+    price: "€3.850.000",
     beds: 3,
     baths: 3,
-    sqft: "3,100",
+    sqft: "290",
     type: "Penthouse",
   },
   {
-    title: "Waterfront Estate",
-    location: "Miami Beach, FL",
-    price: "$6,500,000",
+    title: "Anwesen am Wasser",
+    location: "Hamburg Blankenese",
+    price: "€6.500.000",
     beds: 6,
     baths: 5,
-    sqft: "7,800",
-    type: "Estate",
+    sqft: "720",
+    type: "Anwesen",
     featured: true,
   },
   {
-    title: "Contemporary Townhouse",
-    location: "San Francisco, CA",
-    price: "$2,150,000",
+    title: "Zeitgenössisches Stadthaus",
+    location: "Frankfurt Westend",
+    price: "€2.150.000",
     beds: 4,
     baths: 3,
-    sqft: "2,800",
-    type: "Townhouse",
+    sqft: "260",
+    type: "Stadthaus",
   },
   {
-    title: "Mountain Retreat",
-    location: "Aspen, CO",
-    price: "$5,900,000",
+    title: "Bergrefugium",
+    location: "Garmisch-Partenkirchen",
+    price: "€5.900.000",
     beds: 5,
     baths: 4,
-    sqft: "4,500",
+    sqft: "420",
     type: "Chalet",
   },
   {
-    title: "Urban Loft",
-    location: "Chicago, IL",
-    price: "$1,250,000",
+    title: "Urbanes Loft",
+    location: "Düsseldorf Medienhafen",
+    price: "€1.250.000",
     beds: 2,
     baths: 2,
-    sqft: "1,800",
+    sqft: "170",
     type: "Loft",
   },
 ];
@@ -70,50 +70,50 @@ const properties = [
 const services = [
   {
     icon: Home,
-    title: "Buy a Home",
-    description: "Find your dream home from our extensive collection of luxury properties.",
+    title: "Immobilie kaufen",
+    description: "Finden Sie Ihr Traumhaus aus unserer umfangreichen Sammlung von Luxusimmobilien.",
   },
   {
     icon: Key,
-    title: "Sell Property",
-    description: "Get the best value for your property with our expert marketing strategies.",
+    title: "Immobilie verkaufen",
+    description: "Erzielen Sie den besten Wert für Ihre Immobilie mit unseren Experten-Marketingstrategien.",
   },
   {
     icon: Building,
-    title: "Rent",
-    description: "Discover premium rental properties in prime locations worldwide.",
+    title: "Mieten",
+    description: "Entdecken Sie Premium-Mietimmobilien in erstklassigen Lagen weltweit.",
   },
 ];
 
 const testimonials = [
   {
-    quote: "They found us our dream home in just two weeks. The process was seamless and stress-free.",
-    author: "Michael & Sarah Thompson",
-    role: "Homeowners",
-    company: "Beverly Hills",
+    quote: "Sie haben unser Traumhaus in nur zwei Wochen gefunden. Der Prozess war nahtlos und stressfrei.",
+    author: "Michael & Sarah Hoffmann",
+    role: "Hausbesitzer",
+    company: "Berlin",
     rating: 5,
   },
   {
-    quote: "Sold our property 20% above asking price. Their market knowledge is unmatched.",
+    quote: "Haben unsere Immobilie 20% über dem Angebotspreis verkauft. Ihre Marktkenntnis ist unübertroffen.",
     author: "Robert Chen",
-    role: "Property Investor",
-    company: "New York",
+    role: "Immobilieninvestor",
+    company: "München",
     rating: 5,
   },
   {
-    quote: "Professional, responsive, and truly dedicated to finding the perfect match for clients.",
+    quote: "Professionell, reaktionsschnell und wirklich engagiert, die perfekte Lösung für Kunden zu finden.",
     author: "Jennifer Martinez",
-    role: "First-time Buyer",
-    company: "Miami",
+    role: "Erstkäuferin",
+    company: "Hamburg",
     rating: 5,
   },
 ];
 
 const stats = [
-  { value: "500+", label: "Properties Sold" },
-  { value: "$2B+", label: "In Sales Volume" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "15+", label: "Years Experience" },
+  { value: "500+", label: "Verkaufte Immobilien" },
+  { value: "€2Mrd+", label: "Umsatzvolumen" },
+  { value: "98%", label: "Kundenzufriedenheit" },
+  { value: "15+", label: "Jahre Erfahrung" },
 ];
 
 export default function RealEstateDemo() {
@@ -130,12 +130,12 @@ export default function RealEstateDemo() {
           </div>
         }
         links={[
-          { label: "Buy", href: "#properties" },
-          { label: "Sell", href: "#" },
-          { label: "Rent", href: "#" },
-          { label: "Contact", href: "#contact" },
+          { label: "Kaufen", href: "#properties" },
+          { label: "Verkaufen", href: "#" },
+          { label: "Mieten", href: "#" },
+          { label: "Kontakt", href: "#contact" },
         ]}
-        ctaText="List Property"
+        ctaText="Immobilie anbieten"
       />
 
       {/* Hero */}
@@ -148,14 +148,14 @@ export default function RealEstateDemo() {
             transition={{ duration: 0.8 }}
           >
             <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-              Welcome to Luxe Realty
+              Willkommen bei Luxe Realty
             </span>
             <h1 className="mt-4 text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-foreground)] leading-tight">
-              Find Your Perfect
-              <span className="text-[var(--color-primary)]"> Home</span>
+              Finden Sie Ihr perfektes
+              <span className="text-[var(--color-primary)]"> Zuhause</span>
             </h1>
             <p className="mt-6 text-xl text-[var(--color-muted-foreground)] max-w-xl">
-              Discover exceptional properties in the world&apos;s most desirable locations with our personalized real estate services.
+              Entdecken Sie außergewöhnliche Immobilien in den begehrtesten Lagen der Welt mit unserem persönlichen Immobilienservice.
             </p>
           </motion.div>
 
@@ -172,30 +172,30 @@ export default function RealEstateDemo() {
                   <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-muted-foreground)]" />
                   <input
                     type="text"
-                    placeholder="Location"
+                    placeholder="Standort"
                     className="w-full pl-10 pr-4 py-3 rounded-lg border border-[var(--color-border)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
                   />
                 </div>
                 <div className="flex-1">
                   <select className="w-full px-4 py-3 rounded-lg border border-[var(--color-border)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-[var(--color-background)]">
-                    <option>Property Type</option>
+                    <option>Immobilientyp</option>
                     <option>Villa</option>
                     <option>Penthouse</option>
-                    <option>Townhouse</option>
-                    <option>Estate</option>
+                    <option>Stadthaus</option>
+                    <option>Anwesen</option>
                   </select>
                 </div>
                 <div className="flex-1">
                   <select className="w-full px-4 py-3 rounded-lg border border-[var(--color-border)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-[var(--color-background)]">
-                    <option>Price Range</option>
-                    <option>$1M - $2M</option>
-                    <option>$2M - $5M</option>
-                    <option>$5M - $10M</option>
-                    <option>$10M+</option>
+                    <option>Preisklasse</option>
+                    <option>€1M - €2M</option>
+                    <option>€2M - €5M</option>
+                    <option>€5M - €10M</option>
+                    <option>€10M+</option>
                   </select>
                 </div>
                 <Button size="lg" leftIcon={<Search className="w-4 h-4" />}>
-                  Search
+                  Suchen
                 </Button>
               </div>
             </Card>
@@ -229,14 +229,14 @@ export default function RealEstateDemo() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-12">
               <div>
                 <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                  Featured Listings
+                  Ausgewählte Angebote
                 </span>
                 <h2 className="mt-2 text-3xl md:text-4xl font-bold text-[var(--color-foreground)]">
-                  Exceptional Properties
+                  Außergewöhnliche Immobilien
                 </h2>
               </div>
               <Button variant="outline" leftIcon={<SlidersHorizontal className="w-4 h-4" />}>
-                More Filters
+                Mehr Filter
               </Button>
             </div>
           </ScrollReveal>
@@ -272,7 +272,7 @@ export default function RealEstateDemo() {
                     <div className="absolute top-4 left-4 flex gap-2">
                       {property.featured && (
                         <span className="px-3 py-1 rounded-full bg-[var(--color-primary)] text-white text-xs font-medium">
-                          Featured
+                          Empfohlen
                         </span>
                       )}
                       <span className="px-3 py-1 rounded-full bg-[var(--color-background)]/90 backdrop-blur-sm text-xs font-medium">
@@ -300,15 +300,15 @@ export default function RealEstateDemo() {
                     <div className="flex items-center gap-4 mt-4 text-sm text-[var(--color-muted-foreground)]">
                       <div className="flex items-center gap-1">
                         <Bed className="w-4 h-4" />
-                        {property.beds} Beds
+                        {property.beds} Zimmer
                       </div>
                       <div className="flex items-center gap-1">
                         <Bath className="w-4 h-4" />
-                        {property.baths} Baths
+                        {property.baths} Bäder
                       </div>
                       <div className="flex items-center gap-1">
                         <Square className="w-4 h-4" />
-                        {property.sqft} sqft
+                        {property.sqft} m²
                       </div>
                     </div>
                     <div className="flex items-center justify-between mt-6 pt-4 border-t border-[var(--color-border)]">
@@ -316,7 +316,7 @@ export default function RealEstateDemo() {
                         {property.price}
                       </span>
                       <Button variant="ghost" size="sm" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                        View Details
+                        Details ansehen
                       </Button>
                     </div>
                   </div>
@@ -327,7 +327,7 @@ export default function RealEstateDemo() {
 
           <div className="text-center mt-12">
             <Button variant="outline" size="lg">
-              View All Properties
+              Alle Immobilien ansehen
             </Button>
           </div>
         </div>
@@ -335,9 +335,9 @@ export default function RealEstateDemo() {
 
       {/* Services */}
       <Features
-        badge="Our Services"
-        title="How We Can Help"
-        subtitle="Comprehensive real estate services tailored to your needs"
+        badge="Unsere Leistungen"
+        title="Wie wir helfen können"
+        subtitle="Umfassende Immobiliendienstleistungen, auf Ihre Bedürfnisse zugeschnitten"
         features={services}
         columns={3}
         variant="cards"
@@ -345,9 +345,9 @@ export default function RealEstateDemo() {
 
       {/* Testimonials */}
       <Testimonials
-        badge="Client Stories"
-        title="What Our Clients Say"
-        subtitle="Hear from homeowners who found their perfect property with us"
+        badge="Kundenstimmen"
+        title="Was unsere Kunden sagen"
+        subtitle="Hören Sie von Hausbesitzern, die ihre perfekte Immobilie mit uns gefunden haben"
         testimonials={testimonials}
         variant="cards"
       />
@@ -355,21 +355,21 @@ export default function RealEstateDemo() {
       {/* CTA */}
       <CTA
         variant="gradient"
-        title="Ready to Find Your Dream Home?"
-        subtitle="Let our expert agents guide you through the process. Schedule a consultation today."
-        primaryCTA={{ text: "Schedule Consultation" }}
-        secondaryCTA={{ text: "Browse Properties" }}
+        title="Bereit, Ihr Traumhaus zu finden?"
+        subtitle="Lassen Sie sich von unseren erfahrenen Maklern durch den Prozess führen. Vereinbaren Sie noch heute eine Beratung."
+        primaryCTA={{ text: "Beratung vereinbaren" }}
+        secondaryCTA={{ text: "Immobilien durchsuchen" }}
       />
 
       {/* Contact */}
       <Contact
-        badge="Get in Touch"
-        title="Contact Us"
-        subtitle="Our team is ready to help you find the perfect property"
+        badge="Kontakt aufnehmen"
+        title="Kontaktieren Sie uns"
+        subtitle="Unser Team hilft Ihnen gerne, die perfekte Immobilie zu finden"
         contactInfo={{
-          email: "hello@luxerealty.com",
-          phone: "+1 (555) 123-4567",
-          address: "123 Luxury Lane, Beverly Hills, CA 90210",
+          email: "hallo@luxerealty.de",
+          phone: "+49 (30) 123-4567",
+          address: "Luxusallee 123, 10719 Berlin",
         }}
         variant="split"
       />
@@ -384,32 +384,32 @@ export default function RealEstateDemo() {
             <span className="text-xl font-bold">Luxe Realty</span>
           </div>
         }
-        description="Your trusted partner in finding exceptional properties in the world's most desirable locations."
+        description="Ihr vertrauenswürdiger Partner bei der Suche nach außergewöhnlichen Immobilien in den begehrtesten Lagen der Welt."
         columns={[
           {
-            title: "Properties",
+            title: "Immobilien",
             links: [
-              { label: "Buy", href: "#" },
-              { label: "Sell", href: "#" },
-              { label: "Rent", href: "#" },
-              { label: "New Developments", href: "#" },
+              { label: "Kaufen", href: "#" },
+              { label: "Verkaufen", href: "#" },
+              { label: "Mieten", href: "#" },
+              { label: "Neubauprojekte", href: "#" },
             ],
           },
           {
-            title: "Company",
+            title: "Unternehmen",
             links: [
-              { label: "About Us", href: "#" },
-              { label: "Our Team", href: "#" },
-              { label: "Careers", href: "#" },
-              { label: "Press", href: "#" },
+              { label: "Über uns", href: "#" },
+              { label: "Unser Team", href: "#" },
+              { label: "Karriere", href: "#" },
+              { label: "Presse", href: "#" },
             ],
           },
           {
-            title: "Resources",
+            title: "Ressourcen",
             links: [
-              { label: "Market Reports", href: "#" },
-              { label: "Buying Guide", href: "#" },
-              { label: "Selling Guide", href: "#" },
+              { label: "Marktberichte", href: "#" },
+              { label: "Kaufratgeber", href: "#" },
+              { label: "Verkaufsratgeber", href: "#" },
               { label: "Blog", href: "#" },
             ],
           },

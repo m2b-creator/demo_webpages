@@ -11,115 +11,115 @@ import { saasTheme } from "@/lib/themes";
 const features = [
   {
     icon: Zap,
-    title: "Lightning Fast",
-    description: "Optimized performance with sub-second response times and 99.99% uptime guarantee.",
+    title: "Blitzschnell",
+    description: "Optimierte Leistung mit Reaktionszeiten unter einer Sekunde und 99,99% Verfügbarkeitsgarantie.",
   },
   {
     icon: Shield,
-    title: "Enterprise Security",
-    description: "Bank-level encryption, SOC 2 compliance, and advanced threat protection.",
+    title: "Enterprise-Sicherheit",
+    description: "Banktaugliche Verschlüsselung, SOC 2-Konformität und fortschrittlicher Bedrohungsschutz.",
   },
   {
     icon: BarChart3,
-    title: "Advanced Analytics",
-    description: "Real-time insights and customizable dashboards to track your metrics.",
+    title: "Erweiterte Analysen",
+    description: "Echtzeit-Einblicke und anpassbare Dashboards zur Verfolgung Ihrer Kennzahlen.",
   },
   {
     icon: Users,
-    title: "Team Collaboration",
-    description: "Work together seamlessly with real-time editing and commenting.",
+    title: "Team-Zusammenarbeit",
+    description: "Nahtlose Zusammenarbeit mit Echtzeit-Bearbeitung und Kommentarfunktion.",
   },
   {
     icon: Clock,
-    title: "Automation",
-    description: "Save hours with intelligent workflows and automated task management.",
+    title: "Automatisierung",
+    description: "Sparen Sie Stunden mit intelligenten Workflows und automatisiertem Aufgabenmanagement.",
   },
   {
     icon: Star,
-    title: "Priority Support",
-    description: "24/7 dedicated support team with average response time under 2 hours.",
+    title: "Prioritäts-Support",
+    description: "24/7 dediziertes Support-Team mit durchschnittlicher Antwortzeit unter 2 Stunden.",
   },
 ];
 
 const pricingPlans = [
   {
     name: "Starter",
-    price: "$29",
-    period: "/month",
-    description: "Perfect for small teams getting started",
+    price: "€29",
+    period: "/Monat",
+    description: "Perfekt für kleine Teams, die gerade anfangen",
     features: [
-      "Up to 5 team members",
-      "10GB storage",
-      "Basic analytics",
-      "Email support",
-      "API access",
+      "Bis zu 5 Teammitglieder",
+      "10GB Speicherplatz",
+      "Basis-Analysen",
+      "E-Mail-Support",
+      "API-Zugang",
     ],
-    cta: "Start Free Trial",
+    cta: "Kostenlos testen",
     popular: false,
   },
   {
     name: "Professional",
-    price: "$79",
-    period: "/month",
-    description: "For growing teams that need more power",
+    price: "€79",
+    period: "/Monat",
+    description: "Für wachsende Teams, die mehr Power brauchen",
     features: [
-      "Up to 20 team members",
-      "100GB storage",
-      "Advanced analytics",
-      "Priority support",
-      "Custom integrations",
-      "Audit logs",
+      "Bis zu 20 Teammitglieder",
+      "100GB Speicherplatz",
+      "Erweiterte Analysen",
+      "Prioritäts-Support",
+      "Benutzerdefinierte Integrationen",
+      "Audit-Protokolle",
     ],
-    cta: "Start Free Trial",
+    cta: "Kostenlos testen",
     popular: true,
   },
   {
     name: "Enterprise",
-    price: "Custom",
+    price: "Individuell",
     period: "",
-    description: "For large organizations with custom needs",
+    description: "Für große Organisationen mit individuellen Anforderungen",
     features: [
-      "Unlimited team members",
-      "Unlimited storage",
-      "Custom analytics",
-      "Dedicated support",
-      "Custom SLA",
-      "On-premise option",
+      "Unbegrenzte Teammitglieder",
+      "Unbegrenzter Speicherplatz",
+      "Benutzerdefinierte Analysen",
+      "Dedizierter Support",
+      "Individuelles SLA",
+      "On-Premise-Option",
     ],
-    cta: "Contact Sales",
+    cta: "Vertrieb kontaktieren",
     popular: false,
   },
 ];
 
 const testimonials = [
   {
-    quote: "This platform has transformed how our team works. We've seen a 40% increase in productivity since adopting it.",
+    quote: "Diese Plattform hat die Art und Weise, wie unser Team arbeitet, verändert. Wir haben seit der Einführung eine 40%ige Produktivitätssteigerung verzeichnet.",
     author: "Sarah Johnson",
-    role: "VP of Operations",
-    company: "TechStart Inc.",
+    role: "VP Operations",
+    company: "TechStart GmbH",
     rating: 5,
   },
   {
-    quote: "The best investment we've made for our business. The analytics alone have paid for the subscription many times over.",
+    quote: "Die beste Investition, die wir für unser Unternehmen getätigt haben. Allein die Analysen haben das Abonnement mehrfach rentiert.",
     author: "Michael Chen",
     role: "CEO",
     company: "GrowthLabs",
     rating: 5,
   },
   {
-    quote: "Incredible customer support and a product that just works. We've tried many solutions and this is by far the best.",
+    quote: "Unglaublicher Kundensupport und ein Produkt, das einfach funktioniert. Wir haben viele Lösungen ausprobiert und diese ist bei weitem die beste.",
     author: "Emily Rodriguez",
-    role: "Product Manager",
-    company: "Innovate Co.",
+    role: "Produktmanagerin",
+    company: "Innovate GmbH",
     rating: 5,
   },
 ];
 
 const stats = [
-  { value: "10K+", label: "Active Users" },
-  { value: "99.99%", label: "Uptime" },
-  { value: "500M+", label: "Tasks Completed" },
-  { value: "150+", label: "Countries" },
+  { value: "10K+", label: "Aktive Nutzer" },
+  { value: "99,99%", label: "Verfügbarkeit" },
+  { value: "500M+", label: "Erledigte Aufgaben" },
+  { value: "150+", label: "Länder" },
 ];
 
 const logos = ["Acme Inc", "TechCorp", "Innovate", "StartupXYZ", "Enterprise Co", "Growth Labs"];
@@ -138,23 +138,23 @@ export default function SaaSDemo() {
           </div>
         }
         links={[
-          { label: "Features", href: "#features" },
-          { label: "Pricing", href: "#pricing" },
-          { label: "Testimonials", href: "#testimonials" },
-          { label: "Contact", href: "#contact" },
+          { label: "Funktionen", href: "#features" },
+          { label: "Preise", href: "#pricing" },
+          { label: "Kundenstimmen", href: "#testimonials" },
+          { label: "Kontakt", href: "#contact" },
         ]}
-        ctaText="Get Started"
+        ctaText="Jetzt starten"
       />
 
       {/* Hero */}
       <Hero
         variant="centered"
-        badge="Introducing FlowSync 2.0"
-        title="The Modern Way to Manage Your Team's Work"
-        titleHighlight="Modern"
-        subtitle="Streamline your workflow, boost productivity, and collaborate seamlessly with the all-in-one platform trusted by 10,000+ teams worldwide."
-        primaryCTA={{ text: "Start Free Trial" }}
-        secondaryCTA={{ text: "Watch Demo" }}
+        badge="Neu: FlowSync 2.0"
+        title="Die moderne Art, die Arbeit Ihres Teams zu verwalten"
+        titleHighlight="moderne"
+        subtitle="Optimieren Sie Ihren Workflow, steigern Sie die Produktivität und arbeiten Sie nahtlos zusammen – mit der All-in-One-Plattform, der über 10.000 Teams weltweit vertrauen."
+        primaryCTA={{ text: "Kostenlos testen" }}
+        secondaryCTA={{ text: "Demo ansehen" }}
         image={
           <div className="relative max-w-4xl mx-auto">
             <div className="aspect-video rounded-xl border border-[var(--color-border)] overflow-hidden shadow-2xl relative">
@@ -186,8 +186,8 @@ export default function SaaSDemo() {
                   <Check className="w-5 h-5 text-emerald-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-sm">Task Completed</div>
-                  <div className="text-xs text-[var(--color-muted-foreground)]">Just now</div>
+                  <div className="font-semibold text-sm">Aufgabe erledigt</div>
+                  <div className="text-xs text-[var(--color-muted-foreground)]">Gerade eben</div>
                 </div>
               </div>
             </motion.div>
@@ -202,8 +202,8 @@ export default function SaaSDemo() {
                   <BarChart3 className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-sm">+24% Growth</div>
-                  <div className="text-xs text-[var(--color-muted-foreground)]">This month</div>
+                  <div className="font-semibold text-sm">+24% Wachstum</div>
+                  <div className="text-xs text-[var(--color-muted-foreground)]">Diesen Monat</div>
                 </div>
               </div>
             </motion.div>
@@ -215,7 +215,7 @@ export default function SaaSDemo() {
       <section className="py-12 border-y border-[var(--color-border)] bg-[var(--color-muted)]">
         <div className="container mx-auto px-6 lg:px-8">
           <p className="text-center text-sm text-[var(--color-muted-foreground)] mb-8">
-            Trusted by leading companies worldwide
+            Vertraut von führenden Unternehmen weltweit
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             {logos.map((logo, index) => (
@@ -239,9 +239,9 @@ export default function SaaSDemo() {
 
       {/* Features */}
       <Features
-        badge="Features"
-        title="Everything You Need to Succeed"
-        subtitle="Powerful features designed to help your team work smarter, not harder"
+        badge="Funktionen"
+        title="Alles, was Sie für den Erfolg brauchen"
+        subtitle="Leistungsstarke Funktionen, die Ihrem Team helfen, intelligenter statt härter zu arbeiten"
         features={features}
         columns={3}
         variant="cards"
@@ -253,13 +253,13 @@ export default function SaaSDemo() {
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                Pricing
+                Preise
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-foreground)]">
-                Simple, Transparent Pricing
+                Einfache, transparente Preise
               </h2>
               <p className="mt-4 text-[var(--color-muted-foreground)]">
-                Start free, upgrade when you need to. No hidden fees.
+                Starten Sie kostenlos, upgraden Sie bei Bedarf. Keine versteckten Gebühren.
               </p>
             </div>
           </ScrollReveal>
@@ -289,7 +289,7 @@ export default function SaaSDemo() {
                 >
                   {plan.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[var(--color-primary)] text-[var(--color-primary-foreground)] text-xs font-medium rounded-full">
-                      Most Popular
+                      Am beliebtesten
                     </div>
                   )}
                   <div className="text-center mb-6">
@@ -332,9 +332,9 @@ export default function SaaSDemo() {
 
       {/* Testimonials */}
       <Testimonials
-        badge="Testimonials"
-        title="Loved by Teams Everywhere"
-        subtitle="See what our customers have to say about their experience"
+        badge="Kundenstimmen"
+        title="Geliebt von Teams überall"
+        subtitle="Sehen Sie, was unsere Kunden über ihre Erfahrungen sagen"
         testimonials={testimonials}
         variant="cards"
       />
@@ -342,20 +342,20 @@ export default function SaaSDemo() {
       {/* CTA */}
       <CTA
         variant="gradient"
-        title="Ready to Transform Your Workflow?"
-        subtitle="Join 10,000+ teams already using FlowSync. Start your free 14-day trial today."
-        primaryCTA={{ text: "Start Free Trial" }}
-        secondaryCTA={{ text: "Schedule a Demo" }}
+        title="Bereit, Ihren Workflow zu transformieren?"
+        subtitle="Schließen Sie sich über 10.000 Teams an, die bereits FlowSync nutzen. Starten Sie Ihre kostenlose 14-tägige Testversion."
+        primaryCTA={{ text: "Kostenlos testen" }}
+        secondaryCTA={{ text: "Demo vereinbaren" }}
       />
 
       {/* Contact */}
       <Contact
-        badge="Contact"
-        title="Get in Touch"
-        subtitle="Have questions? We'd love to hear from you."
+        badge="Kontakt"
+        title="Kontaktieren Sie uns"
+        subtitle="Haben Sie Fragen? Wir freuen uns, von Ihnen zu hören."
         contactInfo={{
-          email: "hello@flowsync.com",
-          phone: "+1 (555) 123-4567",
+          email: "hallo@flowsync.de",
+          phone: "+49 (30) 123-4567",
         }}
         variant="centered"
       />
@@ -370,31 +370,31 @@ export default function SaaSDemo() {
             <span className="text-xl font-bold">FlowSync</span>
           </div>
         }
-        description="The modern way to manage your team's work. Trusted by 10,000+ teams worldwide."
+        description="Die moderne Art, die Arbeit Ihres Teams zu verwalten. Vertraut von über 10.000 Teams weltweit."
         columns={[
           {
-            title: "Product",
+            title: "Produkt",
             links: [
-              { label: "Features", href: "#features" },
-              { label: "Pricing", href: "#pricing" },
-              { label: "Integrations", href: "#" },
-              { label: "Changelog", href: "#" },
+              { label: "Funktionen", href: "#features" },
+              { label: "Preise", href: "#pricing" },
+              { label: "Integrationen", href: "#" },
+              { label: "Änderungsprotokoll", href: "#" },
             ],
           },
           {
-            title: "Company",
+            title: "Unternehmen",
             links: [
-              { label: "About", href: "#" },
+              { label: "Über uns", href: "#" },
               { label: "Blog", href: "#" },
-              { label: "Careers", href: "#" },
-              { label: "Press", href: "#" },
+              { label: "Karriere", href: "#" },
+              { label: "Presse", href: "#" },
             ],
           },
           {
-            title: "Resources",
+            title: "Ressourcen",
             links: [
-              { label: "Documentation", href: "#" },
-              { label: "Help Center", href: "#" },
+              { label: "Dokumentation", href: "#" },
+              { label: "Hilfe-Center", href: "#" },
               { label: "Community", href: "#" },
               { label: "Status", href: "#" },
             ],

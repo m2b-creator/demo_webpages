@@ -142,7 +142,7 @@ export function CustomCursor() {
     hover: {
       width: 48,
       height: 48,
-      backgroundColor: "transparent",
+      backgroundColor: "rgba(0, 0, 0, 0)",
       border: "2px solid var(--color-primary)",
       mixBlendMode: "normal" as const,
     },
@@ -170,14 +170,14 @@ export function CustomCursor() {
     drag: {
       width: 60,
       height: 60,
-      backgroundColor: "transparent",
+      backgroundColor: "rgba(0, 0, 0, 0)",
       border: "2px solid var(--color-primary)",
       mixBlendMode: "normal" as const,
     },
     hidden: {
       width: 0,
       height: 0,
-      backgroundColor: "transparent",
+      backgroundColor: "rgba(0, 0, 0, 0)",
       border: "none",
       mixBlendMode: "normal" as const,
     },

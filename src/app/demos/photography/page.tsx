@@ -9,50 +9,50 @@ import { ScrollReveal } from "@/components/animations";
 import { photographyTheme } from "@/lib/themes";
 
 const portfolioItems = [
-  { title: "Mountain Dawn", category: "Landscape", featured: true },
-  { title: "Urban Geometry", category: "Architecture", featured: true },
-  { title: "Sarah & James", category: "Wedding" },
-  { title: "Fashion Forward", category: "Editorial" },
-  { title: "Corporate Vision", category: "Commercial" },
-  { title: "Wild Spirit", category: "Wildlife" },
-  { title: "City Lights", category: "Night" },
-  { title: "Golden Hour", category: "Portrait", featured: true },
+  { title: "Bergmorgen", category: "Landschaft", featured: true },
+  { title: "Urbane Geometrie", category: "Architektur", featured: true },
+  { title: "Sarah & Thomas", category: "Hochzeit" },
+  { title: "Mode Avantgarde", category: "Editorial" },
+  { title: "Unternehmensvision", category: "Kommerziell" },
+  { title: "Wilde Seele", category: "Tierwelt" },
+  { title: "Stadtlichter", category: "Nacht" },
+  { title: "Goldene Stunde", category: "Portrait", featured: true },
 ];
 
 const services = [
   {
-    title: "Wedding Photography",
-    description: "Capturing your special day with artistry and emotion.",
-    startingAt: "$3,500",
+    title: "Hochzeitsfotografie",
+    description: "Ihr besonderer Tag festgehalten mit Kunst und Emotion.",
+    startingAt: "€3.200",
   },
   {
-    title: "Portrait Sessions",
-    description: "Professional portraits for individuals and families.",
-    startingAt: "$450",
+    title: "Portrait-Sessions",
+    description: "Professionelle Portraits für Einzelpersonen und Familien.",
+    startingAt: "€420",
   },
   {
-    title: "Commercial Work",
-    description: "Brand photography and product shots for businesses.",
-    startingAt: "$1,200",
+    title: "Kommerzielle Arbeit",
+    description: "Markenfotografie und Produktaufnahmen für Unternehmen.",
+    startingAt: "€1.100",
   },
   {
-    title: "Event Coverage",
-    description: "Corporate events, parties, and special occasions.",
-    startingAt: "$800",
+    title: "Eventbegleitung",
+    description: "Firmenveranstaltungen, Feiern und besondere Anlässe.",
+    startingAt: "€750",
   },
 ];
 
 const awards = [
-  { title: "Best Landscape Photographer", org: "National Geographic", year: "2024" },
-  { title: "Wedding Photographer of the Year", org: "WPPI", year: "2023" },
-  { title: "Featured Artist", org: "Adobe Creative", year: "2023" },
+  { title: "Bester Landschaftsfotograf", org: "National Geographic", year: "2025" },
+  { title: "Hochzeitsfotograf des Jahres", org: "WPPI", year: "2023" },
+  { title: "Ausgewählter Künstler", org: "Adobe Creative", year: "2023" },
 ];
 
 const stats = [
-  { value: "500+", label: "Projects" },
-  { value: "12", label: "Years" },
-  { value: "50+", label: "Awards" },
-  { value: "100%", label: "Satisfaction" },
+  { value: "500+", label: "Projekte" },
+  { value: "12", label: "Jahre" },
+  { value: "50+", label: "Auszeichnungen" },
+  { value: "100%", label: "Zufriedenheit" },
 ];
 
 export default function PhotographyDemo() {
@@ -67,11 +67,11 @@ export default function PhotographyDemo() {
         }
         links={[
           { label: "Portfolio", href: "#portfolio" },
-          { label: "Services", href: "#services" },
-          { label: "About", href: "#about" },
-          { label: "Contact", href: "#contact" },
+          { label: "Leistungen", href: "#services" },
+          { label: "Über mich", href: "#about" },
+          { label: "Kontakt", href: "#contact" },
         ]}
-        ctaText="Book Session"
+        ctaText="Session buchen"
         variant="transparent"
       />
 
@@ -86,24 +86,24 @@ export default function PhotographyDemo() {
               transition={{ duration: 0.8 }}
             >
               <span className="inline-block px-4 py-2 rounded-full border border-[var(--color-border)] text-sm text-[var(--color-muted-foreground)] mb-8">
-                Award-Winning Photography
+                Preisgekrönte Fotografie
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-[var(--color-foreground)] leading-none tracking-tight">
-                Capturing
+                Momente
                 <br />
-                <span className="font-bold italic">Moments</span>
+                <span className="font-bold italic">einfangen</span>
                 <br />
-                That Last
+                die bleiben
               </h1>
               <p className="mt-8 text-xl text-[var(--color-muted-foreground)] max-w-lg mx-auto">
-                Professional photography that tells your story through stunning visuals and authentic emotion.
+                Professionelle Fotografie, die Ihre Geschichte durch beeindruckende Bilder und authentische Emotionen erzählt.
               </p>
               <div className="flex flex-wrap justify-center gap-4 mt-10">
                 <Button size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                  View Portfolio
+                  Portfolio ansehen
                 </Button>
                 <Button variant="outline" size="lg" leftIcon={<Play className="w-4 h-4" />}>
-                  Watch Reel
+                  Showreel
                 </Button>
               </div>
             </motion.div>
@@ -137,14 +137,14 @@ export default function PhotographyDemo() {
             <div className="flex justify-between items-end mb-12">
               <div>
                 <span className="text-sm font-medium text-[var(--color-accent)] uppercase tracking-widest">
-                  Selected Work
+                  Ausgewählte Arbeiten
                 </span>
                 <h2 className="mt-2 text-3xl md:text-4xl font-light text-[var(--color-foreground)]">
                   Portfolio
                 </h2>
               </div>
               <Button variant="ghost" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                View All
+                Alle ansehen
               </Button>
             </div>
           </ScrollReveal>
@@ -212,21 +212,21 @@ export default function PhotographyDemo() {
             <ScrollReveal direction="right" delay={0.2}>
               <div>
                 <span className="text-sm font-medium text-[var(--color-accent)] uppercase tracking-widest">
-                  About Me
+                  Über mich
                 </span>
                 <h2 className="mt-4 text-3xl md:text-4xl font-light text-[var(--color-foreground)]">
                   Alex Rivera
                 </h2>
                 <p className="mt-6 text-[var(--color-muted-foreground)] leading-relaxed">
-                  With over 12 years behind the lens, I&apos;ve dedicated my craft to capturing life&apos;s most precious moments. My work has been featured in National Geographic, Vogue, and numerous international publications.
+                  Mit über 12 Jahren hinter der Kamera habe ich mein Handwerk dem Festhalten der kostbarsten Momente des Lebens gewidmet. Meine Arbeiten wurden in National Geographic, Vogue und zahlreichen internationalen Publikationen veröffentlicht.
                 </p>
                 <p className="mt-4 text-[var(--color-muted-foreground)] leading-relaxed">
-                  I believe every image should tell a story—one that evokes emotion and stands the test of time. Whether it&apos;s a wedding, corporate event, or personal portrait, I bring the same passion and attention to detail to every project.
+                  Ich glaube, dass jedes Bild eine Geschichte erzählen sollte – eine, die Emotionen weckt und die Zeit überdauert. Ob Hochzeit, Firmenveranstaltung oder persönliches Portrait – ich bringe dieselbe Leidenschaft und Liebe zum Detail in jedes Projekt ein.
                 </p>
 
                 {/* Awards */}
                 <div className="mt-8 space-y-4">
-                  <h3 className="font-medium text-[var(--color-foreground)]">Recognition</h3>
+                  <h3 className="font-medium text-[var(--color-foreground)]">Auszeichnungen</h3>
                   {awards.map((award, index) => (
                     <div key={index} className="flex items-center gap-4">
                       <Award className="w-5 h-5 text-[var(--color-accent)]" />
@@ -262,13 +262,13 @@ export default function PhotographyDemo() {
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-[var(--color-accent)] uppercase tracking-widest">
-                Services
+                Leistungen
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl font-light text-[var(--color-foreground)]">
-                What I Offer
+                Mein Angebot
               </h2>
               <p className="mt-4 text-[var(--color-muted-foreground)]">
-                Professional photography services tailored to your needs
+                Professionelle Fotografie-Dienstleistungen, auf Ihre Bedürfnisse zugeschnitten
               </p>
             </div>
           </ScrollReveal>
@@ -304,7 +304,7 @@ export default function PhotographyDemo() {
                     <ArrowUpRight className="w-5 h-5 text-[var(--color-muted-foreground)] group-hover:text-[var(--color-accent)] transition-colors" />
                   </div>
                   <div className="mt-4 pt-4 border-t border-[var(--color-border)]">
-                    <span className="text-sm text-[var(--color-muted-foreground)]">Starting at</span>
+                    <span className="text-sm text-[var(--color-muted-foreground)]">Ab</span>
                     <span className="ml-2 text-lg font-medium text-[var(--color-foreground)]">{service.startingAt}</span>
                   </div>
                 </Card>
@@ -314,7 +314,7 @@ export default function PhotographyDemo() {
 
           <div className="text-center mt-12">
             <Button variant="outline" size="lg" leftIcon={<Calendar className="w-4 h-4" />}>
-              Book a Consultation
+              Beratungsgespräch buchen
             </Button>
           </div>
         </div>
@@ -354,21 +354,21 @@ export default function PhotographyDemo() {
       {/* CTA */}
       <CTA
         variant="dark"
-        title="Let's Create Something Beautiful"
-        subtitle="Ready to capture your story? Let's discuss your vision and bring it to life."
-        primaryCTA={{ text: "Get in Touch" }}
-        secondaryCTA={{ text: "View Pricing" }}
+        title="Lassen Sie uns etwas Schönes erschaffen"
+        subtitle="Bereit, Ihre Geschichte festzuhalten? Lassen Sie uns über Ihre Vision sprechen und sie zum Leben erwecken."
+        primaryCTA={{ text: "Kontakt aufnehmen" }}
+        secondaryCTA={{ text: "Preise ansehen" }}
       />
 
       {/* Contact */}
       <Contact
-        badge="Get in Touch"
-        title="Book a Session"
-        subtitle="Let's discuss your photography needs"
+        badge="Kontakt aufnehmen"
+        title="Session buchen"
+        subtitle="Lassen Sie uns über Ihre Fotografie-Wünsche sprechen"
         contactInfo={{
-          email: "hello@lenscraft.studio",
-          phone: "+1 (555) 123-4567",
-          address: "Los Angeles, CA",
+          email: "hallo@lenscraft.studio",
+          phone: "+49 (30) 123-4567",
+          address: "Berlin, Deutschland",
         }}
         variant="centered"
       />
@@ -380,7 +380,7 @@ export default function PhotographyDemo() {
             LENS<span className="font-bold">CRAFT</span>
           </span>
         }
-        description="Capturing moments that last a lifetime. Professional photography services for all occasions."
+        description="Momente einfangen, die ein Leben lang bleiben. Professionelle Fotografie-Dienstleistungen für jeden Anlass."
         socialLinks={[
           { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
           { icon: <Mail className="w-5 h-5" />, href: "#", label: "Email" },

@@ -13,17 +13,20 @@ interface DemoCardProps {
   featured?: boolean;
 }
 
-// Category color mapping for badges
-const categoryColors: Record<string, { bg: string; text: string; glow: string }> = {
-  Hospitality: { bg: "bg-amber-500/20", text: "text-amber-300", glow: "shadow-amber-500/20" },
-  Services: { bg: "bg-emerald-500/20", text: "text-emerald-300", glow: "shadow-emerald-500/20" },
-  Creative: { bg: "bg-fuchsia-500/20", text: "text-fuchsia-300", glow: "shadow-fuchsia-500/20" },
-  Technology: { bg: "bg-cyan-500/20", text: "text-cyan-300", glow: "shadow-cyan-500/20" },
-  Retail: { bg: "bg-rose-500/20", text: "text-rose-300", glow: "shadow-rose-500/20" },
-  Content: { bg: "bg-violet-500/20", text: "text-violet-300", glow: "shadow-violet-500/20" },
-  "Real Estate": { bg: "bg-sky-500/20", text: "text-sky-300", glow: "shadow-sky-500/20" },
-  Health: { bg: "bg-teal-500/20", text: "text-teal-300", glow: "shadow-teal-500/20" },
-  Professional: { bg: "bg-slate-500/20", text: "text-slate-300", glow: "shadow-slate-500/20" },
+// Demo-specific tag colors (matches background gradient)
+const demoTagColors: Record<string, { bg: string; text: string }> = {
+  restaurant: { bg: "bg-amber-500/30", text: "text-amber-200" },
+  handyman: { bg: "bg-emerald-500/30", text: "text-emerald-200" },
+  portfolio: { bg: "bg-fuchsia-500/30", text: "text-fuchsia-200" },
+  saas: { bg: "bg-cyan-500/30", text: "text-cyan-200" },
+  ecommerce: { bg: "bg-rose-500/30", text: "text-rose-200" },
+  agency: { bg: "bg-violet-500/30", text: "text-violet-200" },
+  blog: { bg: "bg-indigo-500/30", text: "text-indigo-200" },
+  "real-estate": { bg: "bg-sky-500/30", text: "text-sky-200" },
+  gym: { bg: "bg-orange-500/30", text: "text-orange-200" },
+  "law-firm": { bg: "bg-slate-400/30", text: "text-slate-200" },
+  medical: { bg: "bg-teal-500/30", text: "text-teal-200" },
+  photography: { bg: "bg-pink-500/30", text: "text-pink-200" },
 };
 
 // Demo-specific gradient overlays
@@ -88,7 +91,7 @@ export function DemoCard({ demo, index, featured = false }: DemoCardProps) {
     mouseY.set(0);
   };
 
-  const categoryStyle = categoryColors[demo.category] || categoryColors.Creative;
+  const tagStyle = demoTagColors[demo.id] || { bg: "bg-zinc-500/30", text: "text-zinc-200" };
   const gradient = demoGradients[demo.id] || "from-zinc-900/95 to-transparent";
   const backgroundImage = demoImages[demo.id] || "";
 
@@ -182,8 +185,8 @@ export function DemoCard({ demo, index, featured = false }: DemoCardProps) {
               className={cn(
                 "absolute top-6 left-6 px-3 py-1.5 rounded-full text-xs font-medium tracking-wide uppercase",
                 "backdrop-blur-md border border-white/10",
-                categoryStyle.bg,
-                categoryStyle.text
+                tagStyle.bg,
+                tagStyle.text
               )}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}

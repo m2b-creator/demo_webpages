@@ -11,95 +11,95 @@ import { medicalTheme } from "@/lib/themes";
 const services = [
   {
     icon: Heart,
-    title: "Primary Care",
-    description: "Comprehensive health management for your entire family with personalized attention.",
+    title: "Allgemeinmedizin",
+    description: "Umfassende Gesundheitsversorgung für Ihre ganze Familie mit persönlicher Betreuung.",
   },
   {
     icon: Activity,
-    title: "Cardiology",
-    description: "Advanced heart care with state-of-the-art diagnostic and treatment options.",
+    title: "Kardiologie",
+    description: "Modernste Herzbehandlung mit innovativen Diagnose- und Therapiemöglichkeiten.",
   },
   {
     icon: Stethoscope,
-    title: "Pediatrics",
-    description: "Specialized care for infants, children, and adolescents in a friendly environment.",
+    title: "Pädiatrie",
+    description: "Spezialisierte Versorgung für Säuglinge, Kinder und Jugendliche in freundlicher Atmosphäre.",
   },
   {
     icon: Users,
-    title: "Women's Health",
-    description: "Complete OB/GYN services with compassionate, expert care.",
+    title: "Frauengesundheit",
+    description: "Umfassende gynäkologische Leistungen mit einfühlsamer, fachkundiger Betreuung.",
   },
   {
     icon: Shield,
-    title: "Preventive Care",
-    description: "Health screenings, vaccinations, and wellness programs to keep you healthy.",
+    title: "Vorsorge",
+    description: "Gesundheitsuntersuchungen, Impfungen und Wellness-Programme für Ihre Gesundheit.",
   },
   {
     icon: Award,
-    title: "Specialty Care",
-    description: "Access to specialists across multiple disciplines under one roof.",
+    title: "Fachärztliche Versorgung",
+    description: "Zugang zu Spezialisten verschiedener Fachrichtungen unter einem Dach.",
   },
 ];
 
 const doctors = [
   {
-    name: "Dr. Sarah Mitchell",
-    specialty: "Family Medicine",
-    experience: "15 years",
-    education: "Johns Hopkins",
+    name: "Dr. Sarah Müller",
+    specialty: "Allgemeinmedizin",
+    experience: "15 Jahre",
+    education: "Charité Berlin",
   },
   {
-    name: "Dr. James Chen",
-    specialty: "Cardiology",
-    experience: "20 years",
-    education: "Harvard Medical",
+    name: "Dr. Thomas Chen",
+    specialty: "Kardiologie",
+    experience: "20 Jahre",
+    education: "LMU München",
   },
   {
     name: "Dr. Emily Rodriguez",
-    specialty: "Pediatrics",
-    experience: "12 years",
-    education: "Stanford",
+    specialty: "Pädiatrie",
+    experience: "12 Jahre",
+    education: "Uni Heidelberg",
   },
   {
-    name: "Dr. Michael Thompson",
-    specialty: "Internal Medicine",
-    experience: "18 years",
-    education: "Yale",
+    name: "Dr. Michael Weber",
+    specialty: "Innere Medizin",
+    experience: "18 Jahre",
+    education: "Uni Freiburg",
   },
 ];
 
 const testimonials = [
   {
-    quote: "The entire staff made me feel comfortable from day one. Dr. Mitchell takes the time to really listen and explain everything clearly.",
-    author: "Jennifer Adams",
-    role: "Patient",
-    company: "3 years",
+    quote: "Das gesamte Team hat mir vom ersten Tag an ein gutes Gefühl gegeben. Dr. Müller nimmt sich Zeit zum Zuhören und erklärt alles verständlich.",
+    author: "Jennifer Schmidt",
+    role: "Patientin",
+    company: "3 Jahre",
     rating: 5,
   },
   {
-    quote: "Best pediatric care in the city. My kids actually look forward to their check-ups. The doctors are wonderful with children.",
+    quote: "Die beste Kinderversorgung in der Stadt. Meine Kinder freuen sich sogar auf ihre Vorsorgeuntersuchungen. Die Ärzte sind wunderbar mit Kindern.",
     author: "David & Maria Santos",
-    role: "Parents",
-    company: "5 years",
+    role: "Eltern",
+    company: "5 Jahre",
     rating: 5,
   },
   {
-    quote: "After my heart scare, Dr. Chen and his team saved my life. The follow-up care has been exceptional.",
-    author: "Robert Williams",
+    quote: "Nach meinem Herzproblem hat mir Dr. Chen und sein Team das Leben gerettet. Die Nachsorge war außergewöhnlich.",
+    author: "Robert Weber",
     role: "Patient",
-    company: "2 years",
+    company: "2 Jahre",
     rating: 5,
   },
 ];
 
 const stats = [
-  { value: "50+", label: "Expert Physicians" },
-  { value: "100K+", label: "Patients Served" },
-  { value: "25+", label: "Years of Care" },
-  { value: "4.9", label: "Patient Rating" },
+  { value: "50+", label: "Fachärzte" },
+  { value: "100K+", label: "Behandelte Patienten" },
+  { value: "25+", label: "Jahre Erfahrung" },
+  { value: "4.9", label: "Patientenbewertung" },
 ];
 
-const insuranceLogos = ["BlueCross", "Aetna", "United", "Cigna", "Medicare", "Humana"];
+const insuranceLogos = ["AOK", "TK", "Barmer", "DAK", "IKK", "BKK"];
 
 export default function MedicalDemo() {
   return (
@@ -113,17 +113,17 @@ export default function MedicalDemo() {
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-bold leading-none">CareFirst</span>
-              <span className="text-xs text-[var(--color-muted-foreground)]">Medical Center</span>
+              <span className="text-xs text-[var(--color-muted-foreground)]">Medizinisches Zentrum</span>
             </div>
           </div>
         }
         links={[
-          { label: "Services", href: "#services" },
-          { label: "Doctors", href: "#doctors" },
-          { label: "Patients", href: "#" },
-          { label: "Contact", href: "#contact" },
+          { label: "Leistungen", href: "#services" },
+          { label: "Ärzte", href: "#doctors" },
+          { label: "Patienten", href: "#" },
+          { label: "Kontakt", href: "#contact" },
         ]}
-        ctaText="Book Appointment"
+        ctaText="Termin buchen"
       />
 
       {/* Hero */}
@@ -142,22 +142,22 @@ export default function MedicalDemo() {
                 transition={{ delay: 0.2 }}
               >
                 <Star className="w-4 h-4 fill-current" />
-                Rated #1 in Patient Satisfaction
+                Nr. 1 in Patientenzufriedenheit
               </motion.span>
               <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-foreground)] leading-tight">
-                Your Health,
+                Ihre Gesundheit,
                 <br />
-                <span className="text-[var(--color-primary)]">Our Priority</span>
+                <span className="text-[var(--color-primary)]">Unsere Priorität</span>
               </h1>
               <p className="mt-6 text-xl text-[var(--color-muted-foreground)] max-w-lg">
-                Comprehensive healthcare services with compassionate, personalized attention. Experience the difference of patient-centered care.
+                Umfassende Gesundheitsversorgung mit einfühlsamer, persönlicher Betreuung. Erleben Sie den Unterschied patientenzentrierter Medizin.
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
                 <Button size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                  Book Appointment
+                  Termin buchen
                 </Button>
                 <Button variant="outline" size="lg" leftIcon={<Phone className="w-4 h-4" />}>
-                  (555) 123-4567
+                  +49 (30) 123-4567
                 </Button>
               </div>
 
@@ -165,11 +165,11 @@ export default function MedicalDemo() {
               <div className="flex flex-wrap gap-6 mt-10">
                 <div className="flex items-center gap-2 text-sm text-[var(--color-muted-foreground)]">
                   <Clock className="w-4 h-4 text-[var(--color-primary)]" />
-                  Open 7 Days a Week
+                  7 Tage die Woche geöffnet
                 </div>
                 <div className="flex items-center gap-2 text-sm text-[var(--color-muted-foreground)]">
                   <MapPin className="w-4 h-4 text-[var(--color-primary)]" />
-                  3 Convenient Locations
+                  3 zentrale Standorte
                 </div>
               </div>
             </motion.div>
@@ -199,8 +199,8 @@ export default function MedicalDemo() {
                     <Calendar className="w-6 h-6 text-[var(--color-accent)]" />
                   </div>
                   <div>
-                    <div className="font-bold text-[var(--color-foreground)]">Same Day</div>
-                    <div className="text-sm text-[var(--color-muted-foreground)]">Appointments Available</div>
+                    <div className="font-bold text-[var(--color-foreground)]">Kurzfristig</div>
+                    <div className="text-sm text-[var(--color-muted-foreground)]">Termine verfügbar</div>
                   </div>
                 </div>
               </motion.div>
@@ -216,8 +216,8 @@ export default function MedicalDemo() {
                     <Shield className="w-6 h-6 text-[var(--color-primary)]" />
                   </div>
                   <div>
-                    <div className="font-bold text-[var(--color-foreground)]">Accepting</div>
-                    <div className="text-sm text-[var(--color-muted-foreground)]">Most Insurance Plans</div>
+                    <div className="font-bold text-[var(--color-foreground)]">Alle Kassen</div>
+                    <div className="text-sm text-[var(--color-muted-foreground)]">Privat & gesetzlich</div>
                   </div>
                 </div>
               </motion.div>
@@ -235,13 +235,13 @@ export default function MedicalDemo() {
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                Our Services
+                Unsere Leistungen
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-foreground)]">
-                Comprehensive Care
+                Umfassende Versorgung
               </h2>
               <p className="mt-4 text-[var(--color-muted-foreground)]">
-                From routine check-ups to specialized treatment, we&apos;re here for your health journey
+                Von Routineuntersuchungen bis zur Spezialbehandlung – wir begleiten Sie auf Ihrem Gesundheitsweg
               </p>
             </div>
           </ScrollReveal>
@@ -275,7 +275,7 @@ export default function MedicalDemo() {
                     {service.description}
                   </p>
                   <Button variant="ghost" size="sm" className="mt-4" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                    Learn More
+                    Mehr erfahren
                   </Button>
                 </Card>
               </motion.div>
@@ -290,13 +290,13 @@ export default function MedicalDemo() {
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                Our Team
+                Unser Team
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-foreground)]">
-                Meet Our Doctors
+                Lernen Sie unsere Ärzte kennen
               </h2>
               <p className="mt-4 text-[var(--color-muted-foreground)]">
-                Board-certified physicians committed to your well-being
+                Approbierte Fachärzte, die sich Ihrem Wohlbefinden verschrieben haben
               </p>
             </div>
           </ScrollReveal>
@@ -341,7 +341,7 @@ export default function MedicalDemo() {
                       <span>{doctor.education}</span>
                     </div>
                     <Button variant="outline" size="sm" className="mt-4">
-                      View Profile
+                      Profil ansehen
                     </Button>
                   </div>
                 </Card>
@@ -355,7 +355,7 @@ export default function MedicalDemo() {
       <section className="py-12 bg-[var(--color-muted)]">
         <div className="container mx-auto px-6 lg:px-8">
           <p className="text-center text-sm text-[var(--color-muted-foreground)] mb-6">
-            We accept most major insurance plans
+            Wir akzeptieren alle gängigen Krankenkassen
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {insuranceLogos.map((logo, index) => (
@@ -376,9 +376,9 @@ export default function MedicalDemo() {
 
       {/* Testimonials */}
       <Testimonials
-        badge="Patient Stories"
-        title="What Our Patients Say"
-        subtitle="Real experiences from real patients"
+        badge="Patientenberichte"
+        title="Was unsere Patienten sagen"
+        subtitle="Echte Erfahrungen von echten Patienten"
         testimonials={testimonials}
         variant="cards"
       />
@@ -386,22 +386,22 @@ export default function MedicalDemo() {
       {/* CTA */}
       <CTA
         variant="gradient"
-        title="Ready to Schedule Your Visit?"
-        subtitle="New patients welcome. Same-day appointments available."
-        primaryCTA={{ text: "Book Appointment" }}
-        secondaryCTA={{ text: "Call (555) 123-4567" }}
+        title="Bereit für Ihren Besuch?"
+        subtitle="Neue Patienten willkommen. Kurzfristige Termine verfügbar."
+        primaryCTA={{ text: "Termin buchen" }}
+        secondaryCTA={{ text: "Anrufen: +49 (30) 123-4567" }}
       />
 
       {/* Contact */}
       <Contact
-        badge="Visit Us"
-        title="Contact Us"
-        subtitle="We're here to answer your questions"
+        badge="Besuchen Sie uns"
+        title="Kontaktieren Sie uns"
+        subtitle="Wir beantworten gerne Ihre Fragen"
         contactInfo={{
-          email: "info@carefirst.com",
-          phone: "+1 (555) 123-4567",
-          address: "456 Health Center Drive, San Diego, CA 92101",
-          hours: "Mon-Sat: 8AM - 6PM, Sun: 9AM - 3PM",
+          email: "info@carefirst.de",
+          phone: "+49 (30) 123-4567",
+          address: "Gesundheitsallee 123, 10117 Berlin",
+          hours: "Mo-Sa: 8-18 Uhr, So: 9-15 Uhr",
         }}
         variant="split"
       />
@@ -415,37 +415,37 @@ export default function MedicalDemo() {
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-bold leading-none">CareFirst</span>
-              <span className="text-xs text-[var(--color-muted-foreground)]">Medical Center</span>
+              <span className="text-xs text-[var(--color-muted-foreground)]">Medizinisches Zentrum</span>
             </div>
           </div>
         }
-        description="Comprehensive healthcare with compassion. Your trusted partner in health and wellness."
+        description="Umfassende Gesundheitsversorgung mit Herz. Ihr vertrauenswürdiger Partner für Gesundheit und Wohlbefinden."
         columns={[
           {
-            title: "Services",
+            title: "Leistungen",
             links: [
-              { label: "Primary Care", href: "#" },
-              { label: "Specialty Care", href: "#" },
-              { label: "Urgent Care", href: "#" },
-              { label: "Telehealth", href: "#" },
+              { label: "Allgemeinmedizin", href: "#" },
+              { label: "Fachärztliche Versorgung", href: "#" },
+              { label: "Akutversorgung", href: "#" },
+              { label: "Telemedizin", href: "#" },
             ],
           },
           {
-            title: "Patients",
+            title: "Patienten",
             links: [
-              { label: "New Patients", href: "#" },
-              { label: "Patient Portal", href: "#" },
-              { label: "Insurance", href: "#" },
-              { label: "Billing", href: "#" },
+              { label: "Neue Patienten", href: "#" },
+              { label: "Patientenportal", href: "#" },
+              { label: "Versicherung", href: "#" },
+              { label: "Abrechnung", href: "#" },
             ],
           },
           {
-            title: "About",
+            title: "Über uns",
             links: [
-              { label: "Our Team", href: "#" },
-              { label: "Locations", href: "#" },
-              { label: "Careers", href: "#" },
-              { label: "News", href: "#" },
+              { label: "Unser Team", href: "#" },
+              { label: "Standorte", href: "#" },
+              { label: "Karriere", href: "#" },
+              { label: "Aktuelles", href: "#" },
             ],
           },
         ]}

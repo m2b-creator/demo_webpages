@@ -11,114 +11,114 @@ import { lawFirmTheme } from "@/lib/themes";
 const practiceAreas = [
   {
     icon: Briefcase,
-    title: "Corporate Law",
-    description: "Comprehensive legal solutions for businesses of all sizes, from startups to Fortune 500 companies.",
+    title: "Gesellschaftsrecht",
+    description: "Umfassende Rechtslösungen für Unternehmen jeder Größe, von Startups bis zu DAX-Konzernen.",
   },
   {
     icon: FileText,
-    title: "Litigation",
-    description: "Skilled trial attorneys with a proven track record in complex commercial disputes.",
+    title: "Prozessführung",
+    description: "Erfahrene Prozessanwälte mit nachgewiesener Erfolgsgeschichte bei komplexen Wirtschaftsstreitigkeiten.",
   },
   {
     icon: Building2,
-    title: "Real Estate",
-    description: "Expert guidance on property transactions, development, and land use matters.",
+    title: "Immobilienrecht",
+    description: "Fachkundige Beratung bei Immobilientransaktionen, Projektentwicklung und Bauplanungsrecht.",
   },
   {
     icon: Scale,
-    title: "Employment Law",
-    description: "Protecting the rights of employers and employees in workplace matters.",
+    title: "Arbeitsrecht",
+    description: "Schutz der Rechte von Arbeitgebern und Arbeitnehmern in arbeitsrechtlichen Angelegenheiten.",
   },
   {
     icon: Shield,
-    title: "Intellectual Property",
-    description: "Safeguarding your innovations, brands, and creative works.",
+    title: "Geistiges Eigentum",
+    description: "Schutz Ihrer Innovationen, Marken und kreativen Werke.",
   },
   {
     icon: Users,
-    title: "Family Law",
-    description: "Compassionate representation in divorce, custody, and family matters.",
+    title: "Familienrecht",
+    description: "Einfühlsame Vertretung bei Scheidung, Sorgerecht und Familienangelegenheiten.",
   },
 ];
 
 const attorneys = [
   {
-    name: "Robert J. Harrison",
-    title: "Managing Partner",
-    specialty: "Corporate Law",
-    experience: "30+ years",
+    name: "Dr. Robert J. Harrison",
+    title: "Geschäftsführender Partner",
+    specialty: "Gesellschaftsrecht",
+    experience: "30+ Jahre",
   },
   {
-    name: "Elizabeth Chen",
-    title: "Senior Partner",
-    specialty: "Litigation",
-    experience: "25 years",
+    name: "Dr. Elisabeth Chen",
+    title: "Seniorpartnerin",
+    specialty: "Prozessführung",
+    experience: "25 Jahre",
   },
   {
     name: "Michael Thompson",
     title: "Partner",
-    specialty: "Real Estate",
-    experience: "20 years",
+    specialty: "Immobilienrecht",
+    experience: "20 Jahre",
   },
   {
     name: "Sarah Williams",
-    title: "Associate Partner",
-    specialty: "Employment Law",
-    experience: "15 years",
+    title: "Assoziierte Partnerin",
+    specialty: "Arbeitsrecht",
+    experience: "15 Jahre",
   },
 ];
 
 const testimonials = [
   {
-    quote: "Their expertise in corporate law helped us navigate a complex merger seamlessly. Truly exceptional legal counsel.",
-    author: "James Mitchell",
-    role: "CEO",
+    quote: "Ihre Expertise im Gesellschaftsrecht hat uns geholfen, eine komplexe Fusion nahtlos zu bewältigen. Wirklich außergewöhnliche Rechtsberatung.",
+    author: "Thomas Müller",
+    role: "Geschäftsführer",
     company: "TechCorp Industries",
     rating: 5,
   },
   {
-    quote: "Professional, thorough, and always available when we needed them. They protected our interests at every turn.",
-    author: "Patricia Anderson",
-    role: "CFO",
-    company: "Anderson Holdings",
+    quote: "Professionell, gründlich und immer erreichbar, wenn wir sie brauchten. Sie haben unsere Interessen zu jeder Zeit geschützt.",
+    author: "Patricia Schmidt",
+    role: "Finanzvorstand",
+    company: "Schmidt Holding",
     rating: 5,
   },
   {
-    quote: "Won a difficult employment case for our company. Their litigation team is simply the best in the region.",
-    author: "David Roberts",
-    role: "General Counsel",
-    company: "Global Manufacturing Inc.",
+    quote: "Haben einen schwierigen Arbeitsrechtsfall für unser Unternehmen gewonnen. Ihr Prozessteam ist einfach das Beste in der Region.",
+    author: "David Weber",
+    role: "Syndikusanwalt",
+    company: "Global Manufacturing GmbH",
     rating: 5,
   },
 ];
 
 const stats = [
-  { value: "50+", label: "Years Combined Experience" },
-  { value: "2000+", label: "Cases Won" },
-  { value: "98%", label: "Success Rate" },
-  { value: "500+", label: "Corporate Clients" },
+  { value: "50+", label: "Jahre Gesamterfahrung" },
+  { value: "2000+", label: "Gewonnene Fälle" },
+  { value: "98%", label: "Erfolgsquote" },
+  { value: "500+", label: "Unternehmenskunden" },
 ];
 
 const whyChooseUs = [
   {
     icon: Award,
-    title: "Award-Winning Team",
-    description: "Recognized by leading legal publications for excellence in practice.",
+    title: "Preisgekröntes Team",
+    description: "Ausgezeichnet von führenden Rechtspublikationen für herausragende Praxis.",
   },
   {
     icon: Clock,
-    title: "Responsive Service",
-    description: "We understand urgency and respond to client needs promptly.",
+    title: "Reaktionsschneller Service",
+    description: "Wir verstehen die Dringlichkeit und reagieren umgehend auf Mandantenanfragen.",
   },
   {
     icon: Shield,
-    title: "Proven Results",
-    description: "A track record of successful outcomes for our clients.",
+    title: "Bewährte Ergebnisse",
+    description: "Eine Erfolgsgeschichte mit positiven Ergebnissen für unsere Mandanten.",
   },
   {
     icon: Users,
-    title: "Client-Focused",
-    description: "Your goals and interests are always our top priority.",
+    title: "Mandantenorientiert",
+    description: "Ihre Ziele und Interessen haben für uns immer höchste Priorität.",
   },
 ];
 
@@ -137,12 +137,12 @@ export default function LawFirmDemo() {
           </div>
         }
         links={[
-          { label: "Practice Areas", href: "#practice-areas" },
-          { label: "Attorneys", href: "#attorneys" },
-          { label: "About", href: "#about" },
-          { label: "Contact", href: "#contact" },
+          { label: "Rechtsgebiete", href: "#practice-areas" },
+          { label: "Anwälte", href: "#attorneys" },
+          { label: "Über uns", href: "#about" },
+          { label: "Kontakt", href: "#contact" },
         ]}
-        ctaText="Free Consultation"
+        ctaText="Kostenlose Beratung"
       />
 
       {/* Hero */}
@@ -156,22 +156,22 @@ export default function LawFirmDemo() {
               transition={{ duration: 0.7 }}
             >
               <span className="text-sm font-medium text-[var(--color-accent)] uppercase tracking-widest">
-                Established 1975
+                Gegründet 1975
               </span>
               <h1 className="mt-4 text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-foreground)] leading-tight">
-                Legal Excellence,
+                Rechtliche Exzellenz,
                 <br />
-                <span className="text-[var(--color-primary)]">Trusted Results</span>
+                <span className="text-[var(--color-primary)]">Vertrauenswürdige Ergebnisse</span>
               </h1>
               <p className="mt-6 text-xl text-[var(--color-muted-foreground)] max-w-lg leading-relaxed">
-                For nearly 50 years, we&apos;ve provided exceptional legal representation to businesses and individuals across the nation.
+                Seit fast 50 Jahren bieten wir erstklassige Rechtsvertretung für Unternehmen und Privatpersonen deutschlandweit.
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
                 <Button size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                  Schedule Consultation
+                  Beratung vereinbaren
                 </Button>
                 <Button variant="outline" size="lg" leftIcon={<Phone className="w-4 h-4" />}>
-                  (555) 123-4567
+                  +49 (30) 123-4567
                 </Button>
               </div>
 
@@ -211,8 +211,8 @@ export default function LawFirmDemo() {
                     <Award className="w-7 h-7 text-[var(--color-accent)]" />
                   </div>
                   <div>
-                    <div className="font-bold text-[var(--color-foreground)]">Top Rated</div>
-                    <div className="text-sm text-[var(--color-muted-foreground)]">Chambers & Partners 2024</div>
+                    <div className="font-bold text-[var(--color-foreground)]">Spitzenbewertung</div>
+                    <div className="text-sm text-[var(--color-muted-foreground)]">Chambers & Partners 2025</div>
                   </div>
                 </div>
               </motion.div>
@@ -227,13 +227,13 @@ export default function LawFirmDemo() {
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                Practice Areas
+                Rechtsgebiete
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-foreground)]">
-                Comprehensive Legal Services
+                Umfassende Rechtsdienstleistungen
               </h2>
               <p className="mt-4 text-[var(--color-muted-foreground)]">
-                Our experienced attorneys provide counsel across a broad range of legal disciplines
+                Unsere erfahrenen Anwälte beraten Sie in einem breiten Spektrum juristischer Disziplinen
               </p>
             </div>
           </ScrollReveal>
@@ -267,7 +267,7 @@ export default function LawFirmDemo() {
                     {area.description}
                   </p>
                   <div className="flex items-center gap-1 mt-4 text-sm font-medium text-[var(--color-primary)]">
-                    Learn More <ChevronRight className="w-4 h-4" />
+                    Mehr erfahren <ChevronRight className="w-4 h-4" />
                   </div>
                 </Card>
               </motion.div>
@@ -282,13 +282,13 @@ export default function LawFirmDemo() {
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                Our Team
+                Unser Team
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-foreground)]">
-                Meet Our Attorneys
+                Lernen Sie unsere Anwälte kennen
               </h2>
               <p className="mt-4 text-[var(--color-muted-foreground)]">
-                Experienced legal professionals dedicated to achieving the best outcomes
+                Erfahrene Juristen, die sich für die bestmöglichen Ergebnisse einsetzen
               </p>
             </div>
           </ScrollReveal>
@@ -345,9 +345,9 @@ export default function LawFirmDemo() {
 
       {/* Why Choose Us */}
       <Features
-        badge="Why Choose Us"
-        title="The Harrison Difference"
-        subtitle="What sets us apart from other firms"
+        badge="Warum wir"
+        title="Der Harrison-Unterschied"
+        subtitle="Was uns von anderen Kanzleien unterscheidet"
         features={whyChooseUs}
         columns={4}
         variant="cards"
@@ -355,9 +355,9 @@ export default function LawFirmDemo() {
 
       {/* Testimonials */}
       <Testimonials
-        badge="Client Testimonials"
-        title="What Our Clients Say"
-        subtitle="Hear from those we've had the privilege to represent"
+        badge="Mandantenstimmen"
+        title="Was unsere Mandanten sagen"
+        subtitle="Hören Sie von denen, die wir vertreten durften"
         testimonials={testimonials}
         variant="cards"
       />
@@ -365,22 +365,22 @@ export default function LawFirmDemo() {
       {/* CTA */}
       <CTA
         variant="dark"
-        title="Need Legal Assistance?"
-        subtitle="Schedule a free initial consultation with one of our experienced attorneys."
-        primaryCTA={{ text: "Schedule Consultation" }}
-        secondaryCTA={{ text: "Call (555) 123-4567" }}
+        title="Benötigen Sie rechtliche Unterstützung?"
+        subtitle="Vereinbaren Sie eine kostenlose Erstberatung mit einem unserer erfahrenen Anwälte."
+        primaryCTA={{ text: "Beratung vereinbaren" }}
+        secondaryCTA={{ text: "Anrufen: +49 (30) 123-4567" }}
       />
 
       {/* Contact */}
       <Contact
-        badge="Contact Us"
-        title="Get in Touch"
-        subtitle="We're here to help with your legal needs"
+        badge="Kontakt aufnehmen"
+        title="Sprechen Sie mit uns"
+        subtitle="Wir sind für Ihre rechtlichen Anliegen da"
         contactInfo={{
-          email: "contact@harrisonlaw.com",
-          phone: "+1 (555) 123-4567",
-          address: "One Liberty Plaza, Suite 4200, New York, NY 10006",
-          hours: "Mon-Fri: 8:30 AM - 6:00 PM",
+          email: "kontakt@harrisonrecht.de",
+          phone: "+49 (30) 123-4567",
+          address: "Unter den Linden 21, 10117 Berlin",
+          hours: "Mo-Fr: 8:30 - 18:00 Uhr",
         }}
         variant="split"
       />
@@ -396,33 +396,33 @@ export default function LawFirmDemo() {
             </div>
           </div>
         }
-        description="Providing exceptional legal representation since 1975. Trusted by businesses and individuals across the nation."
+        description="Erstklassige Rechtsvertretung seit 1975. Das Vertrauen von Unternehmen und Privatpersonen deutschlandweit."
         columns={[
           {
-            title: "Practice Areas",
+            title: "Rechtsgebiete",
             links: [
-              { label: "Corporate Law", href: "#" },
-              { label: "Litigation", href: "#" },
-              { label: "Real Estate", href: "#" },
-              { label: "Employment", href: "#" },
+              { label: "Gesellschaftsrecht", href: "#" },
+              { label: "Prozessführung", href: "#" },
+              { label: "Immobilienrecht", href: "#" },
+              { label: "Arbeitsrecht", href: "#" },
             ],
           },
           {
-            title: "Firm",
+            title: "Kanzlei",
             links: [
-              { label: "About Us", href: "#" },
-              { label: "Our Team", href: "#" },
-              { label: "Careers", href: "#" },
-              { label: "News", href: "#" },
+              { label: "Über uns", href: "#" },
+              { label: "Unser Team", href: "#" },
+              { label: "Karriere", href: "#" },
+              { label: "Aktuelles", href: "#" },
             ],
           },
           {
-            title: "Resources",
+            title: "Ressourcen",
             links: [
               { label: "Blog", href: "#" },
-              { label: "Publications", href: "#" },
+              { label: "Publikationen", href: "#" },
               { label: "FAQ", href: "#" },
-              { label: "Contact", href: "#" },
+              { label: "Kontakt", href: "#" },
             ],
           },
         ]}

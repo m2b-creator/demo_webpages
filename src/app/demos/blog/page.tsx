@@ -9,70 +9,70 @@ import { ScrollReveal } from "@/components/animations";
 import { blogTheme } from "@/lib/themes";
 
 const featuredPost = {
-  title: "The Future of Remote Work: Trends Shaping 2024 and Beyond",
-  excerpt: "As we navigate the evolving landscape of work, remote and hybrid models continue to reshape how companies operate and employees thrive.",
+  title: "Die Zukunft der Remote-Arbeit: Trends, die 2025 und darüber hinaus prägen",
+  excerpt: "Während wir durch die sich entwickelnde Arbeitswelt navigieren, gestalten Remote- und Hybrid-Modelle weiterhin um, wie Unternehmen arbeiten und Mitarbeiter erfolgreich sind.",
   author: "Sarah Mitchell",
-  date: "Dec 20, 2024",
-  readTime: "8 min read",
-  category: "Technology",
+  date: "20. Dez. 2025",
+  readTime: "8 Min. Lesezeit",
+  category: "Technologie",
 };
 
 const posts = [
   {
-    title: "10 Design Principles Every Developer Should Know",
-    excerpt: "Understanding design fundamentals can elevate your development work and improve collaboration with designers.",
+    title: "10 Design-Prinzipien, die jeder Entwickler kennen sollte",
+    excerpt: "Das Verständnis von Design-Grundlagen kann Ihre Entwicklungsarbeit aufwerten und die Zusammenarbeit mit Designern verbessern.",
     author: "Alex Chen",
-    date: "Dec 18, 2024",
-    readTime: "5 min read",
+    date: "18. Dez. 2025",
+    readTime: "5 Min. Lesezeit",
     category: "Design",
   },
   {
-    title: "Building Scalable APIs with Node.js",
-    excerpt: "Best practices for creating APIs that can handle millions of requests while maintaining performance.",
+    title: "Skalierbare APIs mit Node.js erstellen",
+    excerpt: "Best Practices für die Erstellung von APIs, die Millionen von Anfragen verarbeiten können und dabei die Performance beibehalten.",
     author: "James Wilson",
-    date: "Dec 15, 2024",
-    readTime: "12 min read",
-    category: "Development",
+    date: "15. Dez. 2025",
+    readTime: "12 Min. Lesezeit",
+    category: "Entwicklung",
   },
   {
-    title: "The Psychology of User Experience",
-    excerpt: "How cognitive biases and mental models influence the way users interact with digital products.",
+    title: "Die Psychologie der User Experience",
+    excerpt: "Wie kognitive Verzerrungen und mentale Modelle die Art beeinflussen, wie Nutzer mit digitalen Produkten interagieren.",
     author: "Emily Rodriguez",
-    date: "Dec 12, 2024",
-    readTime: "7 min read",
+    date: "12. Dez. 2025",
+    readTime: "7 Min. Lesezeit",
     category: "UX",
   },
   {
-    title: "Mastering TypeScript: Advanced Patterns",
-    excerpt: "Take your TypeScript skills to the next level with these advanced typing techniques and patterns.",
+    title: "TypeScript meistern: Fortgeschrittene Muster",
+    excerpt: "Bringen Sie Ihre TypeScript-Fähigkeiten mit diesen fortgeschrittenen Typing-Techniken und Mustern auf das nächste Level.",
     author: "Michael Park",
-    date: "Dec 10, 2024",
-    readTime: "10 min read",
-    category: "Development",
+    date: "10. Dez. 2025",
+    readTime: "10 Min. Lesezeit",
+    category: "Entwicklung",
   },
   {
-    title: "Sustainable Tech: Green Computing Practices",
-    excerpt: "How the tech industry is adapting to create more environmentally friendly products and processes.",
+    title: "Nachhaltige Technologie: Green Computing Praktiken",
+    excerpt: "Wie sich die Tech-Branche anpasst, um umweltfreundlichere Produkte und Prozesse zu schaffen.",
     author: "Lisa Green",
-    date: "Dec 8, 2024",
-    readTime: "6 min read",
-    category: "Technology",
+    date: "8. Dez. 2025",
+    readTime: "6 Min. Lesezeit",
+    category: "Technologie",
   },
 ];
 
 const categories = [
-  { name: "Technology", count: 24 },
+  { name: "Technologie", count: 24 },
   { name: "Design", count: 18 },
-  { name: "Development", count: 32 },
+  { name: "Entwicklung", count: 32 },
   { name: "UX", count: 15 },
   { name: "Business", count: 21 },
-  { name: "Culture", count: 12 },
+  { name: "Kultur", count: 12 },
 ];
 
 const trending = [
-  { title: "Why AI Won't Replace Designers", views: "12.5K" },
-  { title: "React vs Vue in 2024", views: "9.8K" },
-  { title: "The Rise of Edge Computing", views: "8.2K" },
+  { title: "Warum KI Designer nicht ersetzen wird", views: "12,5K" },
+  { title: "React vs Vue in 2025", views: "9,8K" },
+  { title: "Der Aufstieg des Edge Computing", views: "8,2K" },
 ];
 
 export default function BlogDemo() {
@@ -86,12 +86,12 @@ export default function BlogDemo() {
           </span>
         }
         links={[
-          { label: "Latest", href: "#latest" },
-          { label: "Technology", href: "#" },
+          { label: "Aktuell", href: "#latest" },
+          { label: "Technologie", href: "#" },
           { label: "Design", href: "#" },
-          { label: "Culture", href: "#" },
+          { label: "Kultur", href: "#" },
         ]}
-        ctaText="Subscribe"
+        ctaText="Abonnieren"
       />
 
       {/* Hero - Featured Post */}
@@ -104,7 +104,7 @@ export default function BlogDemo() {
               transition={{ duration: 0.7 }}
             >
               <span className="inline-block px-3 py-1 rounded-full bg-[var(--color-accent)] text-[var(--color-accent-foreground)] text-xs font-medium uppercase tracking-wider">
-                Featured
+                Empfohlen
               </span>
               <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[var(--color-foreground)] leading-tight">
                 {featuredPost.title}
@@ -125,7 +125,7 @@ export default function BlogDemo() {
                 </div>
               </div>
               <Button className="mt-8" size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                Read Article
+                Artikel lesen
               </Button>
             </motion.div>
 
@@ -156,13 +156,13 @@ export default function BlogDemo() {
               <ScrollReveal>
                 <div className="flex items-center justify-between mb-8">
                   <h2 className="text-2xl font-serif font-bold text-[var(--color-foreground)]">
-                    Latest Articles
+                    Neueste Artikel
                   </h2>
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-muted-foreground)]" />
                     <input
                       type="text"
-                      placeholder="Search..."
+                      placeholder="Suchen..."
                       className="pl-9 pr-4 py-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
                     />
                   </div>
@@ -215,7 +215,7 @@ export default function BlogDemo() {
                           <div className="flex items-center justify-between mt-4 pt-4 border-t border-[var(--color-border)]">
                             <div className="flex items-center gap-4">
                               <span className="text-sm text-[var(--color-muted-foreground)]">
-                                By {post.author}
+                                Von {post.author}
                               </span>
                               <span className="text-sm text-[var(--color-muted-foreground)]">
                                 {post.readTime}
@@ -239,7 +239,7 @@ export default function BlogDemo() {
 
               <div className="text-center mt-10">
                 <Button variant="outline" size="lg">
-                  Load More Articles
+                  Mehr Artikel laden
                 </Button>
               </div>
             </div>
@@ -252,7 +252,7 @@ export default function BlogDemo() {
                   <div className="flex items-center gap-2 mb-6">
                     <TrendingUp className="w-5 h-5 text-[var(--color-accent)]" />
                     <h3 className="font-serif font-bold text-[var(--color-foreground)]">
-                      Trending Now
+                      Im Trend
                     </h3>
                   </div>
                   <div className="space-y-4">
@@ -269,7 +269,7 @@ export default function BlogDemo() {
                             {item.title}
                           </h4>
                           <span className="text-sm text-[var(--color-muted-foreground)]">
-                            {item.views} views
+                            {item.views} Aufrufe
                           </span>
                         </div>
                       </div>
@@ -282,7 +282,7 @@ export default function BlogDemo() {
               <ScrollReveal delay={0.3}>
                 <Card variant="elevated" padding="lg">
                   <h3 className="font-serif font-bold text-[var(--color-foreground)] mb-6">
-                    Categories
+                    Kategorien
                   </h3>
                   <div className="space-y-3">
                     {categories.map((category, index) => (
@@ -306,17 +306,17 @@ export default function BlogDemo() {
               <ScrollReveal delay={0.4}>
                 <Card variant="gradient" padding="lg">
                   <h3 className="font-serif font-bold text-[var(--color-foreground)] mb-2">
-                    Stay Updated
+                    Bleiben Sie informiert
                   </h3>
                   <p className="text-sm text-[var(--color-muted-foreground)] mb-4">
-                    Get the latest articles delivered straight to your inbox.
+                    Erhalten Sie die neuesten Artikel direkt in Ihr Postfach.
                   </p>
                   <input
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder="ihre@email.de"
                     className="w-full px-4 py-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] text-sm mb-3"
                   />
-                  <Button className="w-full">Subscribe</Button>
+                  <Button className="w-full">Abonnieren</Button>
                 </Card>
               </ScrollReveal>
             </div>
@@ -327,9 +327,9 @@ export default function BlogDemo() {
       {/* Newsletter CTA */}
       <CTA
         variant="centered"
-        title="Never Miss a Story"
-        subtitle="Join 50,000+ readers who get our weekly digest of the best articles on technology, design, and culture."
-        primaryCTA={{ text: "Subscribe Now" }}
+        title="Verpassen Sie keine Geschichte"
+        subtitle="Schließen Sie sich über 50.000 Lesern an, die unseren wöchentlichen Überblick der besten Artikel zu Technologie, Design und Kultur erhalten."
+        primaryCTA={{ text: "Jetzt abonnieren" }}
       />
 
       {/* Footer */}
@@ -339,32 +339,32 @@ export default function BlogDemo() {
             The<span className="text-[var(--color-accent)]">Digest</span>
           </span>
         }
-        description="Thoughtful perspectives on technology, design, and culture for the modern reader."
+        description="Durchdachte Perspektiven zu Technologie, Design und Kultur für den modernen Leser."
         columns={[
           {
-            title: "Topics",
+            title: "Themen",
             links: [
-              { label: "Technology", href: "#" },
+              { label: "Technologie", href: "#" },
               { label: "Design", href: "#" },
-              { label: "Development", href: "#" },
-              { label: "Culture", href: "#" },
+              { label: "Entwicklung", href: "#" },
+              { label: "Kultur", href: "#" },
             ],
           },
           {
-            title: "Company",
+            title: "Unternehmen",
             links: [
-              { label: "About", href: "#" },
-              { label: "Authors", href: "#" },
-              { label: "Careers", href: "#" },
-              { label: "Contact", href: "#" },
+              { label: "Über uns", href: "#" },
+              { label: "Autoren", href: "#" },
+              { label: "Karriere", href: "#" },
+              { label: "Kontakt", href: "#" },
             ],
           },
           {
-            title: "More",
+            title: "Mehr",
             links: [
               { label: "Newsletter", href: "#" },
               { label: "Podcast", href: "#" },
-              { label: "Events", href: "#" },
+              { label: "Veranstaltungen", href: "#" },
               { label: "RSS", href: "#" },
             ],
           },

@@ -10,41 +10,41 @@ import { restaurantTheme } from "@/lib/themes";
 
 const menuItems = [
   {
-    category: "Starters",
+    category: "Vorspeisen",
     items: [
-      { name: "Bruschetta al Pomodoro", price: "$12", description: "Fresh tomatoes, basil, garlic on toasted bread" },
-      { name: "Carpaccio di Manzo", price: "$18", description: "Thinly sliced beef with arugula and parmesan" },
-      { name: "Burrata e Prosciutto", price: "$16", description: "Creamy burrata with aged prosciutto" },
+      { name: "Bruschetta al Pomodoro", price: "€12", description: "Frische Tomaten, Basilikum, Knoblauch auf geröstetem Brot" },
+      { name: "Carpaccio di Manzo", price: "€18", description: "Hauchdünn geschnittenes Rindfleisch mit Rucola und Parmesan" },
+      { name: "Burrata e Prosciutto", price: "€16", description: "Cremige Burrata mit gereiftem Parmaschinken" },
     ],
   },
   {
-    category: "Main Courses",
+    category: "Hauptgerichte",
     items: [
-      { name: "Ossobuco alla Milanese", price: "$42", description: "Braised veal shanks with saffron risotto" },
-      { name: "Branzino al Forno", price: "$38", description: "Oven-roasted sea bass with herbs" },
-      { name: "Filetto di Manzo", price: "$48", description: "Prime beef tenderloin with truffle sauce" },
+      { name: "Ossobuco alla Milanese", price: "€42", description: "Geschmorte Kalbshaxe mit Safranrisotto" },
+      { name: "Branzino al Forno", price: "€38", description: "Im Ofen gerösteter Wolfsbarsch mit Kräutern" },
+      { name: "Filetto di Manzo", price: "€48", description: "Rinderfilet vom Feinsten mit Trüffelsauce" },
     ],
   },
 ];
 
 const testimonials = [
   {
-    quote: "An absolutely unforgettable dining experience. The attention to detail in every dish is remarkable.",
+    quote: "Ein absolut unvergessliches kulinarisches Erlebnis. Die Liebe zum Detail in jedem Gericht ist bemerkenswert.",
     author: "Maria Rossi",
-    role: "Food Critic",
+    role: "Restaurantkritikerin",
     company: "The Culinary Times",
     rating: 5,
   },
   {
-    quote: "The perfect blend of tradition and innovation. Every visit feels special.",
+    quote: "Die perfekte Mischung aus Tradition und Innovation. Jeder Besuch fühlt sich besonders an.",
     author: "James Chen",
-    role: "Regular Guest",
+    role: "Stammgast",
     rating: 5,
   },
   {
-    quote: "From the ambiance to the service to the food - everything is world-class.",
+    quote: "Vom Ambiente über den Service bis zum Essen – alles ist erstklassig.",
     author: "Sophie Laurent",
-    role: "Travel Blogger",
+    role: "Reisebloggerin",
     rating: 5,
   },
 ];
@@ -61,23 +61,23 @@ export default function RestaurantDemo() {
           </div>
         }
         links={[
-          { label: "Menu", href: "#menu" },
-          { label: "About", href: "#about" },
-          { label: "Reservations", href: "#contact" },
-          { label: "Contact", href: "#contact" },
+          { label: "Speisekarte", href: "#menu" },
+          { label: "Über uns", href: "#about" },
+          { label: "Reservierung", href: "#contact" },
+          { label: "Kontakt", href: "#contact" },
         ]}
-        ctaText="Reserve a Table"
+        ctaText="Tisch reservieren"
       />
 
       {/* Hero */}
       <Hero
         variant="split"
-        badge="Est. 1985"
-        title="Experience the Art of Italian Dining"
-        titleHighlight="Art"
-        subtitle="Where timeless traditions meet modern culinary excellence. Join us for an unforgettable gastronomic journey in the heart of the city."
-        primaryCTA={{ text: "Reserve a Table" }}
-        secondaryCTA={{ text: "View Menu" }}
+        badge="Seit 1985"
+        title="Erleben Sie die Kunst der italienischen Küche"
+        titleHighlight="Kunst"
+        subtitle="Wo zeitlose Traditionen auf moderne kulinarische Exzellenz treffen. Begleiten Sie uns auf eine unvergessliche gastronomische Reise im Herzen der Stadt."
+        primaryCTA={{ text: "Tisch reservieren" }}
+        secondaryCTA={{ text: "Speisekarte ansehen" }}
         image={
           <div className="relative">
             <DemoImage
@@ -125,7 +125,7 @@ export default function RestaurantDemo() {
                   ))}
                 </div>
                 <span className="font-semibold">4.9</span>
-                <span className="text-sm text-[var(--color-muted-foreground)]">(200+ reviews)</span>
+                <span className="text-sm text-[var(--color-muted-foreground)]">(200+ Bewertungen)</span>
               </div>
             </motion.div>
             {/* Secondary floating image */}
@@ -147,15 +147,15 @@ export default function RestaurantDemo() {
           <div className="flex flex-wrap justify-center gap-8 md:gap-16">
             <div className="flex items-center gap-3">
               <MapPin className="w-5 h-5 text-[var(--color-primary)]" />
-              <span className="text-sm">123 Culinary Avenue, NYC</span>
+              <span className="text-sm">Gourmetstraße 123, Berlin</span>
             </div>
             <div className="flex items-center gap-3">
               <Clock className="w-5 h-5 text-[var(--color-primary)]" />
-              <span className="text-sm">Tue-Sun: 5PM - 11PM</span>
+              <span className="text-sm">Di-So: 17:00 - 23:00 Uhr</span>
             </div>
             <div className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-[var(--color-primary)]" />
-              <span className="text-sm">+1 (555) 123-4567</span>
+              <span className="text-sm">+49 (30) 123-4567</span>
             </div>
           </div>
         </div>
@@ -167,13 +167,13 @@ export default function RestaurantDemo() {
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                Our Menu
+                Unsere Speisekarte
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[var(--color-foreground)]">
-                Curated for Excellence
+                Kuratiert für Exzellenz
               </h2>
               <p className="mt-4 text-[var(--color-muted-foreground)]">
-                Each dish tells a story of passion, tradition, and the finest ingredients
+                Jedes Gericht erzählt eine Geschichte von Leidenschaft, Tradition und feinsten Zutaten
               </p>
             </div>
           </ScrollReveal>
@@ -217,7 +217,7 @@ export default function RestaurantDemo() {
 
           <div className="text-center mt-12">
             <Button variant="outline" size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
-              View Full Menu
+              Vollständige Speisekarte ansehen
             </Button>
           </div>
         </div>
@@ -225,25 +225,25 @@ export default function RestaurantDemo() {
 
       {/* Features */}
       <Features
-        badge="Why Choose Us"
-        title="A Tradition of Excellence"
-        subtitle="Every detail matters in creating the perfect dining experience"
+        badge="Warum wir"
+        title="Eine Tradition der Exzellenz"
+        subtitle="Jedes Detail zählt bei der Schaffung des perfekten kulinarischen Erlebnisses"
         features={[
           {
-            title: "Farm to Table",
-            description: "We source the freshest ingredients from local farms and trusted suppliers.",
+            title: "Vom Bauernhof auf den Tisch",
+            description: "Wir beziehen die frischesten Zutaten von lokalen Bauernhöfen und vertrauenswürdigen Lieferanten.",
           },
           {
-            title: "Master Chefs",
-            description: "Our culinary team brings decades of experience from the finest kitchens.",
+            title: "Meisterköche",
+            description: "Unser Küchenteam bringt jahrzehntelange Erfahrung aus den besten Küchen mit.",
           },
           {
             title: "Private Dining",
-            description: "Elegant private rooms for intimate gatherings and special celebrations.",
+            description: "Elegante Privaträume für intime Zusammenkünfte und besondere Feierlichkeiten.",
           },
           {
-            title: "Wine Cellar",
-            description: "An extensive collection of fine wines curated by our sommelier.",
+            title: "Weinkeller",
+            description: "Eine umfangreiche Sammlung erlesener Weine, kuratiert von unserem Sommelier.",
           },
         ]}
         columns={4}
@@ -252,8 +252,8 @@ export default function RestaurantDemo() {
 
       {/* Testimonials */}
       <Testimonials
-        badge="Guest Reviews"
-        title="What Our Guests Say"
+        badge="Gästebewertungen"
+        title="Was unsere Gäste sagen"
         testimonials={testimonials}
         variant="carousel"
       />
@@ -261,22 +261,22 @@ export default function RestaurantDemo() {
       {/* CTA */}
       <CTA
         variant="gradient"
-        title="Ready for an Unforgettable Evening?"
-        subtitle="Reserve your table today and experience the magic of La Cucina"
-        primaryCTA={{ text: "Make a Reservation" }}
-        secondaryCTA={{ text: "Call Us" }}
+        title="Bereit für einen unvergesslichen Abend?"
+        subtitle="Reservieren Sie noch heute Ihren Tisch und erleben Sie die Magie von La Cucina"
+        primaryCTA={{ text: "Reservierung vornehmen" }}
+        secondaryCTA={{ text: "Rufen Sie uns an" }}
       />
 
       {/* Contact */}
       <Contact
-        badge="Reservations"
-        title="Book Your Table"
-        subtitle="We look forward to welcoming you"
+        badge="Reservierungen"
+        title="Reservieren Sie Ihren Tisch"
+        subtitle="Wir freuen uns darauf, Sie zu begrüßen"
         contactInfo={{
-          email: "reservations@lacucina.com",
-          phone: "+1 (555) 123-4567",
-          address: "123 Culinary Avenue, New York, NY 10001",
-          hours: "Tuesday - Sunday: 5PM - 11PM",
+          email: "reservierungen@lacucina.de",
+          phone: "+49 (30) 123-4567",
+          address: "Gourmetstraße 123, 10115 Berlin",
+          hours: "Dienstag - Sonntag: 17:00 - 23:00 Uhr",
         }}
       />
 
@@ -288,24 +288,24 @@ export default function RestaurantDemo() {
             <span className="text-xl font-serif font-bold">La Cucina</span>
           </div>
         }
-        description="Experience the art of Italian dining in the heart of the city. Fine cuisine, impeccable service, unforgettable memories."
+        description="Erleben Sie die Kunst der italienischen Küche im Herzen der Stadt. Feine Küche, tadelloser Service, unvergessliche Erinnerungen."
         columns={[
           {
-            title: "Visit",
+            title: "Besuchen",
             links: [
-              { label: "Menu", href: "#menu" },
-              { label: "Reservations", href: "#contact" },
-              { label: "Private Events", href: "#" },
-              { label: "Gift Cards", href: "#" },
+              { label: "Speisekarte", href: "#menu" },
+              { label: "Reservierungen", href: "#contact" },
+              { label: "Private Veranstaltungen", href: "#" },
+              { label: "Geschenkkarten", href: "#" },
             ],
           },
           {
-            title: "About",
+            title: "Über uns",
             links: [
-              { label: "Our Story", href: "#" },
-              { label: "The Team", href: "#" },
-              { label: "Careers", href: "#" },
-              { label: "Press", href: "#" },
+              { label: "Unsere Geschichte", href: "#" },
+              { label: "Das Team", href: "#" },
+              { label: "Karriere", href: "#" },
+              { label: "Presse", href: "#" },
             ],
           },
         ]}

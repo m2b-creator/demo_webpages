@@ -11,94 +11,94 @@ import { handymanTheme } from "@/lib/themes";
 const services = [
   {
     icon: Hammer,
-    title: "General Repairs",
-    description: "From fixing doors to patching walls, we handle all your general home repairs.",
-    price: "From $75",
+    title: "Allgemeine Reparaturen",
+    description: "Von der Türreparatur bis zur Wandausbesserung – wir erledigen alle Ihre Hausreparaturen.",
+    price: "Ab €75",
   },
   {
     icon: Zap,
-    title: "Electrical Work",
-    description: "Licensed electricians for safe installations, repairs, and upgrades.",
-    price: "From $95",
+    title: "Elektroarbeiten",
+    description: "Lizenzierte Elektriker für sichere Installationen, Reparaturen und Modernisierungen.",
+    price: "Ab €95",
   },
   {
     icon: Droplets,
-    title: "Plumbing",
-    description: "Expert plumbing services for leaks, clogs, and new installations.",
-    price: "From $85",
+    title: "Sanitärarbeiten",
+    description: "Professionelle Klempnerarbeiten für Lecks, Verstopfungen und Neuinstallationen.",
+    price: "Ab €85",
   },
   {
     icon: Paintbrush,
-    title: "Painting",
-    description: "Interior and exterior painting with professional-grade materials.",
-    price: "From $250",
+    title: "Malerarbeiten",
+    description: "Innen- und Außenanstrich mit professionellen Materialien.",
+    price: "Ab €250",
   },
   {
     icon: Home,
-    title: "Home Renovation",
-    description: "Complete renovation services from design to final walkthrough.",
-    price: "Custom Quote",
+    title: "Hausrenovierung",
+    description: "Komplette Renovierungsleistungen von der Planung bis zur Fertigstellung.",
+    price: "Individuelles Angebot",
   },
   {
     icon: Wrench,
-    title: "Appliance Repair",
-    description: "Repair and maintenance for all major household appliances.",
-    price: "From $65",
+    title: "Gerätereparatur",
+    description: "Reparatur und Wartung für alle großen Haushaltsgeräte.",
+    price: "Ab €65",
   },
 ];
 
 const whyChooseUs = [
   {
     icon: Shield,
-    title: "Licensed & Insured",
-    description: "Fully licensed professionals with comprehensive insurance coverage.",
+    title: "Lizenziert & Versichert",
+    description: "Vollständig lizenzierte Fachleute mit umfassendem Versicherungsschutz.",
   },
   {
     icon: Clock,
-    title: "Same Day Service",
-    description: "Available for emergency repairs with fast response times.",
+    title: "Taggleicher Service",
+    description: "Verfügbar für Notfallreparaturen mit schnellen Reaktionszeiten.",
   },
   {
     icon: CheckCircle,
-    title: "Satisfaction Guaranteed",
-    description: "100% satisfaction guarantee on all our work and materials.",
+    title: "Zufriedenheitsgarantie",
+    description: "100% Zufriedenheitsgarantie auf alle unsere Arbeiten und Materialien.",
   },
   {
     icon: Star,
-    title: "5-Star Rated",
-    description: "Consistently rated 5 stars by our satisfied customers.",
+    title: "5-Sterne-Bewertung",
+    description: "Durchgängig mit 5 Sternen von unseren zufriedenen Kunden bewertet.",
   },
 ];
 
 const testimonials = [
   {
-    quote: "Fixed our plumbing issue in under an hour. Professional, clean, and affordable. Highly recommend!",
+    quote: "Problem mit der Sanitärinstallation in unter einer Stunde behoben. Professionell, sauber und erschwinglich. Sehr empfehlenswert!",
     author: "Robert Martinez",
-    role: "Homeowner",
-    company: "Austin, TX",
+    role: "Hausbesitzer",
+    company: "Berlin",
     rating: 5,
   },
   {
-    quote: "They renovated our entire kitchen and the result is amazing. Great communication throughout the project.",
+    quote: "Sie haben unsere gesamte Küche renoviert und das Ergebnis ist fantastisch. Großartige Kommunikation während des gesamten Projekts.",
     author: "Jennifer Lee",
-    role: "Homeowner",
-    company: "Denver, CO",
+    role: "Hausbesitzerin",
+    company: "München",
     rating: 5,
   },
   {
-    quote: "Called for an emergency electrical repair on a Sunday. They came within the hour. Lifesavers!",
+    quote: "Habe an einem Sonntag wegen einer elektrischen Notfallreparatur angerufen. Sie waren innerhalb einer Stunde da. Lebensretter!",
     author: "David Thompson",
-    role: "Business Owner",
-    company: "Seattle, WA",
+    role: "Geschäftsinhaber",
+    company: "Hamburg",
     rating: 5,
   },
 ];
 
 const stats = [
-  { value: "15+", label: "Years Experience" },
-  { value: "10K+", label: "Jobs Completed" },
-  { value: "4.9", label: "Average Rating" },
-  { value: "24/7", label: "Emergency Service" },
+  { value: "15+", label: "Jahre Erfahrung" },
+  { value: "10K+", label: "Erledigte Aufträge" },
+  { value: "4.9", label: "Durchschnittsbewertung" },
+  { value: "24/7", label: "Notdienst" },
 ];
 
 export default function HandymanDemo() {
@@ -115,23 +115,23 @@ export default function HandymanDemo() {
           </div>
         }
         links={[
-          { label: "Services", href: "#services" },
-          { label: "About", href: "#about" },
-          { label: "Testimonials", href: "#testimonials" },
-          { label: "Contact", href: "#contact" },
+          { label: "Leistungen", href: "#services" },
+          { label: "Über uns", href: "#about" },
+          { label: "Bewertungen", href: "#testimonials" },
+          { label: "Kontakt", href: "#contact" },
         ]}
-        ctaText="Get Free Quote"
+        ctaText="Kostenloses Angebot"
       />
 
       {/* Hero */}
       <Hero
         variant="split"
-        badge="Trusted Home Services"
-        title="Your Home Deserves the Best Care"
-        titleHighlight="Best"
-        subtitle="Professional handyman services for all your home repair and improvement needs. Licensed, insured, and committed to excellence."
-        primaryCTA={{ text: "Get Free Quote" }}
-        secondaryCTA={{ text: "Call Now" }}
+        badge="Vertrauenswürdige Haushaltsservices"
+        title="Ihr Zuhause verdient die beste Pflege"
+        titleHighlight="beste"
+        subtitle="Professionelle Handwerkerservices für alle Ihre Reparatur- und Renovierungsbedürfnisse. Lizenziert, versichert und der Exzellenz verpflichtet."
+        primaryCTA={{ text: "Kostenloses Angebot" }}
+        secondaryCTA={{ text: "Jetzt anrufen" }}
         image={
           <div className="relative">
             <DemoImage
@@ -153,8 +153,8 @@ export default function HandymanDemo() {
                   <Phone className="w-6 h-6 text-[var(--color-primary)]" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-[var(--color-muted-foreground)]">24/7 Support</div>
-                  <div className="text-lg font-bold text-[var(--color-foreground)]">(555) 123-4567</div>
+                  <div className="text-sm font-medium text-[var(--color-muted-foreground)]">24/7 Erreichbar</div>
+                  <div className="text-lg font-bold text-[var(--color-foreground)]">(030) 123-4567</div>
                 </div>
               </div>
             </motion.div>
@@ -193,13 +193,13 @@ export default function HandymanDemo() {
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
-                Our Services
+                Unsere Leistungen
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-foreground)]">
-                Expert Solutions for Every Need
+                Fachkundige Lösungen für jeden Bedarf
               </h2>
               <p className="mt-4 text-[var(--color-muted-foreground)]">
-                From minor repairs to major renovations, our skilled professionals deliver quality workmanship
+                Von kleinen Reparaturen bis zu großen Renovierungen – unsere qualifizierten Fachleute liefern Qualitätsarbeit
               </p>
             </div>
           </ScrollReveal>
@@ -235,7 +235,7 @@ export default function HandymanDemo() {
                   <div className="flex items-center justify-between pt-4 border-t border-[var(--color-border)]">
                     <span className="font-semibold text-[var(--color-primary)]">{service.price}</span>
                     <Button variant="ghost" size="sm" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                      Learn More
+                      Mehr erfahren
                     </Button>
                   </div>
                 </Card>
@@ -247,9 +247,9 @@ export default function HandymanDemo() {
 
       {/* Why Choose Us */}
       <Features
-        badge="Why Choose Us"
-        title="The FixIt Pro Difference"
-        subtitle="We go above and beyond to ensure your complete satisfaction"
+        badge="Warum wir"
+        title="Der FixIt Pro Unterschied"
+        subtitle="Wir gehen über das Erwartete hinaus, um Ihre vollständige Zufriedenheit zu gewährleisten"
         features={whyChooseUs}
         columns={4}
         variant="cards"
@@ -257,9 +257,9 @@ export default function HandymanDemo() {
 
       {/* Testimonials */}
       <Testimonials
-        badge="Testimonials"
-        title="What Our Customers Say"
-        subtitle="Join thousands of satisfied homeowners who trust FixIt Pro"
+        badge="Kundenstimmen"
+        title="Was unsere Kunden sagen"
+        subtitle="Schließen Sie sich Tausenden zufriedener Hausbesitzer an, die FixIt Pro vertrauen"
         testimonials={testimonials}
         variant="cards"
       />
@@ -267,22 +267,22 @@ export default function HandymanDemo() {
       {/* CTA */}
       <CTA
         variant="gradient"
-        title="Ready to Get Started?"
-        subtitle="Get a free quote today and see why we're the #1 choice for home services."
-        primaryCTA={{ text: "Get Free Quote" }}
-        secondaryCTA={{ text: "Call (555) 123-4567" }}
+        title="Bereit loszulegen?"
+        subtitle="Holen Sie sich noch heute ein kostenloses Angebot und erfahren Sie, warum wir die Nr. 1 für Haushaltsservices sind."
+        primaryCTA={{ text: "Kostenloses Angebot" }}
+        secondaryCTA={{ text: "Anrufen (030) 123-4567" }}
       />
 
       {/* Contact */}
       <Contact
-        badge="Contact"
-        title="Get in Touch"
-        subtitle="We're here to help with all your home repair needs"
+        badge="Kontakt"
+        title="Kontaktieren Sie uns"
+        subtitle="Wir sind hier, um Ihnen bei allen Ihren Reparaturbedürfnissen zu helfen"
         contactInfo={{
-          email: "info@fixitpro.com",
-          phone: "+1 (555) 123-4567",
-          address: "123 Main Street, Austin, TX 78701",
-          hours: "Mon-Sat: 7AM - 8PM, Sun: 9AM - 5PM",
+          email: "info@fixitpro.de",
+          phone: "+49 (30) 123-4567",
+          address: "Handwerkerstraße 123, 10115 Berlin",
+          hours: "Mo-Sa: 7:00 - 20:00 Uhr, So: 9:00 - 17:00 Uhr",
         }}
         variant="split"
       />
@@ -297,33 +297,33 @@ export default function HandymanDemo() {
             <span className="text-xl font-bold">FixIt Pro</span>
           </div>
         }
-        description="Professional handyman services for all your home repair and improvement needs. Licensed, insured, and committed to excellence."
+        description="Professionelle Handwerkerservices für alle Ihre Reparatur- und Renovierungsbedürfnisse. Lizenziert, versichert und der Exzellenz verpflichtet."
         columns={[
           {
-            title: "Services",
+            title: "Leistungen",
             links: [
-              { label: "General Repairs", href: "#" },
-              { label: "Electrical", href: "#" },
-              { label: "Plumbing", href: "#" },
-              { label: "Painting", href: "#" },
+              { label: "Allgemeine Reparaturen", href: "#" },
+              { label: "Elektrik", href: "#" },
+              { label: "Sanitär", href: "#" },
+              { label: "Malerarbeiten", href: "#" },
             ],
           },
           {
-            title: "Company",
+            title: "Unternehmen",
             links: [
-              { label: "About Us", href: "#" },
-              { label: "Careers", href: "#" },
-              { label: "Reviews", href: "#" },
+              { label: "Über uns", href: "#" },
+              { label: "Karriere", href: "#" },
+              { label: "Bewertungen", href: "#" },
               { label: "Blog", href: "#" },
             ],
           },
           {
-            title: "Support",
+            title: "Hilfe",
             links: [
-              { label: "Contact", href: "#contact" },
+              { label: "Kontakt", href: "#contact" },
               { label: "FAQ", href: "#" },
-              { label: "Service Areas", href: "#" },
-              { label: "Emergency", href: "#" },
+              { label: "Servicegebiete", href: "#" },
+              { label: "Notdienst", href: "#" },
             ],
           },
         ]}
