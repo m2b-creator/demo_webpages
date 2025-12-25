@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Camera, Instagram, Mail, ArrowRight, ArrowUpRight, Heart, Award, Users, Calendar, Play } from "lucide-react";
 import { DemoLayout, DemoNav } from "@/components/layout/DemoLayout";
 import { CTA, Contact, Footer } from "@/components/sections";
-import { Button, Card } from "@/components/ui";
+import { Button, Card, DemoImage } from "@/components/ui";
 import { ScrollReveal } from "@/components/animations";
 import { photographyTheme } from "@/lib/themes";
 
@@ -169,9 +169,12 @@ export default function PhotographyDemo() {
                 }}
               >
                 <div className="group relative aspect-square overflow-hidden bg-[var(--color-muted)] cursor-pointer">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Camera className={`${item.featured ? "w-16 h-16" : "w-8 h-8"} text-[var(--color-border)]`} />
-                  </div>
+                  <DemoImage
+                    alt={item.title}
+                    category="photography"
+                    aspect="square"
+                    className="w-full h-full"
+                  />
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-[var(--color-foreground)]/0 group-hover:bg-[var(--color-foreground)]/80 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <div className="text-center text-[var(--color-background)] p-4">
@@ -197,9 +200,13 @@ export default function PhotographyDemo() {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal direction="left">
-              <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-accent)]/10 flex items-center justify-center">
-                <Camera className="w-24 h-24 text-[var(--color-border)]" />
-              </div>
+              <DemoImage
+                alt="Photographer portrait"
+                category="photography"
+                aspect="portrait"
+                className="rounded-2xl shadow-2xl"
+                overlay
+              />
             </ScrollReveal>
 
             <ScrollReveal direction="right" delay={0.2}>
@@ -326,10 +333,15 @@ export default function PhotographyDemo() {
             {[...Array(6)].map((_, index) => (
               <motion.div
                 key={index}
-                className="aspect-square bg-[var(--color-background)] flex items-center justify-center group cursor-pointer overflow-hidden"
+                className="aspect-square group cursor-pointer overflow-hidden relative"
                 whileHover={{ scale: 1.05 }}
               >
-                <Camera className="w-6 h-6 text-[var(--color-border)]" />
+                <DemoImage
+                  alt={`Instagram photo ${index + 1}`}
+                  category="photography"
+                  aspect="square"
+                  className="w-full h-full"
+                />
                 <div className="absolute inset-0 bg-[var(--color-foreground)]/0 group-hover:bg-[var(--color-foreground)]/60 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <Heart className="w-6 h-6 text-white" />
                 </div>

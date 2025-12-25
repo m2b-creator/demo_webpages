@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ShoppingBag, Heart, Star, Truck, Shield, RefreshCw, ArrowRight, Filter, Search, ChevronRight } from "lucide-react";
 import { DemoLayout, DemoNav } from "@/components/layout/DemoLayout";
 import { CTA, Footer } from "@/components/sections";
-import { Button, Card } from "@/components/ui";
+import { Button, Card, DemoImage } from "@/components/ui";
 import { ScrollReveal } from "@/components/animations";
 import { ecommerceTheme } from "@/lib/themes";
 
@@ -137,9 +137,13 @@ export default function EcommerceDemo() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-[var(--color-primary)]/5 to-[var(--color-accent)]/10 flex items-center justify-center">
-                <ShoppingBag className="w-32 h-32 text-[var(--color-border)]" />
-              </div>
+              <DemoImage
+                alt="Fashion collection showcase"
+                category="ecommerce"
+                aspect="portrait"
+                className="rounded-2xl shadow-2xl"
+                overlay
+              />
             </motion.div>
           </div>
         </div>
@@ -261,9 +265,12 @@ export default function EcommerceDemo() {
                 <Card variant="default" hover="lift" padding="none" className="group overflow-hidden">
                   {/* Product Image */}
                   <div className="relative aspect-[4/5] bg-[var(--color-background)]">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <ShoppingBag className="w-16 h-16 text-[var(--color-border)]" />
-                    </div>
+                    <DemoImage
+                      alt={product.name}
+                      category="ecommerce"
+                      aspect="portrait"
+                      className="w-full h-full"
+                    />
                     {/* Badge */}
                     {product.badge && (
                       <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[var(--color-foreground)] text-[var(--color-background)] text-xs font-medium">

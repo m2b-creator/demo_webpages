@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { MapPin, Bed, Bath, Square, Heart, Search, SlidersHorizontal, Home, Building, Key, Phone, ArrowRight, Star } from "lucide-react";
 import { DemoLayout, DemoNav } from "@/components/layout/DemoLayout";
 import { Features, Testimonials, CTA, Contact, Footer } from "@/components/sections";
-import { Button, Card } from "@/components/ui";
+import { Button, Card, DemoImage } from "@/components/ui";
 import { ScrollReveal } from "@/components/animations";
 import { realEstateTheme } from "@/lib/themes";
 
@@ -261,10 +261,13 @@ export default function RealEstateDemo() {
               >
                 <Card variant="default" hover="lift" padding="none" className="group overflow-hidden">
                   {/* Property Image */}
-                  <div className="relative aspect-[4/3] bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-accent)]/10">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Home className="w-16 h-16 text-[var(--color-border)]" />
-                    </div>
+                  <div className="relative aspect-[4/3]">
+                    <DemoImage
+                      alt={property.title}
+                      category="real-estate"
+                      aspect="video"
+                      className="w-full h-full"
+                    />
                     {/* Badges */}
                     <div className="absolute top-4 left-4 flex gap-2">
                       {property.featured && (

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Stethoscope, Heart, Clock, Shield, Users, Phone, ArrowRight, Calendar, Star, MapPin, Award, Activity } from "lucide-react";
 import { DemoLayout, DemoNav } from "@/components/layout/DemoLayout";
 import { Features, Testimonials, CTA, Contact, Footer, Stats } from "@/components/sections";
-import { Button, Card } from "@/components/ui";
+import { Button, Card, DemoImage } from "@/components/ui";
 import { ScrollReveal } from "@/components/animations";
 import { medicalTheme } from "@/lib/themes";
 
@@ -180,9 +180,13 @@ export default function MedicalDemo() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-accent)]/10 flex items-center justify-center">
-                <Stethoscope className="w-32 h-32 text-[var(--color-primary)]/30" />
-              </div>
+              <DemoImage
+                alt="Medical center"
+                category="medical"
+                aspect="square"
+                className="rounded-3xl shadow-2xl"
+                overlay
+              />
               {/* Floating Card */}
               <motion.div
                 className="absolute -bottom-6 -left-6 p-4 rounded-xl bg-[var(--color-card)] shadow-xl border border-[var(--color-border)]"
@@ -316,8 +320,13 @@ export default function MedicalDemo() {
                 }}
               >
                 <Card variant="default" hover="lift" padding="none" className="overflow-hidden text-center group">
-                  <div className="aspect-square bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-accent)]/10 flex items-center justify-center">
-                    <Users className="w-16 h-16 text-[var(--color-border)]" />
+                  <div className="aspect-square">
+                    <DemoImage
+                      alt={doctor.name}
+                      category="medical"
+                      aspect="square"
+                      className="w-full h-full"
+                    />
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-[var(--color-foreground)]">

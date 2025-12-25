@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Clock, User, ArrowRight, BookOpen, TrendingUp, MessageCircle, Heart, Bookmark, Search } from "lucide-react";
 import { DemoLayout, DemoNav } from "@/components/layout/DemoLayout";
 import { CTA, Footer } from "@/components/sections";
-import { Button, Card } from "@/components/ui";
+import { Button, Card, DemoImage } from "@/components/ui";
 import { ScrollReveal } from "@/components/animations";
 import { blogTheme } from "@/lib/themes";
 
@@ -135,9 +135,13 @@ export default function BlogDemo() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-accent)]/10 flex items-center justify-center">
-                <BookOpen className="w-24 h-24 text-[var(--color-primary)]/30" />
-              </div>
+              <DemoImage
+                alt="Featured article"
+                category="blog"
+                aspect="video"
+                className="rounded-2xl shadow-2xl"
+                overlay
+              />
             </motion.div>
           </div>
         </div>
@@ -185,8 +189,13 @@ export default function BlogDemo() {
                   >
                     <Card variant="default" hover="lift" padding="none" className="overflow-hidden group cursor-pointer">
                       <div className="flex flex-col md:flex-row">
-                        <div className="md:w-1/3 aspect-video md:aspect-square bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-accent)]/10 flex items-center justify-center">
-                          <BookOpen className="w-12 h-12 text-[var(--color-border)]" />
+                        <div className="md:w-1/3 aspect-video md:aspect-square">
+                          <DemoImage
+                            alt={post.title}
+                            category="blog"
+                            aspect="square"
+                            className="w-full h-full"
+                          />
                         </div>
                         <div className="flex-1 p-6">
                           <div className="flex items-center gap-4 mb-3">

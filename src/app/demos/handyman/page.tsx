@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Wrench, Phone, Clock, Shield, CheckCircle, Star, ArrowRight, Hammer, Paintbrush, Zap, Droplets, Home } from "lucide-react";
 import { DemoLayout, DemoNav } from "@/components/layout/DemoLayout";
 import { Hero, Features, Testimonials, CTA, Contact, Footer } from "@/components/sections";
-import { Button, Card } from "@/components/ui";
+import { Button, Card, DemoImage } from "@/components/ui";
 import { ScrollReveal } from "@/components/animations";
 import { handymanTheme } from "@/lib/themes";
 
@@ -134,11 +134,13 @@ export default function HandymanDemo() {
         secondaryCTA={{ text: "Call Now" }}
         image={
           <div className="relative">
-            <div className="aspect-square rounded-2xl bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-accent)]/20 overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Wrench className="w-32 h-32 text-[var(--color-primary)]/40" />
-              </div>
-            </div>
+            <DemoImage
+              alt="Professional handyman at work"
+              category="handyman"
+              aspect="square"
+              className="rounded-2xl shadow-2xl"
+              overlay
+            />
             {/* Floating badge */}
             <motion.div
               className="absolute -bottom-4 -right-4 p-4 rounded-xl bg-[var(--color-card)] shadow-xl border border-[var(--color-border)]"

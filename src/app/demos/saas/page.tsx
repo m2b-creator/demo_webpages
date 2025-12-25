@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Check, Zap, Shield, BarChart3, Users, Clock, ArrowRight, Play, Star } from "lucide-react";
 import { DemoLayout, DemoNav } from "@/components/layout/DemoLayout";
 import { Hero, Features, Testimonials, CTA, Contact, Footer, Stats } from "@/components/sections";
-import { Button, Card } from "@/components/ui";
+import { Button, Card, DemoImage } from "@/components/ui";
 import { ScrollReveal } from "@/components/animations";
 import { saasTheme } from "@/lib/themes";
 
@@ -157,8 +157,14 @@ export default function SaaSDemo() {
         secondaryCTA={{ text: "Watch Demo" }}
         image={
           <div className="relative max-w-4xl mx-auto">
-            <div className="aspect-video rounded-xl bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-accent)]/20 border border-[var(--color-border)] overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 flex items-center justify-center">
+            <div className="aspect-video rounded-xl border border-[var(--color-border)] overflow-hidden shadow-2xl relative">
+              <DemoImage
+                alt="SaaS Dashboard Preview"
+                category="saas"
+                aspect="video"
+                className="w-full h-full"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                 <motion.button
                   className="w-20 h-20 rounded-full bg-[var(--color-primary)] flex items-center justify-center shadow-lg"
                   whileHover={{ scale: 1.1 }}

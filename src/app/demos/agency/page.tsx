@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Sparkles, Code, Palette, Megaphone, TrendingUp, Users } from "lucide-react";
 import { DemoLayout, DemoNav } from "@/components/layout/DemoLayout";
 import { Features, Testimonials, CTA, Contact, Footer } from "@/components/sections";
-import { Button, Card } from "@/components/ui";
+import { Button, Card, DemoImage } from "@/components/ui";
 import { ScrollReveal } from "@/components/animations";
 import { agencyTheme } from "@/lib/themes";
 
@@ -225,12 +225,13 @@ export default function AgencyDemo() {
                 }}
               >
                 <Card variant="default" hover="lift" padding="none" className="group cursor-pointer overflow-hidden">
-                  <div className="aspect-[16/10] bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-accent)]/10 relative">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-6xl opacity-20">
-                        {index === 0 ? "🚀" : index === 1 ? "🌸" : index === 2 ? "💳" : "✈️"}
-                      </span>
-                    </div>
+                  <div className="aspect-[16/10] relative">
+                    <DemoImage
+                      alt={study.title}
+                      category="agency"
+                      aspect="video"
+                      className="w-full h-full"
+                    />
                     <motion.div
                       className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[var(--color-foreground)] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                       whileHover={{ scale: 1.1 }}
@@ -313,9 +314,13 @@ export default function AgencyDemo() {
             </ScrollReveal>
 
             <ScrollReveal direction="right" delay={0.2}>
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-accent)]/20 flex items-center justify-center">
-                <Sparkles className="w-24 h-24 text-[var(--color-primary)]/40" />
-              </div>
+              <DemoImage
+                alt="Creative agency team"
+                category="agency"
+                aspect="square"
+                className="rounded-2xl shadow-2xl"
+                overlay
+              />
             </ScrollReveal>
           </div>
         </div>

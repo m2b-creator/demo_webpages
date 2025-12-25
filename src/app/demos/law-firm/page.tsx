@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Scale, Shield, Users, Award, Phone, Clock, ArrowRight, Briefcase, FileText, Building2, ChevronRight } from "lucide-react";
 import { DemoLayout, DemoNav } from "@/components/layout/DemoLayout";
 import { Features, Testimonials, CTA, Contact, Footer } from "@/components/sections";
-import { Button, Card } from "@/components/ui";
+import { Button, Card, DemoImage } from "@/components/ui";
 import { ScrollReveal } from "@/components/animations";
 import { lawFirmTheme } from "@/lib/themes";
 
@@ -192,9 +192,13 @@ export default function LawFirmDemo() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-accent)]/5 flex items-center justify-center border border-[var(--color-border)]">
-                <Scale className="w-32 h-32 text-[var(--color-primary)]/20" />
-              </div>
+              <DemoImage
+                alt="Law firm office"
+                category="law-firm"
+                aspect="portrait"
+                className="rounded-2xl shadow-2xl"
+                overlay
+              />
               {/* Floating Card */}
               <motion.div
                 className="absolute -bottom-6 -left-6 p-6 rounded-xl bg-[var(--color-card)] shadow-xl border border-[var(--color-border)]"
@@ -308,8 +312,13 @@ export default function LawFirmDemo() {
                 }}
               >
                 <Card variant="default" hover="lift" padding="none" className="overflow-hidden group">
-                  <div className="aspect-[3/4] bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-muted)] flex items-center justify-center">
-                    <Users className="w-16 h-16 text-[var(--color-border)]" />
+                  <div className="aspect-[3/4]">
+                    <DemoImage
+                      alt={attorney.name}
+                      category="law-firm"
+                      aspect="portrait"
+                      className="w-full h-full"
+                    />
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-[var(--color-foreground)]">
