@@ -5,6 +5,7 @@ import { ArrowDown, Mail, MapPin, Phone, Send } from "lucide-react";
 import { demos } from "@/lib/themes";
 import { DemoGrid } from "@/components/showcase";
 import { CustomCursor } from "@/components/effects";
+import { CookieConsentProvider, useCookieConsent } from "@/components/ui/CookieBanner";
 import { useState, FormEvent } from "react";
 
 // Animated text reveal component with hover effects
@@ -256,6 +257,206 @@ function ContactForm() {
   );
 }
 
+// Footer with cookie settings button
+function SiteFooter() {
+  const { openSettings } = useCookieConsent();
+
+  return (
+    <footer className="relative border-t border-white/5 px-6 md:px-12 lg:px-20 py-12">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <a href="https://m2b.solutions" className="flex items-center group">
+          <img
+            src="https://m2b.solutions/LogoStretched.webp"
+            alt="M2B Solutions"
+            className="h-8 w-auto brightness-0 invert group-hover:opacity-80 transition-opacity"
+          />
+        </a>
+
+        <p className="text-sm text-zinc-500">
+          © 2026 M2B Solutions. Alle Rechte vorbehalten.
+        </p>
+
+        <div className="flex items-center gap-4 flex-wrap justify-center">
+          <a
+            href="https://m2b.solutions/impressum"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-zinc-400 hover:text-white transition-colors"
+          >
+            Impressum
+          </a>
+          <a
+            href="https://m2b.solutions/datenschutz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-zinc-400 hover:text-white transition-colors"
+          >
+            Datenschutz
+          </a>
+          <button
+            onClick={openSettings}
+            className="text-sm text-zinc-400 hover:text-white transition-colors"
+          >
+            Cookie-Einstellungen
+          </button>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+// Contact Section with consent check
+function ContactSection() {
+  const { consent } = useCookieConsent();
+
+  return (
+    <section id="contact" className="relative px-6 md:px-12 lg:px-20 py-32">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent pointer-events-none" />
+
+      <motion.div
+        className="max-w-7xl mx-auto"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+      >
+        {/* Section header */}
+        <div className="text-center mb-16">
+          <span className="text-sm font-medium text-cyan-400 uppercase tracking-widest">
+            Kontakt
+          </span>
+          <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            Lassen Sie uns zusammenarbeiten
+          </h2>
+          <p className="mt-4 text-lg text-zinc-400 max-w-2xl mx-auto">
+            Haben Sie ein Projekt im Sinn? Wir freuen uns darauf, mehr zu erfahren. Schreiben Sie uns und lassen Sie uns gemeinsam etwas Großartiges erschaffen.
+          </p>
+        </div>
+
+        {consent === "accepted" ? (
+          <div className="grid lg:grid-cols-2 gap-16">
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <ContactForm />
+            </motion.div>
+
+            {/* Contact Info */}
+            <motion.div
+              className="space-y-8"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Kontaktinformationen</h3>
+                <p className="text-zinc-400 leading-relaxed">
+                  Ob Sie eine Frage haben, ein Projekt starten möchten oder einfach in Kontakt treten wollen — wir freuen uns auf Ihre Nachricht.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                <motion.a
+                  href="mailto:info@m2b.solutions"
+                  className="flex items-center gap-4 p-4 bg-zinc-900/50 border border-white/5 rounded-xl hover:border-cyan-500/30 transition-colors group"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 flex items-center justify-center">
+                    <Mail className="w-5 h-5 text-cyan-400" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-zinc-500">E-Mail</div>
+                    <div className="text-white group-hover:text-cyan-400 transition-colors">info@m2b.solutions</div>
+                  </div>
+                </motion.a>
+
+                <motion.a
+                  href="tel:+4917656127211"
+                  className="flex items-center gap-4 p-4 bg-zinc-900/50 border border-white/5 rounded-xl hover:border-emerald-500/30 transition-colors group"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 flex items-center justify-center">
+                    <Phone className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-zinc-500">Telefon</div>
+                    <div className="text-white group-hover:text-emerald-400 transition-colors">+49 176 56127211</div>
+                  </div>
+                </motion.a>
+
+                <motion.div
+                  className="flex items-center gap-4 p-4 bg-zinc-900/50 border border-white/5 rounded-xl"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-zinc-500">Standort</div>
+                    <div className="text-white">Weltweit verfügbar (Remote)</div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Availability Badge */}
+              <motion.div
+                className="inline-flex items-center gap-3 px-5 py-3 bg-emerald-500/10 border border-emerald-500/20 rounded-full"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+              >
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </span>
+                <span className="text-emerald-400 font-medium">Verfügbar für neue Projekte</span>
+              </motion.div>
+            </motion.div>
+          </div>
+        ) : (
+          <motion.div
+            className="max-w-2xl mx-auto text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-8">
+              <p className="text-zinc-400 mb-6">
+                Um unser Kontaktformular zu nutzen, müssen Sie unsere Datenschutzrichtlinien akzeptieren.
+              </p>
+              <div className="space-y-4">
+                <motion.a
+                  href="mailto:info@m2b.solutions"
+                  className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                  whileHover={{ x: 5 }}
+                >
+                  <Mail className="w-5 h-5" />
+                  info@m2b.solutions
+                </motion.a>
+                <br />
+                <motion.a
+                  href="tel:+4917656127211"
+                  className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"
+                  whileHover={{ x: 5 }}
+                >
+                  <Phone className="w-5 h-5" />
+                  +49 176 56127211
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </motion.div>
+    </section>
+  );
+}
+
 // Floating orb decoration
 function FloatingOrb({
   className,
@@ -283,7 +484,7 @@ function FloatingOrb({
 
 export default function HomePage() {
   return (
-    <>
+    <CookieConsentProvider>
       <CustomCursor />
 
       <main className="min-h-screen bg-zinc-950 text-white overflow-hidden">
@@ -333,10 +534,11 @@ export default function HomePage() {
             transition={{ delay: 0.5, duration: 0.6 }}
           >
             <a href="https://m2b.solutions" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M2B</span>
-              </div>
-              <span className="font-semibold text-lg group-hover:text-cyan-400 transition-colors">M2B Solutions</span>
+              <img
+                src="https://m2b.solutions/LogoStretched.webp"
+                alt="M2B Solutions"
+                className="h-16 w-auto brightness-0 invert group-hover:opacity-80 transition-opacity"
+              />
             </a>
 
             <div className="flex items-center gap-4">
@@ -452,149 +654,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="relative px-6 md:px-12 lg:px-20 py-32">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent pointer-events-none" />
+        <ContactSection />
 
-          <motion.div
-            className="max-w-7xl mx-auto"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            {/* Section header */}
-            <div className="text-center mb-16">
-              <span className="text-sm font-medium text-cyan-400 uppercase tracking-widest">
-                Kontakt
-              </span>
-              <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                Lassen Sie uns zusammenarbeiten
-              </h2>
-              <p className="mt-4 text-lg text-zinc-400 max-w-2xl mx-auto">
-                Haben Sie ein Projekt im Sinn? Wir freuen uns darauf, mehr zu erfahren. Schreiben Sie uns und lassen Sie uns gemeinsam etwas Großartiges erschaffen.
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-16">
-              {/* Contact Form */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                <ContactForm />
-              </motion.div>
-
-              {/* Contact Info */}
-              <motion.div
-                className="space-y-8"
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-              >
-                <div>
-                  <h3 className="text-2xl font-bold mb-4">Kontaktinformationen</h3>
-                  <p className="text-zinc-400 leading-relaxed">
-                    Ob Sie eine Frage haben, ein Projekt starten möchten oder einfach in Kontakt treten wollen — wir freuen uns auf Ihre Nachricht.
-                  </p>
-                </div>
-
-                <div className="space-y-6">
-                  <motion.a
-                    href="mailto:info@m2b.solutions"
-                    className="flex items-center gap-4 p-4 bg-zinc-900/50 border border-white/5 rounded-xl hover:border-cyan-500/30 transition-colors group"
-                    whileHover={{ x: 5 }}
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-cyan-400" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-zinc-500">E-Mail</div>
-                      <div className="text-white group-hover:text-cyan-400 transition-colors">info@m2b.solutions</div>
-                    </div>
-                  </motion.a>
-
-                  <motion.a
-                    href="tel:+4917656127211"
-                    className="flex items-center gap-4 p-4 bg-zinc-900/50 border border-white/5 rounded-xl hover:border-emerald-500/30 transition-colors group"
-                    whileHover={{ x: 5 }}
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-emerald-400" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-zinc-500">Telefon</div>
-                      <div className="text-white group-hover:text-emerald-400 transition-colors">+49 176 56127211</div>
-                    </div>
-                  </motion.a>
-
-                  <motion.div
-                    className="flex items-center gap-4 p-4 bg-zinc-900/50 border border-white/5 rounded-xl"
-                    whileHover={{ x: 5 }}
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-blue-400" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-zinc-500">Standort</div>
-                      <div className="text-white">Weltweit verfügbar (Remote)</div>
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Availability Badge */}
-                <motion.div
-                  className="inline-flex items-center gap-3 px-5 py-3 bg-emerald-500/10 border border-emerald-500/20 rounded-full"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 }}
-                >
-                  <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                  </span>
-                  <span className="text-emerald-400 font-medium">Verfügbar für neue Projekte</span>
-                </motion.div>
-              </motion.div>
-            </div>
-          </motion.div>
-        </section>
-
-        {/* Footer */}
-        <footer className="relative border-t border-white/5 px-6 md:px-12 lg:px-20 py-12">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <a href="https://m2b.solutions" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M2B</span>
-              </div>
-              <span className="font-semibold group-hover:text-cyan-400 transition-colors">M2B Solutions</span>
-            </a>
-
-            <p className="text-sm text-zinc-500">
-              © 2026 M2B Solutions. Alle Rechte vorbehalten.
-            </p>
-
-            <div className="flex items-center gap-4">
-              <a
-                href="https://m2b.solutions"
-                className="text-sm text-zinc-400 hover:text-white transition-colors"
-              >
-                Hauptseite
-              </a>
-              <a
-                href="mailto:info@m2b.solutions"
-                className="text-sm text-zinc-400 hover:text-white transition-colors"
-              >
-                info@m2b.solutions
-              </a>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </main>
-    </>
+    </CookieConsentProvider>
   );
 }
