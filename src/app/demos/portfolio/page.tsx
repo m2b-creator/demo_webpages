@@ -96,7 +96,7 @@ export default function PortfolioDemo() {
       />
 
       {/* Hero */}
-      <section className="min-h-screen flex items-center pt-20 bg-[var(--color-background)]">
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-[var(--color-background)]">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div

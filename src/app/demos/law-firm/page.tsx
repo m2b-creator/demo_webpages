@@ -146,7 +146,7 @@ export default function LawFirmDemo() {
       />
 
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center pt-20 bg-[var(--color-background)]">
+      <section className="relative pt-24 pb-12 md:pt-28 md:pb-16 bg-[var(--color-background)]">
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)]/5 to-transparent" />
         <div className="container mx-auto px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -154,19 +154,20 @@ export default function LawFirmDemo() {
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
+              className="text-center lg:text-left"
             >
               <span className="text-sm font-medium text-[var(--color-accent)] uppercase tracking-widest">
                 Gegründet 1975
               </span>
-              <h1 className="mt-4 text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-foreground)] leading-tight">
+              <h1 className="mt-4 text-4xl md:text-5xl lg:text-7xl font-bold text-[var(--color-foreground)] leading-tight">
                 Rechtliche Exzellenz,
                 <br />
                 <span className="text-[var(--color-primary)]">Vertrauenswürdige Ergebnisse</span>
               </h1>
-              <p className="mt-6 text-xl text-[var(--color-muted-foreground)] max-w-lg leading-relaxed">
+              <p className="mt-6 text-lg md:text-xl text-[var(--color-muted-foreground)] max-w-lg mx-auto lg:mx-0 leading-relaxed">
                 Seit fast 50 Jahren bieten wir erstklassige Rechtsvertretung für Unternehmen und Privatpersonen deutschlandweit.
               </p>
-              <div className="flex flex-wrap gap-4 mt-8">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-8">
                 <Button size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
                   Beratung vereinbaren
                 </Button>
@@ -178,7 +179,7 @@ export default function LawFirmDemo() {
               {/* Stats Row */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-[var(--color-border)]">
                 {stats.map((stat, index) => (
-                  <div key={index}>
+                  <div key={index} className="text-center lg:text-left">
                     <div className="text-2xl font-bold text-[var(--color-primary)]">{stat.value}</div>
                     <div className="text-sm text-[var(--color-muted-foreground)]">{stat.label}</div>
                   </div>

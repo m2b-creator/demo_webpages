@@ -14,6 +14,32 @@ interface ContactInfo {
   hours?: string;
 }
 
+interface ContactLabels {
+  name?: string;
+  fullName?: string;
+  email?: string;
+  phone?: string;
+  phoneOptional?: string;
+  message?: string;
+  howCanWeHelp?: string;
+  sendMessage?: string;
+  messageSent?: string;
+  messageSentDescription?: string;
+}
+
+const defaultLabels: ContactLabels = {
+  name: "Name",
+  fullName: "Vollständiger Name",
+  email: "E-Mail",
+  phone: "Telefon",
+  phoneOptional: "Telefon (optional)",
+  message: "Nachricht",
+  howCanWeHelp: "Wie können wir Ihnen helfen?",
+  sendMessage: "Nachricht senden",
+  messageSent: "Nachricht gesendet!",
+  messageSentDescription: "Wir melden uns schnellstmöglich bei Ihnen.",
+};
+
 interface ContactProps {
   badge?: string;
   title?: string;
@@ -21,6 +47,7 @@ interface ContactProps {
   contactInfo?: ContactInfo;
   variant?: "split" | "centered" | "minimal";
   className?: string;
+  labels?: ContactLabels;
   onSubmit?: (data: FormData) => void;
 }
 
@@ -33,13 +60,15 @@ interface FormData {
 
 export function Contact({
   badge,
-  title = "Get in Touch",
+  title = "Kontaktieren Sie uns",
   subtitle,
   contactInfo,
   variant = "split",
   className,
+  labels: customLabels,
   onSubmit,
 }: ContactProps) {
+  const labels = { ...defaultLabels, ...customLabels };
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -110,17 +139,17 @@ export function Contact({
               >
                 <CheckCircle className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-[var(--color-foreground)]">
-                  Message Sent!
+                  {labels.messageSent}
                 </h3>
                 <p className="mt-2 text-[var(--color-muted-foreground)]">
-                  We&apos;ll get back to you as soon as possible.
+                  {labels.messageSentDescription}
                 </p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="mt-8 space-y-4 text-left">
                 <Input
                   name="name"
-                  label="Name"
+                  label={labels.name}
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -128,14 +157,14 @@ export function Contact({
                 <Input
                   name="email"
                   type="email"
-                  label="Email"
+                  label={labels.email}
                   value={formData.email}
                   onChange={handleChange}
                   required
                 />
                 <Textarea
                   name="message"
-                  label="Message"
+                  label={labels.message}
                   value={formData.message}
                   onChange={handleChange}
                   required
@@ -147,7 +176,7 @@ export function Contact({
                   isLoading={isLoading}
                   rightIcon={<Send className="w-4 h-4" />}
                 >
-                  Send Message
+                  {labels.sendMessage}
                 </Button>
               </form>
             )}
@@ -197,7 +226,7 @@ export function Contact({
                     </div>
                     <div>
                       <div className="text-sm text-[var(--color-muted-foreground)]">
-                        Email
+                        E-Mail
                       </div>
                       <a
                         href={`mailto:${contactInfo.email}`}
@@ -216,7 +245,7 @@ export function Contact({
                     </div>
                     <div>
                       <div className="text-sm text-[var(--color-muted-foreground)]">
-                        Phone
+                        Telefon
                       </div>
                       <a
                         href={`tel:${contactInfo.phone}`}
@@ -235,7 +264,7 @@ export function Contact({
                     </div>
                     <div>
                       <div className="text-sm text-[var(--color-muted-foreground)]">
-                        Address
+                        Adresse
                       </div>
                       <div className="font-medium text-[var(--color-foreground)]">
                         {contactInfo.address}
@@ -273,7 +302,7 @@ export function Contact({
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <Input
                     name="name"
-                    label="Full Name"
+                    label={labels.fullName}
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -282,7 +311,7 @@ export function Contact({
                     <Input
                       name="email"
                       type="email"
-                      label="Email"
+                      label={labels.email}
                       value={formData.email}
                       onChange={handleChange}
                       required
@@ -290,14 +319,14 @@ export function Contact({
                     <Input
                       name="phone"
                       type="tel"
-                      label="Phone (optional)"
+                      label={labels.phoneOptional}
                       value={formData.phone}
                       onChange={handleChange}
                     />
                   </div>
                   <Textarea
                     name="message"
-                    label="How can we help?"
+                    label={labels.howCanWeHelp}
                     value={formData.message}
                     onChange={handleChange}
                     required
@@ -309,7 +338,7 @@ export function Contact({
                     isLoading={isLoading}
                     rightIcon={<Send className="w-4 h-4" />}
                   >
-                    Send Message
+                    {labels.sendMessage}
                   </Button>
                 </form>
               )}

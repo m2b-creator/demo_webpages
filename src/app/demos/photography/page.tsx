@@ -76,9 +76,9 @@ export default function PhotographyDemo() {
       />
 
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center bg-[var(--color-background)]">
+      <section className="relative pt-24 pb-12 md:pt-28 md:pb-16 bg-[var(--color-background)]">
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-background)] via-transparent to-[var(--color-background)]" />
-        <div className="container mx-auto px-6 lg:px-8 relative pt-20">
+        <div className="container mx-auto px-6 lg:px-8 relative">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -110,17 +110,17 @@ export default function PhotographyDemo() {
 
             {/* Stats */}
             <motion.div
-              className="flex justify-center gap-12 md:gap-16 mt-20"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-12 mt-16 max-w-2xl mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-[var(--color-foreground)]">
+                  <div className="text-2xl md:text-4xl font-bold text-[var(--color-foreground)]">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-[var(--color-muted-foreground)] mt-1">
+                  <div className="text-xs md:text-sm text-[var(--color-muted-foreground)] mt-1">
                     {stat.label}
                   </div>
                 </div>

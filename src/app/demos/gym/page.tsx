@@ -128,7 +128,7 @@ export default function GymDemo() {
       />
 
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center pt-20 bg-[var(--color-background)]">
+      <section className="relative pt-24 pb-12 md:pt-28 md:pb-16 bg-[var(--color-background)]">
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-transparent" />
         <div className="container mx-auto px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -331,11 +331,11 @@ export default function GymDemo() {
                   className={`h-full relative ${plan.popular ? "ring-2 ring-[var(--color-primary)]" : ""}`}
                 >
                   {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[var(--color-primary)] text-white text-xs font-bold rounded-full">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[var(--color-primary)] text-white text-xs font-bold rounded-full whitespace-nowrap">
                       AM BELIEBTESTEN
                     </div>
                   )}
-                  <div className="text-center mb-6">
+                  <div className={`text-center mb-6 ${plan.popular ? "pt-4" : ""}`}>
                     <h3 className="text-xl font-bold text-[var(--color-foreground)]">{plan.name}</h3>
                     <div className="mt-4">
                       <span className="text-5xl font-black text-[var(--color-foreground)]">{plan.price}</span>

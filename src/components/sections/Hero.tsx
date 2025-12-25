@@ -66,7 +66,7 @@ export function Hero({
     return (
       <section
         className={cn(
-          "relative min-h-[90vh] flex items-center overflow-hidden",
+          "relative pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden",
           "bg-[var(--color-background)]",
           className
         )}
@@ -76,7 +76,7 @@ export function Hero({
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Content */}
             <motion.div
-              className="space-y-8"
+              className="space-y-8 text-center lg:text-left"
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -97,12 +97,12 @@ export function Hero({
               </h1>
 
               {subtitle && (
-                <p className="text-lg md:text-xl text-[var(--color-muted-foreground)] max-w-lg leading-relaxed">
+                <p className="text-lg md:text-xl text-[var(--color-muted-foreground)] max-w-lg mx-auto lg:mx-0 leading-relaxed">
                   {subtitle}
                 </p>
               )}
 
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
                 {primaryCTA && (
                   <Button size="lg" onClick={primaryCTA.onClick}>
                     {primaryCTA.text}
@@ -119,7 +119,7 @@ export function Hero({
             {/* Image */}
             {image && (
               <motion.div
-                className="relative"
+                className="relative hidden lg:block"
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -168,7 +168,7 @@ export function Hero({
     return (
       <section
         className={cn(
-          "relative min-h-screen flex items-center justify-center overflow-hidden",
+          "relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden",
           "bg-[var(--color-background)]",
           className
         )}
@@ -199,7 +199,7 @@ export function Hero({
             )}
 
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-[var(--color-foreground)]"
+              className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-[var(--color-foreground)]"
               variants={{
                 hidden: { opacity: 0, y: 40 },
                 visible: {
@@ -214,7 +214,7 @@ export function Hero({
 
             {subtitle && (
               <motion.p
-                className="text-xl md:text-2xl text-[var(--color-muted-foreground)] max-w-2xl mx-auto"
+                className="text-lg md:text-xl lg:text-2xl text-[var(--color-muted-foreground)] max-w-2xl mx-auto"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 },
@@ -252,7 +252,7 @@ export function Hero({
   return (
     <section
       className={cn(
-        "relative min-h-[80vh] flex items-center justify-center overflow-hidden",
+        "relative pt-24 pb-12 md:pt-28 md:pb-16 overflow-hidden",
         "bg-[var(--color-background)]",
         className
       )}

@@ -127,13 +127,14 @@ export default function MedicalDemo() {
       />
 
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 bg-gradient-to-br from-[var(--color-background)] to-[var(--color-secondary)]">
+      <section className="relative pt-24 pb-12 md:pt-28 md:pb-16 bg-gradient-to-br from-[var(--color-background)] to-[var(--color-secondary)]">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
+              className="text-center lg:text-left"
             >
               <motion.span
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-medium"
@@ -144,15 +145,15 @@ export default function MedicalDemo() {
                 <Star className="w-4 h-4 fill-current" />
                 Nr. 1 in Patientenzufriedenheit
               </motion.span>
-              <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-foreground)] leading-tight">
+              <h1 className="mt-6 text-4xl md:text-5xl lg:text-7xl font-bold text-[var(--color-foreground)] leading-tight">
                 Ihre Gesundheit,
                 <br />
                 <span className="text-[var(--color-primary)]">Unsere Priorität</span>
               </h1>
-              <p className="mt-6 text-xl text-[var(--color-muted-foreground)] max-w-lg">
+              <p className="mt-6 text-lg md:text-xl text-[var(--color-muted-foreground)] max-w-lg mx-auto lg:mx-0">
                 Umfassende Gesundheitsversorgung mit einfühlsamer, persönlicher Betreuung. Erleben Sie den Unterschied patientenzentrierter Medizin.
               </p>
-              <div className="flex flex-wrap gap-4 mt-8">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-8">
                 <Button size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
                   Termin buchen
                 </Button>
@@ -162,7 +163,7 @@ export default function MedicalDemo() {
               </div>
 
               {/* Quick Info */}
-              <div className="flex flex-wrap gap-6 mt-10">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6 mt-10">
                 <div className="flex items-center gap-2 text-sm text-[var(--color-muted-foreground)]">
                   <Clock className="w-4 h-4 text-[var(--color-primary)]" />
                   7 Tage die Woche geöffnet

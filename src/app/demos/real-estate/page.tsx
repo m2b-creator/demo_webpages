@@ -139,10 +139,10 @@ export default function RealEstateDemo() {
       />
 
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 bg-gradient-to-br from-[var(--color-background)] to-[var(--color-muted)]">
+      <section className="relative pt-24 pb-12 md:pt-28 md:pb-16 bg-gradient-to-br from-[var(--color-background)] to-[var(--color-muted)]">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.div
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -150,18 +150,18 @@ export default function RealEstateDemo() {
             <span className="text-sm font-medium text-[var(--color-primary)] uppercase tracking-widest">
               Willkommen bei Luxe Realty
             </span>
-            <h1 className="mt-4 text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-foreground)] leading-tight">
+            <h1 className="mt-4 text-4xl md:text-5xl lg:text-7xl font-bold text-[var(--color-foreground)] leading-tight">
               Finden Sie Ihr perfektes
               <span className="text-[var(--color-primary)]"> Zuhause</span>
             </h1>
-            <p className="mt-6 text-xl text-[var(--color-muted-foreground)] max-w-xl">
+            <p className="mt-6 text-lg md:text-xl text-[var(--color-muted-foreground)] max-w-xl mx-auto lg:mx-0">
               Entdecken Sie außergewöhnliche Immobilien in den begehrtesten Lagen der Welt mit unserem persönlichen Immobilienservice.
             </p>
           </motion.div>
 
           {/* Search Box */}
           <motion.div
-            className="mt-12 max-w-4xl"
+            className="mt-12 max-w-4xl mx-auto lg:mx-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -209,7 +209,7 @@ export default function RealEstateDemo() {
             transition={{ delay: 0.6 }}
           >
             {stats.map((stat, index) => (
-              <div key={index} className="text-center md:text-left">
+              <div key={index} className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-[var(--color-foreground)]">
                   {stat.value}
                 </div>

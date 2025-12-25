@@ -109,7 +109,7 @@ export default function AgencyDemo() {
       />
 
       {/* Hero */}
-      <section className="min-h-screen flex items-center pt-20 bg-[var(--color-background)]">
+      <section className="pt-24 pb-12 md:pt-28 md:pb-16 bg-[var(--color-background)]">
         <div className="container mx-auto px-6 lg:px-8">
           <motion.div
             className="max-w-4xl"

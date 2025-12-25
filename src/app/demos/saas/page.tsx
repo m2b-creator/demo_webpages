@@ -174,9 +174,9 @@ export default function SaaSDemo() {
                 </motion.button>
               </div>
             </div>
-            {/* Floating UI elements */}
+            {/* Floating UI elements - hidden on mobile */}
             <motion.div
-              className="absolute -left-8 top-1/4 p-4 rounded-xl bg-[var(--color-card)] shadow-xl border border-[var(--color-border)]"
+              className="hidden lg:block absolute -left-8 top-1/4 p-4 rounded-xl bg-[var(--color-card)] shadow-xl border border-[var(--color-border)]"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8 }}
@@ -192,7 +192,7 @@ export default function SaaSDemo() {
               </div>
             </motion.div>
             <motion.div
-              className="absolute -right-8 bottom-1/4 p-4 rounded-xl bg-[var(--color-card)] shadow-xl border border-[var(--color-border)]"
+              className="hidden lg:block absolute -right-8 bottom-1/4 p-4 rounded-xl bg-[var(--color-card)] shadow-xl border border-[var(--color-border)]"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1 }}
@@ -288,11 +288,11 @@ export default function SaaSDemo() {
                   className={`h-full relative ${plan.popular ? "ring-2 ring-[var(--color-primary)]" : ""}`}
                 >
                   {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[var(--color-primary)] text-[var(--color-primary-foreground)] text-xs font-medium rounded-full">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[var(--color-primary)] text-[var(--color-primary-foreground)] text-xs font-medium rounded-full whitespace-nowrap">
                       Am beliebtesten
                     </div>
                   )}
-                  <div className="text-center mb-6">
+                  <div className={`text-center mb-6 ${plan.popular ? "pt-4" : ""}`}>
                     <h3 className="text-xl font-semibold text-[var(--color-foreground)]">
                       {plan.name}
                     </h3>

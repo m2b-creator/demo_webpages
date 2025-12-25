@@ -102,6 +102,7 @@ export default function BlogDemo() {
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
+              className="text-center lg:text-left"
             >
               <span className="inline-block px-3 py-1 rounded-full bg-[var(--color-accent)] text-[var(--color-accent-foreground)] text-xs font-medium uppercase tracking-wider">
                 Empfohlen
@@ -109,10 +110,10 @@ export default function BlogDemo() {
               <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[var(--color-foreground)] leading-tight">
                 {featuredPost.title}
               </h1>
-              <p className="mt-6 text-lg text-[var(--color-muted-foreground)] leading-relaxed">
+              <p className="mt-6 text-lg text-[var(--color-muted-foreground)] leading-relaxed max-w-lg mx-auto lg:mx-0">
                 {featuredPost.excerpt}
               </p>
-              <div className="flex items-center gap-6 mt-8">
+              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 mt-8">
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-10 rounded-full bg-[var(--color-muted)] flex items-center justify-center">
                     <User className="w-5 h-5 text-[var(--color-muted-foreground)]" />
@@ -124,9 +125,11 @@ export default function BlogDemo() {
                   <span>{featuredPost.readTime}</span>
                 </div>
               </div>
-              <Button className="mt-8" size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                Artikel lesen
-              </Button>
+              <div className="flex justify-center lg:justify-start">
+                <Button className="mt-8" size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
+                  Artikel lesen
+                </Button>
+              </div>
             </motion.div>
 
             <motion.div

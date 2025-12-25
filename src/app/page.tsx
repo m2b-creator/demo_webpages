@@ -15,7 +15,7 @@ function AnimatedTitle() {
 
   return (
     <motion.h1
-      className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter leading-[1.1]"
+      className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter leading-[1.1] text-center lg:text-left"
       initial="hidden"
       animate="visible"
       variants={{
@@ -387,7 +387,14 @@ function ContactSection() {
             >
               ✦
             </motion.span>{" "}
-            Kontakt
+            Kontakt{" "}
+            <motion.span
+              className="inline-block"
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            >
+              ✦
+            </motion.span>
           </motion.span>
           <motion.h2
             className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
@@ -400,8 +407,8 @@ function ContactSection() {
               <motion.span
                 key={i}
                 className="inline-block mr-4"
-                whileHover={{ 
-                  scale: 1.1, 
+                whileHover={{
+                  scale: 1.1,
                   color: "#22d3ee",
                   textShadow: "0 0 30px rgba(34, 211, 238, 0.5)"
                 }}
@@ -442,7 +449,7 @@ function ContactSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <div>
+              <div className="text-center lg:text-left">
                 <h3 className="text-2xl font-bold mb-4">Kontaktinformationen</h3>
                 <p className="text-zinc-400 leading-relaxed">
                   Ob Sie eine Frage haben, ein Projekt starten möchten oder einfach in Kontakt treten wollen — wir freuen uns auf Ihre Nachricht.
@@ -492,22 +499,6 @@ function ContactSection() {
                 </motion.div>
               </div>
 
-              {/* Availability Badge */}
-              <div className="flex justify-center lg:justify-start">
-                <motion.div
-                  className="inline-flex items-center gap-3 px-5 py-3 bg-emerald-500/10 border border-emerald-500/20 rounded-full"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 }}
-                >
-                  <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                  </span>
-                  <span className="text-emerald-400 font-medium">Verfügbar für neue Projekte</span>
-                </motion.div>
-              </div>
             </motion.div>
           </div>
         ) : (
@@ -702,7 +693,7 @@ function SectionHeader({
 }) {
   return (
     <motion.div
-      className="max-w-7xl mx-auto mb-16"
+      className="max-w-7xl mx-auto mb-16 text-center lg:text-left"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -728,7 +719,14 @@ function SectionHeader({
         >
           ✦
         </motion.span>{" "}
-        {label}
+        {label}{" "}
+        <motion.span
+          className="inline-block"
+          animate={{ opacity: [1, 0.5, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          ✦
+        </motion.span>
       </motion.span>
       <motion.h2
         className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
@@ -750,7 +748,7 @@ function SectionHeader({
         ))}
       </motion.h2>
       <motion.p
-        className="mt-4 text-lg text-zinc-400 max-w-2xl"
+        className="mt-4 text-lg text-zinc-400 max-w-2xl mx-auto lg:mx-0"
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0 },
@@ -979,10 +977,26 @@ export default function HomePage() {
           {/* Hero content */}
           <div className="max-w-7xl mx-auto w-full">
             <div className="space-y-8">
+              {/* Availability Badge */}
+              <motion.div
+                className="flex justify-center lg:justify-start"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-emerald-400 font-medium text-sm">Verfügbar für neue Projekte</span>
+                </div>
+              </motion.div>
+
               <AnimatedTitle />
 
               <motion.div
-                className="max-w-xl text-lg md:text-xl text-zinc-400 leading-relaxed overflow-hidden"
+                className="max-w-xl mx-auto lg:mx-0 text-lg md:text-xl text-zinc-400 leading-relaxed overflow-hidden text-center lg:text-left"
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -1010,7 +1024,7 @@ export default function HomePage() {
               </motion.div>
 
               <motion.div
-                className="flex flex-col sm:flex-row flex-wrap items-center sm:items-start gap-3 sm:gap-4 pt-4"
+                className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}

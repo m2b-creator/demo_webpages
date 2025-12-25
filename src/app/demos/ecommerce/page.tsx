@@ -102,7 +102,7 @@ export default function EcommerceDemo() {
       />
 
       {/* Hero Banner */}
-      <section className="relative min-h-[80vh] flex items-center bg-[var(--color-muted)]">
+      <section className="relative pt-28 pb-16 md:pt-32 md:pb-20 bg-[var(--color-muted)]">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -264,35 +264,27 @@ export default function EcommerceDemo() {
               >
                 <Card variant="default" hover="lift" padding="none" className="group overflow-hidden">
                   {/* Product Image */}
-                  <div className="relative aspect-[4/5] bg-[var(--color-background)]">
+                  <div className="relative aspect-[3/4] bg-[var(--color-background)] overflow-hidden">
                     <DemoImage
                       alt={product.name}
                       category="ecommerce"
                       aspect="portrait"
-                      className="w-full h-full"
+                      className="w-full h-full object-cover"
                     />
                     {/* Badge */}
                     {product.badge && (
-                      <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[var(--color-foreground)] text-[var(--color-background)] text-xs font-medium">
+                      <div className="absolute top-3 left-3 px-2 py-1 rounded-full bg-[var(--color-foreground)] text-[var(--color-background)] text-xs font-medium">
                         {product.badge}
                       </div>
                     )}
                     {/* Quick Actions */}
-                    <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <motion.button
-                        className="w-10 h-10 rounded-full bg-[var(--color-background)] shadow-lg flex items-center justify-center"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Heart className="w-5 h-5" />
-                      </motion.button>
-                    </div>
-                    {/* Add to Cart */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent translate-y-full group-hover:translate-y-0 transition-transform">
-                      <Button variant="secondary" size="sm" className="w-full">
-                        In den Warenkorb
-                      </Button>
-                    </div>
+                    <motion.button
+                      className="absolute top-3 right-3 w-9 h-9 rounded-full bg-[var(--color-background)]/90 shadow-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Heart className="w-4 h-4" />
+                    </motion.button>
                   </div>
                   {/* Product Info */}
                   <div className="p-4">
@@ -325,6 +317,9 @@ export default function EcommerceDemo() {
                         ({product.reviews})
                       </span>
                     </div>
+                    <Button variant="outline" size="sm" className="w-full mt-3">
+                      In den Warenkorb
+                    </Button>
                   </div>
                 </Card>
               </motion.div>

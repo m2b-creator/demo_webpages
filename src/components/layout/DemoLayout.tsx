@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Palette, Menu, X } from "lucide-react";
 import { ThemeProvider } from "@/lib/hooks/useTheme";
@@ -22,6 +22,8 @@ export function DemoLayout({
   showThemeSwitcher = true,
   showBackButton = true,
 }: DemoLayoutProps) {
+  const router = useRouter();
+
   return (
     <ThemeProvider theme={theme}>
       <CustomCursor />
@@ -29,31 +31,30 @@ export function DemoLayout({
       {/* Back to Overview floating button */}
       {showBackButton && (
         <motion.div
-          className="fixed top-4 left-4 md:top-6 md:left-6 z-[100]"
+          className="fixed top-20 left-4 sm:top-6 sm:left-6 z-[100]"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <Link href="/">
+          <motion.button
+            onClick={() => router.back()}
+            className="flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-5 md:py-3 rounded-full bg-zinc-900/95 backdrop-blur-xl border border-white/15 shadow-2xl text-xs md:text-sm font-semibold text-white cursor-pointer"
+            whileHover={{
+              scale: 1.05,
+              x: -4,
+              boxShadow: "0 20px 40px -10px rgba(0,0,0,0.4)"
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
             <motion.div
-              className="flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-5 md:py-3 rounded-full bg-zinc-900/95 backdrop-blur-xl border border-white/15 shadow-2xl text-xs md:text-sm font-semibold text-white"
-              whileHover={{
-                scale: 1.05,
-                x: -4,
-                boxShadow: "0 20px 40px -10px rgba(0,0,0,0.4)"
-              }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ x: -3 }}
+              transition={{ type: "spring", stiffness: 400 }}
             >
-              <motion.div
-                whileHover={{ x: -3 }}
-                transition={{ type: "spring", stiffness: 400 }}
-              >
-                <ArrowLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              </motion.div>
-              <span className="hidden sm:inline">Back to Overview</span>
-              <span className="sm:hidden">Back</span>
+              <ArrowLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
             </motion.div>
-          </Link>
+            <span className="hidden sm:inline">Zurück</span>
+            <span className="sm:hidden">Zurück</span>
+          </motion.button>
         </motion.div>
       )}
 
