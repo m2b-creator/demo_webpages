@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
-import { ArrowDown, Mail, MapPin, Phone, Send } from "lucide-react";
+import { ArrowDown, Mail, MapPin, Phone, Send, Menu, X } from "lucide-react";
 import { demos } from "@/lib/themes";
 import { DemoGrid } from "@/components/showcase";
 import { CustomCursor } from "@/components/effects";
@@ -358,7 +358,7 @@ function ContactSection() {
   const { consent } = useCookieConsent();
 
   return (
-    <section id="contact" className="relative px-6 md:px-12 lg:px-20 py-32">
+    <section id="contact" className="relative px-6 md:px-12 lg:px-20 pt-16 pb-32">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
@@ -493,19 +493,21 @@ function ContactSection() {
               </div>
 
               {/* Availability Badge */}
-              <motion.div
-                className="inline-flex items-center gap-3 px-5 py-3 bg-emerald-500/10 border border-emerald-500/20 rounded-full"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-              >
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                </span>
-                <span className="text-emerald-400 font-medium">Verfügbar für neue Projekte</span>
-              </motion.div>
+              <div className="flex justify-center lg:justify-start">
+                <motion.div
+                  className="inline-flex items-center gap-3 px-5 py-3 bg-emerald-500/10 border border-emerald-500/20 rounded-full"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-emerald-400 font-medium">Verfügbar für neue Projekte</span>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
         ) : (
@@ -761,6 +763,133 @@ function SectionHeader({
   );
 }
 
+// Mobile-friendly navigation with burger menu
+function MainNav() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "https://m2b.solutions", label: "Hauptseite", external: true },
+    { href: "#demos", label: "Demos", external: false },
+  ];
+
+  return (
+    <>
+      <motion.nav
+        className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 md:px-12 lg:px-20 py-4 md:py-6 z-40"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+      >
+        <a href="https://m2b.solutions" className="flex items-center gap-2 group">
+          <img
+            src="https://m2b.solutions/LogoStretched.webp"
+            alt="M2B Solutions"
+            className="h-12 md:h-16 w-auto brightness-0 invert group-hover:opacity-80 transition-opacity"
+          />
+        </a>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="https://m2b.solutions"
+            className="text-sm text-zinc-400 hover:text-white transition-colors"
+          >
+            ← Hauptseite
+          </a>
+          <a
+            href="#demos"
+            className="text-sm text-zinc-400 hover:text-white transition-colors"
+          >
+            Demos
+          </a>
+          <motion.a
+            href="#contact"
+            className="px-4 py-2 text-sm font-medium rounded-xl border border-white/20 text-white hover:bg-white/10 transition-colors"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Kontakt
+          </motion.a>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <motion.button
+          className="md:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          whileTap={{ scale: 0.95 }}
+          aria-label={isMobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </motion.button>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-30 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {/* Backdrop */}
+            <motion.div
+              className="absolute inset-0 bg-zinc-950/95 backdrop-blur-sm"
+              onClick={() => setIsMobileMenuOpen(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+
+            {/* Menu Content */}
+            <motion.div
+              className="absolute top-20 left-0 right-0 px-4"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="flex flex-col gap-3">
+                {navLinks.map((link, index) => (
+                  <motion.a
+                    key={link.href}
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    className="flex items-center justify-center py-3.5 rounded-xl text-base font-semibold text-white border border-white/20 bg-zinc-900/80 backdrop-blur-xl hover:bg-white/10 transition-all"
+                    onClick={() => !link.external && setIsMobileMenuOpen(false)}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + index * 0.05 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+
+                {/* CTA Button in mobile menu */}
+                <motion.a
+                  href="#contact"
+                  className="flex items-center justify-center gap-2 py-3.5 rounded-xl text-base font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  Projekt starten
+                  <Send className="w-4 h-4" />
+                </motion.a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
+
 // Glowing scroll indicator
 function ScrollIndicator() {
   return (
@@ -843,45 +972,9 @@ export default function HomePage() {
         <FloatingParticles />
 
         {/* Hero Section */}
-        <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20">
+        <section className="relative min-h-0 md:min-h-screen flex flex-col justify-start md:justify-center px-6 md:px-12 lg:px-20 pt-28 pb-40 md:pt-0 md:pb-0">
           {/* Navigation */}
-          <motion.nav
-            className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 md:px-12 lg:px-20 py-6"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            <a href="https://m2b.solutions" className="flex items-center gap-2 group">
-              <img
-                src="https://m2b.solutions/LogoStretched.webp"
-                alt="M2B Solutions"
-                className="h-16 w-auto brightness-0 invert group-hover:opacity-80 transition-opacity"
-              />
-            </a>
-
-            <div className="flex items-center gap-4">
-              <a
-                href="https://m2b.solutions"
-                className="text-sm text-zinc-400 hover:text-white transition-colors"
-              >
-                ← Hauptseite
-              </a>
-              <a
-                href="#demos"
-                className="text-sm text-zinc-400 hover:text-white transition-colors"
-              >
-                Demos
-              </a>
-              <motion.a
-                href="#contact"
-                className="px-4 py-2 text-sm font-medium rounded-xl border border-white/20 text-white hover:bg-white/10 transition-colors"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Kontakt
-              </motion.a>
-            </div>
-          </motion.nav>
+          <MainNav />
 
           {/* Hero content */}
           <div className="max-w-7xl mx-auto w-full">
@@ -917,7 +1010,7 @@ export default function HomePage() {
               </motion.div>
 
               <motion.div
-                className="flex flex-wrap gap-4 pt-4"
+                className="flex flex-col sm:flex-row flex-wrap items-center sm:items-start gap-3 sm:gap-4 pt-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
@@ -925,7 +1018,7 @@ export default function HomePage() {
                 <Magnetic strength={0.15}>
                   <motion.a
                     href="#demos"
-                    className="relative inline-flex items-center justify-center gap-2.5 h-14 px-8 text-lg font-medium rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_4px_20px_-4px_rgba(6,182,212,0.5)] hover:shadow-[0_8px_30px_-4px_rgba(6,182,212,0.6)] transition-shadow overflow-hidden group"
+                    className="relative inline-flex items-center justify-center gap-2 sm:gap-2.5 h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-medium rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_4px_20px_-4px_rgba(6,182,212,0.5)] hover:shadow-[0_8px_30px_-4px_rgba(6,182,212,0.6)] transition-shadow overflow-hidden group"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -935,7 +1028,7 @@ export default function HomePage() {
                       whileHover={{ x: 0, opacity: 1 }}
                       transition={{ duration: 0.4 }}
                     />
-                    <span className="relative z-10 flex items-center gap-2.5">
+                    <span className="relative z-10 flex items-center gap-2 sm:gap-2.5">
                       Projekte ansehen
                       <motion.span
                         animate={{ y: [0, 3, 0] }}
@@ -949,7 +1042,7 @@ export default function HomePage() {
                 <Magnetic strength={0.15}>
                   <motion.a
                     href="#contact"
-                    className="inline-flex items-center justify-center h-14 px-8 text-lg font-medium rounded-xl text-white hover:bg-white/10 transition-colors border border-white/20"
+                    className="inline-flex items-center justify-center h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-medium rounded-xl text-white hover:bg-white/10 transition-colors border border-white/20"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -968,7 +1061,7 @@ export default function HomePage() {
         <TechMarquee />
 
         {/* Demos Section */}
-        <section id="demos" className="relative px-6 md:px-12 lg:px-20 py-32">
+        <section id="demos" className="relative px-6 md:px-12 lg:px-20 pt-32 pb-16">
           {/* Section header */}
           <SectionHeader
             label="Portfolio"

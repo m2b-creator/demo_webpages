@@ -11,7 +11,7 @@ export function ThemeSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -132,7 +132,7 @@ export function ThemeSwitcherMinimal() {
 
   return (
     <motion.div
-      className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50"
+      className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] sm:w-auto max-w-md sm:max-w-none"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.8, type: "spring", stiffness: 100 }}
@@ -151,26 +151,27 @@ export function ThemeSwitcherMinimal() {
         }}
       />
 
-      <div className="relative flex flex-col items-center gap-3">
+      <div className="relative flex flex-col items-center gap-2 sm:gap-3">
         {/* Label */}
         <motion.span
-          className="text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-cyan-600 px-5 py-2 rounded-full shadow-lg shadow-violet-500/30"
+          className="text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-cyan-600 px-3 sm:px-5 py-1.5 sm:py-2 rounded-full shadow-lg shadow-violet-500/30"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2 }}
         >
-          <Palette className="w-4 h-4 inline mr-2 -mt-0.5" />
-          Try Different Themes
+          <Palette className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline mr-1.5 sm:mr-2 -mt-0.5" />
+          <span className="hidden sm:inline">Try Different Themes</span>
+          <span className="sm:hidden">Themes</span>
         </motion.span>
 
         {/* Color buttons */}
-        <div className="flex gap-3 px-5 py-4 bg-zinc-900/95 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl shadow-black/40">
+        <div className="flex gap-2 sm:gap-3 px-3 sm:px-5 py-3 sm:py-4 bg-zinc-900/95 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/20 shadow-2xl shadow-black/40">
           {availableSchemes.map((scheme, index) => (
             <motion.button
               key={scheme.id}
               onClick={() => setScheme(scheme.id)}
               className={cn(
-                "relative w-12 h-12 rounded-xl overflow-hidden",
+                "relative w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl overflow-hidden",
                 "transition-all duration-200",
                 "hover:shadow-lg hover:shadow-white/20",
                 currentScheme.id === scheme.id && "ring-2 ring-white ring-offset-2 ring-offset-zinc-900 scale-110"
@@ -198,7 +199,7 @@ export function ThemeSwitcherMinimal() {
                   animate={{ scale: 1 }}
                   className="absolute inset-0 flex items-center justify-center bg-black/20"
                 >
-                  <Check className="w-5 h-5 text-white drop-shadow-md" />
+                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-white drop-shadow-md" />
                 </motion.div>
               )}
             </motion.button>

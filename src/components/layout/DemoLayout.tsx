@@ -29,14 +29,14 @@ export function DemoLayout({
       {/* Back to Overview floating button */}
       {showBackButton && (
         <motion.div
-          className="fixed top-6 left-6 z-[100]"
+          className="fixed top-4 left-4 md:top-6 md:left-6 z-[100]"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
         >
           <Link href="/">
             <motion.div
-              className="flex items-center gap-2 px-5 py-3 rounded-full bg-zinc-900/95 backdrop-blur-xl border border-white/15 shadow-2xl text-sm font-semibold text-white"
+              className="flex items-center gap-1.5 md:gap-2 px-3 py-2 md:px-5 md:py-3 rounded-full bg-zinc-900/95 backdrop-blur-xl border border-white/15 shadow-2xl text-xs md:text-sm font-semibold text-white"
               whileHover={{
                 scale: 1.05,
                 x: -4,
@@ -48,9 +48,10 @@ export function DemoLayout({
                 whileHover={{ x: -3 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
               </motion.div>
-              <span>Back to Overview</span>
+              <span className="hidden sm:inline">Back to Overview</span>
+              <span className="sm:hidden">Back</span>
             </motion.div>
           </Link>
         </motion.div>
