@@ -12,8 +12,9 @@ interface CursorState {
 
 export function CustomCursor() {
   const [cursorState, setCursorState] = useState<CursorState>({ variant: "default" });
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Default to true
   const [isPointer, setIsPointer] = useState(false);
+  const [hasMoved, setHasMoved] = useState(false);
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -32,8 +33,9 @@ export function CustomCursor() {
     (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
+      if (!hasMoved) setHasMoved(true);
     },
-    [cursorX, cursorY]
+    [cursorX, cursorY, hasMoved]
   );
 
   useEffect(() => {
@@ -43,6 +45,17 @@ export function CustomCursor() {
 
     const handleMouseEnter = () => setIsVisible(true);
     const handleMouseLeave = () => setIsVisible(false);
+
+    // Check if mouse is already in the document on mount
+    const checkInitialPosition = (e: MouseEvent) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
+      setHasMoved(true);
+      setIsVisible(true);
+    };
+
+    // Fire once to get initial position
+    document.addEventListener("mousemove", checkInitialPosition, { once: true });
     const handleMouseDown = () => setCursorState((prev) => ({ ...prev, variant: "click" }));
     const handleMouseUp = () => setCursorState((prev) => ({
       ...prev,
@@ -76,10 +89,16 @@ export function CustomCursor() {
 
     // Add event listeners
     window.addEventListener("mousemove", handleMouseMove);
-    document.body.addEventListener("mouseenter", handleMouseEnter);
-    document.body.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mouseenter", handleMouseEnter);
+    document.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") {
+        setIsVisible(true);
+      }
+    });
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("focus", () => setIsVisible(true));
 
     // Add listeners to interactive elements
     const addInteractiveListeners = () => {
@@ -99,8 +118,8 @@ export function CustomCursor() {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      document.body.removeEventListener("mouseenter", handleMouseEnter);
-      document.body.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mouseenter", handleMouseEnter);
+      document.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
       observer.disconnect();
@@ -186,7 +205,7 @@ export function CustomCursor() {
         }}
         animate={{
           ...cursorVariants[cursorState.variant],
-          opacity: isVisible ? 1 : 0,
+          opacity: isVisible && hasMoved ? 1 : 0,
         }}
         transition={{
           width: { type: "spring", stiffness: 400, damping: 25 },
@@ -218,7 +237,7 @@ export function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          opacity: isVisible && cursorState.variant === "default" ? 1 : 0,
+          opacity: isVisible && hasMoved && cursorState.variant === "default" ? 1 : 0,
           scale: cursorState.variant === "click" ? 0.5 : 1,
         }}
         transition={{ duration: 0.15 }}

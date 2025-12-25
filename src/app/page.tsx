@@ -6,9 +6,9 @@ import { demos } from "@/lib/themes";
 import { DemoGrid } from "@/components/showcase";
 import { CustomCursor } from "@/components/effects";
 
-// Animated text reveal component
+// Animated text reveal component with hover effects
 function AnimatedTitle() {
-  const titleWords = ["Build", "Beautiful", "Experiences"];
+  const titleWords = ["We Build", "Beautiful", "Experiences"];
 
   return (
     <motion.h1
@@ -28,7 +28,7 @@ function AnimatedTitle() {
       {titleWords.map((word, wordIndex) => (
         <motion.span
           key={wordIndex}
-          className={`block ${
+          className={`block cursor-default ${
             wordIndex === 1
               ? "bg-gradient-to-r from-cyan-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent"
               : "text-white"
@@ -46,8 +46,25 @@ function AnimatedTitle() {
             },
           }}
           style={{ transformOrigin: "center bottom", perspective: 1000 }}
+          whileHover={{
+            scale: 1.05,
+            x: wordIndex === 0 ? -10 : wordIndex === 2 ? 10 : 0,
+            transition: { type: "spring", stiffness: 400, damping: 15 }
+          }}
         >
-          {word}
+          {word.split("").map((char, charIndex) => (
+            <motion.span
+              key={charIndex}
+              className="inline-block"
+              whileHover={{
+                y: -8,
+                color: wordIndex !== 1 ? "#a78bfa" : undefined,
+                transition: { type: "spring", stiffness: 500, damping: 10 }
+              }}
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
         </motion.span>
       ))}
     </motion.h1>

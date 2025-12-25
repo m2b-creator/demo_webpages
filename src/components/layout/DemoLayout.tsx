@@ -26,7 +26,7 @@ export function DemoLayout({
     <ThemeProvider theme={theme}>
       <CustomCursor />
 
-      {/* Back to showcase button */}
+      {/* Back to Overview floating button */}
       {showBackButton && (
         <motion.div
           className="fixed top-6 left-6 z-50"
@@ -34,12 +34,24 @@ export function DemoLayout({
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <Link
-            href="/"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-card)]/90 backdrop-blur-xl border border-[var(--color-border)] shadow-lg text-sm font-medium text-[var(--color-foreground)] hover:bg-[var(--color-muted)] transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">Back to Showcase</span>
+          <Link href="/">
+            <motion.div
+              className="flex items-center gap-2 px-5 py-3 rounded-full bg-zinc-900/95 backdrop-blur-xl border border-white/15 shadow-2xl text-sm font-semibold text-white"
+              whileHover={{
+                scale: 1.05,
+                x: -4,
+                boxShadow: "0 20px 40px -10px rgba(0,0,0,0.4)"
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <motion.div
+                whileHover={{ x: -3 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <ArrowLeft className="w-4 h-4" />
+              </motion.div>
+              <span>Back to Overview</span>
+            </motion.div>
           </Link>
         </motion.div>
       )}

@@ -126,39 +126,85 @@ export function ThemeSwitcher() {
   );
 }
 
-// Minimal version - just color dots
+// Minimal version - more prominent with label
 export function ThemeSwitcherMinimal() {
   const { currentScheme, availableSchemes, setScheme } = useTheme();
 
   return (
     <motion.div
-      className="fixed bottom-6 right-6 z-50 flex gap-2 p-2 bg-zinc-900/90 backdrop-blur-xl rounded-full border border-white/10"
+      className="fixed bottom-6 right-6 z-50"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1 }}
+      transition={{ delay: 0.8 }}
     >
-      {availableSchemes.map((scheme) => (
-        <motion.button
-          key={scheme.id}
-          onClick={() => setScheme(scheme.id)}
-          className={cn(
-            "relative w-8 h-8 rounded-full overflow-hidden",
-            "transition-transform duration-200"
-          )}
-          style={{ backgroundColor: scheme.colors.primary }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          aria-label={`Switch to ${scheme.name} theme`}
+      {/* Pulsing glow effect behind */}
+      <motion.div
+        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-violet-500/30 to-cyan-500/30 blur-xl"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.5, 0.8, 0.5],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <div className="relative flex flex-col items-end gap-2">
+        {/* Label */}
+        <motion.span
+          className="text-xs font-semibold text-white/90 bg-zinc-800/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/10 shadow-lg"
+          initial={{ opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.2 }}
         >
-          {currentScheme.id === scheme.id && (
-            <motion.div
-              layoutId="activeTheme"
-              className="absolute inset-0 ring-2 ring-white ring-offset-2 ring-offset-zinc-900 rounded-full"
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
-          )}
-        </motion.button>
-      ))}
+          <Palette className="w-3 h-3 inline mr-1.5 -mt-0.5" />
+          Try Different Themes
+        </motion.span>
+
+        {/* Color buttons */}
+        <div className="flex gap-2 p-3 bg-zinc-900/95 backdrop-blur-xl rounded-2xl border border-white/15 shadow-2xl">
+          {availableSchemes.map((scheme, index) => (
+            <motion.button
+              key={scheme.id}
+              onClick={() => setScheme(scheme.id)}
+              className={cn(
+                "relative w-10 h-10 rounded-xl overflow-hidden",
+                "transition-all duration-200",
+                "hover:shadow-lg",
+                currentScheme.id === scheme.id && "ring-2 ring-white ring-offset-2 ring-offset-zinc-900"
+              )}
+              style={{ backgroundColor: scheme.colors.primary }}
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 + index * 0.1 }}
+              aria-label={`Switch to ${scheme.name} theme`}
+            >
+              {/* Gradient shine effect */}
+              <div
+                className="absolute inset-0 opacity-40"
+                style={{
+                  background: `linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(0,0,0,0.2) 100%)`,
+                }}
+              />
+
+              {/* Active check */}
+              {currentScheme.id === scheme.id && (
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute inset-0 flex items-center justify-center bg-black/20"
+                >
+                  <Check className="w-5 h-5 text-white drop-shadow-md" />
+                </motion.div>
+              )}
+            </motion.button>
+          ))}
+        </div>
+      </div>
     </motion.div>
   );
 }
