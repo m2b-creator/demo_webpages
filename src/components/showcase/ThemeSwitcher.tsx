@@ -126,23 +126,23 @@ export function ThemeSwitcher() {
   );
 }
 
-// Minimal version - more prominent with label
+// Minimal version - more prominent and centered
 export function ThemeSwitcherMinimal() {
   const { currentScheme, availableSchemes, setScheme } = useTheme();
 
   return (
     <motion.div
-      className="fixed bottom-6 right-6 z-50"
-      initial={{ opacity: 0, y: 20 }}
+      className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50"
+      initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.8 }}
+      transition={{ delay: 0.8, type: "spring", stiffness: 100 }}
     >
       {/* Pulsing glow effect behind */}
       <motion.div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-violet-500/30 to-cyan-500/30 blur-xl"
+        className="absolute inset-0 rounded-3xl bg-gradient-to-r from-violet-500/40 to-cyan-500/40 blur-2xl scale-110"
         animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.5, 0.8, 0.5],
+          scale: [1.1, 1.2, 1.1],
+          opacity: [0.6, 0.9, 0.6],
         }}
         transition={{
           duration: 3,
@@ -151,32 +151,32 @@ export function ThemeSwitcherMinimal() {
         }}
       />
 
-      <div className="relative flex flex-col items-end gap-2">
+      <div className="relative flex flex-col items-center gap-3">
         {/* Label */}
         <motion.span
-          className="text-xs font-semibold text-white/90 bg-zinc-800/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/10 shadow-lg"
-          initial={{ opacity: 0, x: 10 }}
-          animate={{ opacity: 1, x: 0 }}
+          className="text-sm font-bold text-white bg-gradient-to-r from-violet-600 to-cyan-600 px-5 py-2 rounded-full shadow-lg shadow-violet-500/30"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2 }}
         >
-          <Palette className="w-3 h-3 inline mr-1.5 -mt-0.5" />
+          <Palette className="w-4 h-4 inline mr-2 -mt-0.5" />
           Try Different Themes
         </motion.span>
 
         {/* Color buttons */}
-        <div className="flex gap-2 p-3 bg-zinc-900/95 backdrop-blur-xl rounded-2xl border border-white/15 shadow-2xl">
+        <div className="flex gap-3 px-5 py-4 bg-zinc-900/95 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl shadow-black/40">
           {availableSchemes.map((scheme, index) => (
             <motion.button
               key={scheme.id}
               onClick={() => setScheme(scheme.id)}
               className={cn(
-                "relative w-10 h-10 rounded-xl overflow-hidden",
+                "relative w-12 h-12 rounded-xl overflow-hidden",
                 "transition-all duration-200",
-                "hover:shadow-lg",
-                currentScheme.id === scheme.id && "ring-2 ring-white ring-offset-2 ring-offset-zinc-900"
+                "hover:shadow-lg hover:shadow-white/20",
+                currentScheme.id === scheme.id && "ring-2 ring-white ring-offset-2 ring-offset-zinc-900 scale-110"
               )}
               style={{ backgroundColor: scheme.colors.primary }}
-              whileHover={{ scale: 1.1, y: -2 }}
+              whileHover={{ scale: 1.15, y: -3 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}

@@ -29,7 +29,7 @@ export function DemoLayout({
       {/* Back to Overview floating button */}
       {showBackButton && (
         <motion.div
-          className="fixed top-6 left-6 z-50"
+          className="fixed top-6 left-6 z-[100]"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
