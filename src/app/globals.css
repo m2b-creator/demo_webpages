@@ -1,21 +1,33 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  /* Default showcase theme colors (Light Mode) */
-  --color-primary: #6366f1;
+  /* Light Mode Theme Colors */
+  --color-primary: #0891b2;
   --color-primary-foreground: #ffffff;
   --color-secondary: #f1f5f9;
   --color-secondary-foreground: #0f172a;
-  --color-accent: #8b5cf6;
+  --color-accent: #0ea5e9;
   --color-accent-foreground: #ffffff;
-  --color-background: #ffffff;
+  --color-background: #f8fafc;
   --color-foreground: #0f172a;
-  --color-muted: #f1f5f9;
+  --color-muted: #e2e8f0;
   --color-muted-foreground: #64748b;
   --color-card: #ffffff;
   --color-card-foreground: #0f172a;
-  --color-border: #e2e8f0;
-  --color-ring: #6366f1;
+  --color-border: #cbd5e1;
+  --color-ring: #0891b2;
+
+  /* Homepage specific colors */
+  --hero-bg: #f8fafc;
+  --hero-text: #0f172a;
+  --hero-text-muted: #475569;
+  --hero-accent: #0891b2;
+  --nav-text: #475569;
+  --nav-text-hover: #0f172a;
+  --card-bg: #ffffff;
+  --marquee-bg: #e2e8f0;
 
   /* Spacing & Layout */
   --container-padding: 1.5rem;
@@ -33,20 +45,30 @@
 
 /* Dark Mode Theme */
 .dark {
-  --color-primary: #818cf8;
-  --color-primary-foreground: #0f0f23;
-  --color-secondary: #1e1b4b;
-  --color-secondary-foreground: #e0e7ff;
-  --color-accent: #a78bfa;
-  --color-accent-foreground: #0f0f23;
-  --color-background: #0a0a1a;
-  --color-foreground: #e2e8f0;
-  --color-muted: #1a1a2e;
+  --color-primary: #22d3ee;
+  --color-primary-foreground: #0a0a0a;
+  --color-secondary: #1e293b;
+  --color-secondary-foreground: #e2e8f0;
+  --color-accent: #06b6d4;
+  --color-accent-foreground: #0a0a0a;
+  --color-background: #09090b;
+  --color-foreground: #f1f5f9;
+  --color-muted: #1e293b;
   --color-muted-foreground: #94a3b8;
-  --color-card: #12121f;
-  --color-card-foreground: #e2e8f0;
-  --color-border: #2a2a4a;
-  --color-ring: #818cf8;
+  --color-card: #18181b;
+  --color-card-foreground: #f1f5f9;
+  --color-border: #27272a;
+  --color-ring: #22d3ee;
+
+  /* Homepage specific colors */
+  --hero-bg: #09090b;
+  --hero-text: #f1f5f9;
+  --hero-text-muted: #94a3b8;
+  --hero-accent: #22d3ee;
+  --nav-text: #94a3b8;
+  --nav-text-hover: #f1f5f9;
+  --card-bg: #18181b;
+  --marquee-bg: rgba(24, 24, 27, 0.5);
 }
 
 @theme inline {

@@ -33,9 +33,12 @@ function AnimatedTitle() {
       {titleWords.map((word, wordIndex) => (
         <motion.span
           key={wordIndex}
-          className={`block cursor-default pb-4 ${
-            wordIndex === 1 ? "text-cyan-500 dark:text-cyan-400" : "text-zinc-900 dark:text-white"
-          }`}
+          className="block cursor-default pb-4"
+          style={{
+            color: wordIndex === 1 ? 'var(--hero-accent)' : 'var(--hero-text)',
+            transformOrigin: "center bottom",
+            perspective: 1000
+          }}
           variants={{
             hidden: { opacity: 0, y: 80, rotateX: 40 },
             visible: {
@@ -48,7 +51,6 @@ function AnimatedTitle() {
               },
             },
           }}
-          style={{ transformOrigin: "center bottom", perspective: 1000 }}
           whileHover={{
             scale: 1.05,
             x: wordIndex === 0 ? -10 : wordIndex === 2 ? 10 : 0,
@@ -58,11 +60,10 @@ function AnimatedTitle() {
           {word.split("").map((char, charIndex) => (
             <motion.span
               key={charIndex}
-              className={`inline-block ${
-                wordIndex === 1 ? "hover:text-orange-500" : "hover:text-cyan-500 dark:hover:text-cyan-400"
-              }`}
+              className="inline-block"
               whileHover={{
                 y: -8,
+                color: wordIndex === 1 ? '#f97316' : 'var(--hero-accent)',
                 transition: { type: "spring", stiffness: 500, damping: 10 }
               }}
             >
@@ -582,8 +583,10 @@ function FloatingParticles() {
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full bg-cyan-500/30 dark:bg-cyan-400/20"
+          className="absolute rounded-full"
           style={{
+            backgroundColor: 'var(--hero-accent)',
+            opacity: 0.2,
             width: particle.size,
             height: particle.size,
             left: `${particle.x}%`,
@@ -659,7 +662,10 @@ function TechMarquee() {
   ];
 
   return (
-    <div className="py-12 bg-zinc-100 dark:bg-zinc-900/50 pointer-events-none select-none transition-colors duration-500">
+    <div
+      className="py-12 pointer-events-none select-none transition-colors duration-500"
+      style={{ backgroundColor: 'var(--marquee-bg)' }}
+    >
       <Marquee speed={40} gradient={false}>
         {technologies.map((tech, index) => (
           <div
@@ -671,7 +677,10 @@ function TechMarquee() {
               alt={tech.name}
               className="w-12 h-12 object-contain"
             />
-            <span className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">
+            <span
+              className="text-sm font-medium"
+              style={{ color: 'var(--hero-text-muted)' }}
+            >
               {tech.name}
             </span>
           </div>
@@ -741,8 +750,9 @@ function SectionHeader({
         {title.split(" ").map((word, i) => (
           <motion.span
             key={i}
-            className="inline-block mr-4 text-zinc-900 dark:text-white"
-            whileHover={{ scale: 1.05, color: "#06b6d4" }}
+            className="inline-block mr-4"
+            style={{ color: 'var(--hero-text)' }}
+            whileHover={{ scale: 1.05, color: "var(--hero-accent)" }}
             transition={{ type: "spring", stiffness: 400 }}
           >
             {word}
@@ -750,7 +760,8 @@ function SectionHeader({
         ))}
       </motion.h2>
       <motion.p
-        className="mt-4 text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto lg:mx-0"
+        className="mt-4 text-lg max-w-2xl mx-auto lg:mx-0"
+        style={{ color: 'var(--hero-text-muted)' }}
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0 },
@@ -784,7 +795,7 @@ function MainNav() {
           <img
             src="https://m2b.solutions/LogoStretched.webp"
             alt="M2B Solutions"
-            className="h-12 md:h-16 w-auto brightness-0 dark:invert group-hover:opacity-80 transition-opacity"
+            className="h-12 md:h-16 w-auto brightness-0 dark:invert group-hover:opacity-80 transition-all duration-300"
           />
         </a>
 
@@ -797,19 +808,29 @@ function MainNav() {
         <div className="hidden md:flex items-center gap-4">
           <a
             href="https://m2b.solutions"
-            className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            className="text-sm transition-colors duration-300"
+            style={{ color: 'var(--nav-text)' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--nav-text-hover)'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--nav-text)'}
           >
             ← Hauptseite
           </a>
           <a
             href="#demos"
-            className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            className="text-sm transition-colors duration-300"
+            style={{ color: 'var(--nav-text)' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--nav-text-hover)'}
+            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--nav-text)'}
           >
             Demos
           </a>
           <motion.a
             href="#contact"
-            className="px-4 py-2 text-sm font-medium rounded-xl border border-zinc-300 dark:border-white/20 text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-white/10 transition-colors"
+            className="px-4 py-2 text-sm font-medium rounded-xl border transition-colors duration-300"
+            style={{
+              color: 'var(--hero-text)',
+              borderColor: 'var(--color-border)'
+            }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -819,7 +840,8 @@ function MainNav() {
 
         {/* Mobile Menu Button */}
         <motion.button
-          className="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/10 transition-colors"
+          className="md:hidden p-2 rounded-lg transition-colors duration-300"
+          style={{ color: 'var(--nav-text)' }}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           whileTap={{ scale: 0.95 }}
           aria-label={isMobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
@@ -905,22 +927,26 @@ function ScrollIndicator() {
       transition={{ delay: 1.5 }}
     >
       <motion.div
-        className="relative flex flex-col items-center gap-2 text-zinc-500 dark:text-zinc-500"
+        className="relative flex flex-col items-center gap-2"
+        style={{ color: 'var(--hero-text-muted)' }}
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
         <span className="text-xs uppercase tracking-widest">Scrollen</span>
         <div className="relative">
           <motion.div
-            className="absolute inset-0 bg-cyan-400/30 blur-md rounded-full"
-            animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
+            className="absolute inset-0 blur-md rounded-full"
+            style={{ backgroundColor: 'var(--hero-accent)', opacity: 0.3 }}
+            animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
           <motion.div
-            className="w-6 h-10 rounded-full border-2 border-zinc-400 dark:border-zinc-600 flex justify-center pt-2"
+            className="w-6 h-10 rounded-full border-2 flex justify-center pt-2"
+            style={{ borderColor: 'var(--color-border)' }}
           >
             <motion.div
-              className="w-1 h-2 bg-cyan-500 dark:bg-cyan-400 rounded-full"
+              className="w-1 h-2 rounded-full"
+              style={{ backgroundColor: 'var(--hero-accent)' }}
               animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
@@ -937,7 +963,13 @@ export default function HomePage() {
       <CookieConsentProvider>
         <CustomCursor />
 
-        <main className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-zinc-900 dark:text-white overflow-hidden transition-colors duration-500">
+        <main
+          className="min-h-screen overflow-hidden transition-colors duration-500"
+          style={{
+            backgroundColor: 'var(--hero-bg)',
+            color: 'var(--hero-text)'
+          }}
+        >
         {/* Noise texture overlay */}
         <div
           className="fixed inset-0 pointer-events-none z-50 opacity-[0.015]"
@@ -978,7 +1010,7 @@ export default function HomePage() {
         <FloatingParticles />
 
         {/* Hero Section */}
-        <section className="relative min-h-0 md:min-h-screen flex flex-col justify-start md:justify-center px-6 md:px-12 lg:px-20 pt-28 pb-40 md:pt-24 md:pb-0">
+        <section className="relative min-h-screen flex flex-col justify-center items-center px-6 md:px-12 lg:px-20 pt-28 pb-24 md:pt-24 md:pb-32">
           {/* Navigation */}
           <MainNav />
 
@@ -1004,7 +1036,8 @@ export default function HomePage() {
               <AnimatedTitle />
 
               <motion.div
-                className="max-w-xl mx-auto lg:mx-0 text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed overflow-hidden text-center lg:text-left"
+                className="max-w-xl mx-auto lg:mx-0 text-lg md:text-xl leading-relaxed overflow-hidden text-center lg:text-left"
+                style={{ color: 'var(--hero-text-muted)' }}
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -1064,7 +1097,13 @@ export default function HomePage() {
                 <Magnetic strength={0.15}>
                   <motion.a
                     href="#contact"
-                    className="inline-flex items-center justify-center h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-medium rounded-xl text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-white/10 transition-colors border border-zinc-300 dark:border-white/20"
+                    className="inline-flex items-center justify-center h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-medium rounded-xl transition-colors duration-300"
+                    style={{
+                      color: 'var(--hero-text)',
+                      borderWidth: '1px',
+                      borderStyle: 'solid',
+                      borderColor: 'var(--color-border)'
+                    }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
