@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Default showcase theme colors */
+  /* Default showcase theme colors (Light Mode) */
   --color-primary: #6366f1;
   --color-primary-foreground: #ffffff;
   --color-secondary: #f1f5f9;
@@ -26,6 +26,27 @@
   --transition-base: 300ms;
   --transition-slow: 500ms;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Dark mode transition */
+  --mode-transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Dark Mode Theme */
+.dark {
+  --color-primary: #818cf8;
+  --color-primary-foreground: #0f0f23;
+  --color-secondary: #1e1b4b;
+  --color-secondary-foreground: #e0e7ff;
+  --color-accent: #a78bfa;
+  --color-accent-foreground: #0f0f23;
+  --color-background: #0a0a1a;
+  --color-foreground: #e2e8f0;
+  --color-muted: #1a1a2e;
+  --color-muted-foreground: #94a3b8;
+  --color-card: #12121f;
+  --color-card-foreground: #e2e8f0;
+  --color-border: #2a2a4a;
+  --color-ring: #818cf8;
 }
 
 @theme inline {
@@ -59,6 +80,27 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: var(--mode-transition);
+}
+
+/* Smooth transitions for dark mode switching */
+.dark body {
+  background: var(--color-background);
+}
+
+/* Elements that should transition smoothly */
+[class*="bg-"],
+[class*="text-"],
+[class*="border-"],
+.card,
+nav,
+header,
+footer,
+section,
+article,
+aside,
+main {
+  transition: var(--mode-transition);
 }
 
 /* Selection */
