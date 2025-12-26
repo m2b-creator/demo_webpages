@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 
 type CursorVariant = "default" | "hover" | "click" | "text" | "hidden" | "view" | "drag";
@@ -12,96 +12,50 @@ interface CursorState {
 
 export function CustomCursor() {
   const [cursorState, setCursorState] = useState<CursorState>({ variant: "default" });
-  const [isVisible, setIsVisible] = useState(true); // Default to true
+  const [isVisible, setIsVisible] = useState(true);
   const [isPointer, setIsPointer] = useState(false);
   const [hasMoved, setHasMoved] = useState(false);
-  const [isActivelyMoving, setIsActivelyMoving] = useState(true); // Track if cursor is actively moving
-  const inactivityTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [hasHover, setHasHover] = useState<boolean | null>(null); // null = not yet determined
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Optional: keep a subtle trail effect (can be removed entirely if not wanted)
+  // Subtle trail effect
   const trailConfig = { damping: 35, stiffness: 800, mass: 0.15 };
   const trailXSpring = useSpring(cursorX, trailConfig);
   const trailYSpring = useSpring(cursorY, trailConfig);
-
-  // Reset inactivity timeout
-  const resetInactivityTimeout = useCallback(() => {
-    // Clear existing timeout
-    if (inactivityTimeoutRef.current) {
-      clearTimeout(inactivityTimeoutRef.current);
-    }
-    
-    // Show cursor when there's activity
-    setIsActivelyMoving(true);
-    
-    // Set new timeout to hide cursor after 1 second of inactivity
-    inactivityTimeoutRef.current = setTimeout(() => {
-      setIsActivelyMoving(false);
-    }, 1000);
-  }, []);
 
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
       if (!hasMoved) setHasMoved(true);
-      resetInactivityTimeout();
     },
-    [cursorX, cursorY, hasMoved, resetInactivityTimeout]
+    [cursorX, cursorY, hasMoved]
   );
 
-  // Handle touch events for mobile/tablet
-  const handleTouchStart = useCallback(
-    (e: TouchEvent) => {
-      if (e.touches.length > 0) {
-        const touch = e.touches[0];
-        cursorX.set(touch.clientX);
-        cursorY.set(touch.clientY);
-        if (!hasMoved) setHasMoved(true);
-        setIsVisible(true);
-        resetInactivityTimeout();
-      }
-    },
-    [cursorX, cursorY, hasMoved, resetInactivityTimeout]
-  );
-
-  const handleTouchMove = useCallback(
-    (e: TouchEvent) => {
-      if (e.touches.length > 0) {
-        const touch = e.touches[0];
-        cursorX.set(touch.clientX);
-        cursorY.set(touch.clientY);
-        resetInactivityTimeout();
-      }
-    },
-    [cursorX, cursorY, resetInactivityTimeout]
-  );
-
-  const handleTouchEnd = useCallback(() => {
-    // On touch end, start the inactivity timer
-    resetInactivityTimeout();
-  }, [resetInactivityTimeout]);
+  // Check if device should show custom cursor
+  // We use multiple checks to reliably detect touch-only devices
+  useEffect(() => {
+    const isTouchDevice = (
+      // Check for touch capability
+      ('ontouchstart' in window) ||
+      (navigator.maxTouchPoints > 0) ||
+      // Check for coarse pointer (finger/touch)
+      window.matchMedia("(pointer: coarse)").matches ||
+      // Check for no hover capability
+      !window.matchMedia("(hover: hover)").matches
+    );
+    
+    // Only show custom cursor on non-touch devices with fine pointers
+    setHasHover(!isTouchDevice);
+  }, []);
 
   useEffect(() => {
-    // Check if device supports hover (not touch)
-    const hasHover = window.matchMedia("(hover: hover)").matches;
-    
-    // For touch devices, add touch event listeners
-    if (!hasHover) {
-      window.addEventListener("touchstart", handleTouchStart);
-      window.addEventListener("touchmove", handleTouchMove);
-      window.addEventListener("touchend", handleTouchEnd);
-      
-      return () => {
-        window.removeEventListener("touchstart", handleTouchStart);
-        window.removeEventListener("touchmove", handleTouchMove);
-        window.removeEventListener("touchend", handleTouchEnd);
-        if (inactivityTimeoutRef.current) {
-          clearTimeout(inactivityTimeoutRef.current);
-        }
-      };
+    // Don't set up listeners if we haven't determined hover capability yet
+    // or if the device doesn't support hover (touch-only)
+    if (hasHover === null || hasHover === false) {
+      return;
     }
 
     const handleMouseEnter = () => setIsVisible(true);
@@ -117,16 +71,15 @@ export function CustomCursor() {
 
     // Fire once to get initial position
     document.addEventListener("mousemove", checkInitialPosition, { once: true });
+    
     const handleMouseDown = () => {
       setCursorState((prev) => ({ ...prev, variant: "click" }));
-      resetInactivityTimeout();
     };
     const handleMouseUp = () => {
       setCursorState((prev) => ({
         ...prev,
         variant: prev.variant === "click" ? (isPointer ? "hover" : "default") : prev.variant
       }));
-      resetInactivityTimeout();
     };
 
     // Handle interactive elements
@@ -190,14 +143,13 @@ export function CustomCursor() {
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
       observer.disconnect();
-      if (inactivityTimeoutRef.current) {
-        clearTimeout(inactivityTimeoutRef.current);
-      }
     };
-  }, [handleMouseMove, handleTouchStart, handleTouchMove, handleTouchEnd, isPointer, resetInactivityTimeout]);
+  }, [handleMouseMove, isPointer, hasHover, cursorX, cursorY]);
 
-  // Check if we're on a touch-only device (no hover capability at all)
-  const isTouchOnly = typeof window !== "undefined" && !window.matchMedia("(hover: hover)").matches;
+  // Don't render anything on touch-only devices or before we've determined capability
+  if (hasHover === null || hasHover === false) {
+    return null;
+  }
 
   const cursorVariants = {
     default: {
@@ -253,9 +205,9 @@ export function CustomCursor() {
 
   return (
     <>
-      {/* Global cursor hide */}
+      {/* Global cursor hide - only on devices with fine pointer and hover */}
       <style jsx global>{`
-        @media (hover: hover) {
+        @media (hover: hover) and (pointer: fine) {
           * {
             cursor: none !important;
           }
@@ -273,7 +225,7 @@ export function CustomCursor() {
         }}
         animate={{
           ...cursorVariants[cursorState.variant],
-          opacity: isVisible && hasMoved && (isTouchOnly ? isActivelyMoving : true) ? 1 : 0,
+          opacity: isVisible && hasMoved ? 1 : 0,
         }}
         transition={{
           width: { type: "spring", stiffness: 400, damping: 25 },
@@ -305,7 +257,7 @@ export function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          opacity: isVisible && hasMoved && cursorState.variant === "default" && (isTouchOnly ? isActivelyMoving : true) ? 1 : 0,
+          opacity: isVisible && hasMoved && cursorState.variant === "default" ? 1 : 0,
           scale: cursorState.variant === "click" ? 0.5 : 1,
         }}
         transition={{ duration: 0.15 }}
