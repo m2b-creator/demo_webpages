@@ -17,7 +17,7 @@ function AnimatedTitle() {
 
   return (
     <motion.h1
-      className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter leading-[1.1] text-center lg:text-left"
+      className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter leading-[1.1] text-center"
       initial="hidden"
       animate="visible"
       variants={{
@@ -31,46 +31,51 @@ function AnimatedTitle() {
       }}
     >
       {titleWords.map((word, wordIndex) => (
-        <motion.span
+        <span
           key={wordIndex}
-          className="block cursor-default pb-4"
+          className="block cursor-default pb-4 transition-colors duration-500"
           style={{
             color: wordIndex === 1 ? 'var(--hero-accent)' : 'var(--hero-text)',
-            transformOrigin: "center bottom",
-            perspective: 1000
-          }}
-          variants={{
-            hidden: { opacity: 0, y: 80, rotateX: 40 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              rotateX: 0,
-              transition: {
-                duration: 0.8,
-                ease: [0.16, 1, 0.3, 1],
-              },
-            },
-          }}
-          whileHover={{
-            scale: 1.05,
-            x: wordIndex === 0 ? -10 : wordIndex === 2 ? 10 : 0,
-            transition: { type: "spring", stiffness: 400, damping: 15 }
           }}
         >
-          {word.split("").map((char, charIndex) => (
-            <motion.span
-              key={charIndex}
-              className="inline-block"
-              whileHover={{
-                y: -8,
-                color: wordIndex === 1 ? '#f97316' : 'var(--hero-accent)',
-                transition: { type: "spring", stiffness: 500, damping: 10 }
-              }}
-            >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
-        </motion.span>
+          <motion.span
+            className="inline-block"
+            style={{
+              transformOrigin: "center bottom",
+              perspective: 1000
+            }}
+            variants={{
+              hidden: { opacity: 0, y: 80, rotateX: 40 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                rotateX: 0,
+                transition: {
+                  duration: 0.8,
+                  ease: [0.16, 1, 0.3, 1],
+                },
+              },
+            }}
+            whileHover={{
+              scale: 1.05,
+              x: wordIndex === 0 ? -10 : wordIndex === 2 ? 10 : 0,
+              transition: { type: "spring", stiffness: 400, damping: 15 }
+            }}
+          >
+            {word.split("").map((char, charIndex) => (
+              <motion.span
+                key={charIndex}
+                className="inline-block"
+                whileHover={{
+                  y: -8,
+                  transition: { type: "spring", stiffness: 500, damping: 10 }
+                }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </motion.span>
+        </span>
       ))}
     </motion.h1>
   );
@@ -114,7 +119,8 @@ function ContactForm() {
   if (formState === 'success') {
     return (
       <motion.div
-        className="relative bg-zinc-900/80 backdrop-blur-sm border border-emerald-500/30 rounded-2xl p-8 flex flex-col items-center justify-center min-h-[400px]"
+        className="relative backdrop-blur-sm border border-emerald-500/30 rounded-2xl p-8 flex flex-col items-center justify-center min-h-[400px]"
+        style={{ backgroundColor: 'var(--color-muted)' }}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
       >
@@ -128,11 +134,12 @@ function ContactForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </motion.div>
-        <h3 className="text-2xl font-bold text-white mb-2">Nachricht gesendet!</h3>
-        <p className="text-zinc-400 text-center mb-6">Vielen Dank für Ihre Nachricht. Wir melden uns in Kürze bei Ihnen.</p>
+        <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--hero-text)' }}>Nachricht gesendet!</h3>
+        <p className="text-center mb-6" style={{ color: 'var(--hero-text)' }}>Vielen Dank für Ihre Nachricht. Wir melden uns in Kürze bei Ihnen.</p>
         <button
           onClick={() => setFormState('idle')}
-          className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
+          className="font-medium transition-colors"
+          style={{ color: 'var(--hero-accent)' }}
         >
           Weitere Nachricht senden
         </button>
@@ -145,11 +152,17 @@ function ContactForm() {
       <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 rounded-2xl blur opacity-20" />
       <form
         onSubmit={handleSubmit}
-        className="relative bg-zinc-900/80 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-6"
+        className="relative backdrop-blur-sm rounded-2xl p-8 space-y-6"
+        style={{
+          backgroundColor: 'var(--color-muted)',
+          borderWidth: '1px',
+          borderStyle: 'solid',
+          borderColor: 'var(--color-border)'
+        }}
       >
         <div className="grid sm:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-zinc-300 mb-2">
+            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)' }}>
               Name
             </label>
             <input
@@ -158,11 +171,18 @@ function ContactForm() {
               placeholder="Ihr Name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all"
+              style={{
+                backgroundColor: 'var(--color-card)',
+                color: 'var(--hero-text)',
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderColor: 'var(--color-border)'
+              }}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-zinc-300 mb-2">
+            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)' }}>
               E-Mail
             </label>
             <input
@@ -171,47 +191,68 @@ function ContactForm() {
               placeholder="ihre@email.com"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all"
+              style={{
+                backgroundColor: 'var(--color-card)',
+                color: 'var(--hero-text)',
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderColor: 'var(--color-border)'
+              }}
             />
           </div>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-zinc-300 mb-2">
-              Telefon <span className="text-zinc-500">(optional)</span>
+            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)' }}>
+              Telefon <span style={{ color: 'var(--hero-text)', opacity: 0.6 }}>(optional)</span>
             </label>
             <input
               type="tel"
               placeholder="+49 123 456789"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all"
+              style={{
+                backgroundColor: 'var(--color-card)',
+                color: 'var(--hero-text)',
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderColor: 'var(--color-border)'
+              }}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-zinc-300 mb-2">
+            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)' }}>
               Projektart
             </label>
             <select
               required
               value={formData.projectType}
               onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-              className="w-full px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all appearance-none cursor-pointer"
+              className="w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all appearance-none cursor-pointer"
+              style={{
+                backgroundColor: 'var(--color-card)',
+                color: 'var(--hero-text)',
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderColor: 'var(--color-border)'
+              }}
             >
-              <option value="" className="bg-zinc-900">Projektart auswählen</option>
-              <option value="Website Design & Entwicklung" className="bg-zinc-900">Website Design & Entwicklung</option>
-              <option value="E-Commerce Shop" className="bg-zinc-900">E-Commerce Shop</option>
-              <option value="Web-Applikation" className="bg-zinc-900">Web-Applikation</option>
-              <option value="Landing Page" className="bg-zinc-900">Landing Page</option>
-              <option value="Website Redesign" className="bg-zinc-900">Website Redesign</option>
-              <option value="Sonstiges" className="bg-zinc-900">Sonstiges</option>
+              <option value="">Projektart auswählen</option>
+              <option value="Website Design & Entwicklung">Website Design & Entwicklung</option>
+              <option value="E-Commerce Shop">E-Commerce Shop</option>
+              <option value="Web-Applikation">Web-Applikation</option>
+              <option value="Landing Page">Landing Page</option>
+              <option value="Website Redesign">Website Redesign</option>
+              <option value="Sonstiges">Sonstiges</option>
             </select>
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-zinc-300 mb-2">
+          <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)' }}>
             Nachricht
           </label>
           <textarea
@@ -220,7 +261,14 @@ function ContactForm() {
             placeholder="Erzählen Sie uns von Ihrem Projekt..."
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="w-full px-4 py-3 bg-zinc-800/50 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all resize-none"
+            className="w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all resize-none"
+            style={{
+              backgroundColor: 'var(--color-card)',
+              color: 'var(--hero-text)',
+              borderWidth: '1px',
+              borderStyle: 'solid',
+              borderColor: 'var(--color-border)'
+            }}
           />
         </div>
 
@@ -267,7 +315,12 @@ function SiteFooter() {
 
   return (
     <motion.footer
-      className="relative border-t border-white/5 px-6 md:px-12 lg:px-20 py-12"
+      className="relative px-6 md:px-12 lg:px-20 py-12"
+      style={{
+        borderTopWidth: '1px',
+        borderTopStyle: 'solid',
+        borderTopColor: 'var(--color-border)'
+      }}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -295,12 +348,13 @@ function SiteFooter() {
           <img
             src="https://m2b.solutions/LogoStretched.webp"
             alt="M2B Solutions"
-            className="h-8 w-auto brightness-0 invert group-hover:opacity-80 transition-opacity"
+            className="h-8 w-auto brightness-0 dark:invert group-hover:opacity-80 transition-opacity"
           />
         </motion.a>
 
         <motion.p
-          className="text-sm text-zinc-500"
+          className="text-sm"
+          style={{ color: 'var(--hero-text)' }}
           variants={{
             hidden: { opacity: 0, y: 10 },
             visible: { opacity: 1, y: 0 },
@@ -325,12 +379,14 @@ function SiteFooter() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative text-sm text-zinc-400 hover:text-white transition-colors py-1 group"
+              className="relative text-sm transition-colors py-1 group"
+              style={{ color: 'var(--hero-text)' }}
               whileHover={{ x: 3 }}
             >
               {link.label}
               <motion.span
-                className="absolute bottom-0 left-0 w-full h-px bg-cyan-400 origin-left"
+                className="absolute bottom-0 left-0 w-full h-px origin-left"
+                style={{ backgroundColor: 'var(--hero-accent)' }}
                 initial={{ scaleX: 0 }}
                 whileHover={{ scaleX: 1 }}
                 transition={{ duration: 0.2 }}
@@ -339,12 +395,14 @@ function SiteFooter() {
           ))}
           <motion.button
             onClick={openSettings}
-            className="relative text-sm text-zinc-400 hover:text-white transition-colors py-1 group"
+            className="relative text-sm transition-colors py-1 group"
+            style={{ color: 'var(--hero-text)' }}
             whileHover={{ x: 3 }}
           >
             Cookie-Einstellungen
             <motion.span
-              className="absolute bottom-0 left-0 w-full h-px bg-cyan-400 origin-left"
+              className="absolute bottom-0 left-0 w-full h-px origin-left"
+              style={{ backgroundColor: 'var(--hero-accent)' }}
               initial={{ scaleX: 0 }}
               whileHover={{ scaleX: 1 }}
               transition={{ duration: 0.2 }}
@@ -361,9 +419,7 @@ function ContactSection() {
   const { consent } = useCookieConsent();
 
   return (
-    <section id="contact" className="relative px-6 md:px-12 lg:px-20 pt-16 pb-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent pointer-events-none" />
-
+    <section id="contact" className="relative px-6 md:px-12 lg:px-20 pt-16 pb-32 text-center">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -377,7 +433,8 @@ function ContactSection() {
           }}
         >
           <motion.span
-            className="inline-block text-sm font-medium text-cyan-400 uppercase tracking-widest"
+            className="inline-block text-sm font-medium uppercase tracking-widest"
+            style={{ color: 'var(--hero-accent)' }}
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.9 },
               visible: { opacity: 1, y: 0, scale: 1 },
@@ -401,6 +458,7 @@ function ContactSection() {
           </motion.span>
           <motion.h2
             className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
+            style={{ color: 'var(--hero-text)' }}
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: { opacity: 1, y: 0 },
@@ -412,8 +470,7 @@ function ContactSection() {
                 className="inline-block mr-4"
                 whileHover={{
                   scale: 1.1,
-                  color: "#22d3ee",
-                  textShadow: "0 0 30px rgba(34, 211, 238, 0.5)"
+                  color: "var(--hero-accent)",
                 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
@@ -422,7 +479,8 @@ function ContactSection() {
             ))}
           </motion.h2>
           <motion.p
-            className="mt-4 text-lg text-zinc-400 max-w-2xl mx-auto"
+            className="mt-4 text-lg max-w-2xl mx-auto"
+            style={{ color: 'var(--hero-text)' }}
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0 },
@@ -433,7 +491,7 @@ function ContactSection() {
         </motion.div>
 
         {consent === "accepted" ? (
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-16 text-left">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -453,8 +511,8 @@ function ContactSection() {
               transition={{ delay: 0.3 }}
             >
               <div className="text-center lg:text-left">
-                <h3 className="text-2xl font-bold mb-4">Kontaktinformationen</h3>
-                <p className="text-zinc-400 leading-relaxed">
+                <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--hero-text)' }}>Kontaktinformationen</h3>
+                <p style={{ color: 'var(--hero-text)' }} className="leading-relaxed">
                   Ob Sie eine Frage haben, ein Projekt starten möchten oder einfach in Kontakt treten wollen — wir freuen uns auf Ihre Nachricht.
                 </p>
               </div>
@@ -462,42 +520,60 @@ function ContactSection() {
               <div className="space-y-6">
                 <motion.a
                   href="mailto:info@m2b.solutions"
-                  className="flex items-center gap-4 p-4 bg-zinc-900/50 border border-white/5 rounded-xl hover:border-cyan-500/30 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-xl transition-colors group"
+                  style={{
+                    backgroundColor: 'var(--color-muted)',
+                    borderWidth: '1px',
+                    borderStyle: 'solid',
+                    borderColor: 'var(--color-border)'
+                  }}
                   whileHover={{ x: 5 }}
                 >
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-cyan-400" />
+                    <Mail className="w-5 h-5" style={{ color: 'var(--hero-accent)' }} />
                   </div>
                   <div>
-                    <div className="text-sm text-zinc-500">E-Mail</div>
-                    <div className="text-white group-hover:text-cyan-400 transition-colors">info@m2b.solutions</div>
+                    <div className="text-sm" style={{ color: 'var(--hero-text)' }}>E-Mail</div>
+                    <div style={{ color: 'var(--hero-text)' }} className="group-hover:opacity-70 transition-opacity">info@m2b.solutions</div>
                   </div>
                 </motion.a>
 
                 <motion.a
                   href="tel:+4917656127211"
-                  className="flex items-center gap-4 p-4 bg-zinc-900/50 border border-white/5 rounded-xl hover:border-emerald-500/30 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-xl transition-colors group"
+                  style={{
+                    backgroundColor: 'var(--color-muted)',
+                    borderWidth: '1px',
+                    borderStyle: 'solid',
+                    borderColor: 'var(--color-border)'
+                  }}
                   whileHover={{ x: 5 }}
                 >
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 flex items-center justify-center">
-                    <Phone className="w-5 h-5 text-emerald-400" />
+                    <Phone className="w-5 h-5 text-emerald-500" />
                   </div>
                   <div>
-                    <div className="text-sm text-zinc-500">Telefon</div>
-                    <div className="text-white group-hover:text-emerald-400 transition-colors">+49 176 56127211</div>
+                    <div className="text-sm" style={{ color: 'var(--hero-text)' }}>Telefon</div>
+                    <div style={{ color: 'var(--hero-text)' }} className="group-hover:opacity-70 transition-opacity">+49 176 56127211</div>
                   </div>
                 </motion.a>
 
                 <motion.div
-                  className="flex items-center gap-4 p-4 bg-zinc-900/50 border border-white/5 rounded-xl"
+                  className="flex items-center gap-4 p-4 rounded-xl"
+                  style={{
+                    backgroundColor: 'var(--color-muted)',
+                    borderWidth: '1px',
+                    borderStyle: 'solid',
+                    borderColor: 'var(--color-border)'
+                  }}
                   whileHover={{ x: 5 }}
                 >
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-blue-400" />
+                    <MapPin className="w-5 h-5 text-blue-500" />
                   </div>
                   <div>
-                    <div className="text-sm text-zinc-500">Standort</div>
-                    <div className="text-white">Weltweit verfügbar (Remote)</div>
+                    <div className="text-sm" style={{ color: 'var(--hero-text)' }}>Standort</div>
+                    <div style={{ color: 'var(--hero-text)' }}>Weltweit verfügbar (Remote)</div>
                   </div>
                 </motion.div>
               </div>
@@ -511,14 +587,23 @@ function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-8">
-              <p className="text-zinc-400 mb-6">
+            <div
+              className="rounded-2xl p-8"
+              style={{
+                backgroundColor: 'var(--color-muted)',
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderColor: 'var(--color-border)'
+              }}
+            >
+              <p className="mb-6" style={{ color: 'var(--hero-text)' }}>
                 Um unser Kontaktformular zu nutzen, müssen Sie unsere Datenschutzrichtlinien akzeptieren.
               </p>
               <div className="space-y-4">
                 <motion.a
                   href="mailto:info@m2b.solutions"
-                  className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                  className="inline-flex items-center gap-2 transition-opacity hover:opacity-70"
+                  style={{ color: 'var(--hero-accent)' }}
                   whileHover={{ x: 5 }}
                 >
                   <Mail className="w-5 h-5" />
@@ -527,7 +612,7 @@ function ContactSection() {
                 <br />
                 <motion.a
                   href="tel:+4917656127211"
-                  className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"
+                  className="inline-flex items-center gap-2 text-emerald-500 transition-opacity hover:opacity-70"
                   whileHover={{ x: 5 }}
                 >
                   <Phone className="w-5 h-5" />
@@ -704,7 +789,7 @@ function SectionHeader({
 }) {
   return (
     <motion.div
-      className="max-w-7xl mx-auto mb-16 text-center lg:text-left"
+      className="max-w-7xl mx-auto mb-16 text-center"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -716,7 +801,8 @@ function SectionHeader({
       }}
     >
       <motion.span
-        className="inline-block text-sm font-medium text-cyan-400 uppercase tracking-widest"
+        className="inline-block text-sm font-medium uppercase tracking-widest"
+        style={{ color: 'var(--hero-accent)' }}
         variants={{
           hidden: { opacity: 0, y: 20, scale: 0.9 },
           visible: { opacity: 1, y: 0, scale: 1 },
@@ -760,7 +846,7 @@ function SectionHeader({
         ))}
       </motion.h2>
       <motion.p
-        className="mt-4 text-lg max-w-2xl mx-auto lg:mx-0"
+        className="mt-4 text-lg max-w-2xl mx-auto"
         style={{ color: 'var(--hero-text-muted)' }}
         variants={{
           hidden: { opacity: 0, y: 20 },
@@ -1010,33 +1096,41 @@ export default function HomePage() {
         <FloatingParticles />
 
         {/* Hero Section */}
-        <section className="relative min-h-screen flex flex-col justify-center items-center px-6 md:px-12 lg:px-20 pt-28 pb-24 md:pt-24 md:pb-32">
+        <section className="relative min-h-screen flex flex-col justify-center items-center px-6 md:px-12 lg:px-20 pt-32 pb-24 md:pt-32 md:pb-32">
           {/* Navigation */}
           <MainNav />
 
           {/* Hero content */}
-          <div className="max-w-7xl mx-auto w-full">
+          <div className="max-w-7xl mx-auto w-full text-center">
             <div className="space-y-8">
               {/* Availability Badge */}
               <motion.div
-                className="flex justify-center lg:justify-start"
+                className="flex justify-center"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+                <div
+                  className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full transition-colors duration-300"
+                  style={{
+                    backgroundColor: 'var(--pill-bg)',
+                    borderWidth: '1px',
+                    borderStyle: 'solid',
+                    borderColor: 'var(--pill-border)'
+                  }}
+                >
                   <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: 'var(--pill-text)' }}></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3" style={{ backgroundColor: 'var(--pill-text)' }}></span>
                   </span>
-                  <span className="text-emerald-400 font-medium text-sm">Verfügbar für neue Projekte</span>
+                  <span className="font-medium text-sm" style={{ color: 'var(--pill-text)' }}>Verfügbar für neue Projekte</span>
                 </div>
               </motion.div>
 
               <AnimatedTitle />
 
               <motion.div
-                className="max-w-xl mx-auto lg:mx-0 text-lg md:text-xl leading-relaxed overflow-hidden text-center lg:text-left"
+                className="max-w-2xl mx-auto text-lg md:text-xl leading-relaxed overflow-hidden text-center"
                 style={{ color: 'var(--hero-text-muted)' }}
                 initial="hidden"
                 animate="visible"
@@ -1065,7 +1159,7 @@ export default function HomePage() {
               </motion.div>
 
               <motion.div
-                className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-4"
+                className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 pt-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
@@ -1122,7 +1216,7 @@ export default function HomePage() {
         <TechMarquee />
 
         {/* Demos Section */}
-        <section id="demos" className="relative px-6 md:px-12 lg:px-20 pt-32 pb-16">
+        <section id="demos" className="relative px-6 md:px-12 lg:px-20 pt-32 pb-16 text-center">
           {/* Section header */}
           <SectionHeader
             label="Portfolio"

@@ -4,30 +4,35 @@
 
 :root {
   /* Light Mode Theme Colors */
-  --color-primary: #0891b2;
+  --color-primary: #0369a1;
   --color-primary-foreground: #ffffff;
   --color-secondary: #f1f5f9;
   --color-secondary-foreground: #0f172a;
-  --color-accent: #0ea5e9;
+  --color-accent: #0284c7;
   --color-accent-foreground: #ffffff;
-  --color-background: #f8fafc;
+  --color-background: #ffffff;
   --color-foreground: #0f172a;
-  --color-muted: #e2e8f0;
-  --color-muted-foreground: #64748b;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #0f172a;
   --color-card: #ffffff;
   --color-card-foreground: #0f172a;
   --color-border: #cbd5e1;
-  --color-ring: #0891b2;
+  --color-ring: #0369a1;
 
   /* Homepage specific colors */
-  --hero-bg: #f8fafc;
+  --hero-bg: #ffffff;
   --hero-text: #0f172a;
-  --hero-text-muted: #475569;
-  --hero-accent: #0891b2;
-  --nav-text: #475569;
-  --nav-text-hover: #0f172a;
+  --hero-text-muted: #0f172a;
+  --hero-accent: #0369a1;
+  --nav-text: #0f172a;
+  --nav-text-hover: #0369a1;
   --card-bg: #ffffff;
-  --marquee-bg: #e2e8f0;
+  --marquee-bg: #f1f5f9;
+
+  /* Pill/Badge colors */
+  --pill-bg: #dcfce7;
+  --pill-border: #86efac;
+  --pill-text: #166534;
 
   /* Spacing & Layout */
   --container-padding: 1.5rem;
@@ -69,6 +74,11 @@
   --nav-text-hover: #f1f5f9;
   --card-bg: #18181b;
   --marquee-bg: rgba(24, 24, 27, 0.5);
+
+  /* Pill/Badge colors */
+  --pill-bg: rgba(16, 185, 129, 0.1);
+  --pill-border: rgba(16, 185, 129, 0.2);
+  --pill-text: #34d399;
 }
 
 @theme inline {
