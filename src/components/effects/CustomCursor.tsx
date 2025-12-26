@@ -19,13 +19,8 @@ export function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Smooth spring animation for cursor movement
-  const springConfig = { damping: 25, stiffness: 400, mass: 0.5 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
-
-  // Slower spring for the trailing dot
-  const trailConfig = { damping: 30, stiffness: 200, mass: 0.8 };
+  // Optional: keep a subtle trail effect (can be removed entirely if not wanted)
+  const trailConfig = { damping: 35, stiffness: 800, mass: 0.15 };
   const trailXSpring = useSpring(cursorX, trailConfig);
   const trailYSpring = useSpring(cursorY, trailConfig);
 
@@ -194,12 +189,12 @@ export function CustomCursor() {
         }
       `}</style>
 
-      {/* Main cursor */}
+      {/* Main cursor - direct 1:1 tracking */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full flex items-center justify-center"
         style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
+          x: cursorX,
+          y: cursorY,
           translateX: "-50%",
           translateY: "-50%",
         }}
