@@ -61,9 +61,9 @@ export function DemoLayout({
           </motion.div>
         )}
 
-        {/* Dark mode toggle - fixed position top right */}
+        {/* Dark mode toggle - bottom right on mobile, top right on desktop */}
         <motion.div
-          className="fixed top-4 right-4 sm:top-6 sm:right-6 z-[100]"
+          className="fixed bottom-6 right-6 sm:bottom-auto sm:top-6 z-[100]"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, type: "spring", stiffness: 200 }}

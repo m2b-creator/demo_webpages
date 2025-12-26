@@ -885,43 +885,73 @@ function MainNav() {
           />
         </a>
 
-        {/* Center - Dark Mode Toggle */}
-        <div className="absolute left-1/2 -translate-x-1/2">
+        {/* Center - Dark Mode Toggle (desktop only, mobile is floating) */}
+        <div className="hidden md:block absolute left-1/2 -translate-x-1/2">
           <DarkModeToggle />
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href="https://m2b.solutions"
-            className="text-sm transition-colors duration-300"
-            style={{ color: 'var(--nav-text)' }}
-            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--nav-text-hover)'}
-            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--nav-text)'}
-          >
-            ← Hauptseite
-          </a>
-          <a
-            href="#demos"
-            className="text-sm transition-colors duration-300"
-            style={{ color: 'var(--nav-text)' }}
-            onMouseEnter={(e) => e.currentTarget.style.color = 'var(--nav-text-hover)'}
-            onMouseLeave={(e) => e.currentTarget.style.color = 'var(--nav-text)'}
-          >
-            Demos
-          </a>
-          <motion.a
-            href="#contact"
-            className="px-4 py-2 text-sm font-medium rounded-xl border transition-colors duration-300"
+        <div className="hidden md:flex items-center">
+          <div
+            className="flex items-center gap-1 px-2 py-2 rounded-full backdrop-blur-xl transition-colors duration-300"
             style={{
-              color: 'var(--hero-text)',
-              borderColor: 'var(--color-border)'
+              backgroundColor: 'var(--nav-pill-bg)',
+              border: '1px solid var(--nav-pill-border)',
             }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
           >
-            Kontakt
-          </motion.a>
+            <motion.a
+              href="https://m2b.solutions"
+              className="relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 group"
+              style={{ color: 'var(--nav-text)' }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <motion.span
+                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ backgroundColor: 'var(--nav-hover-bg)' }}
+              />
+              <span className="relative flex items-center gap-1.5">
+                <motion.span
+                  className="inline-block"
+                  whileHover={{ x: -2 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                </motion.span>
+                Hauptseite
+              </span>
+            </motion.a>
+
+            <motion.a
+              href="#demos"
+              className="relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 group"
+              style={{ color: 'var(--nav-text)' }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <motion.span
+                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ backgroundColor: 'var(--nav-hover-bg)' }}
+              />
+              <span className="relative">Demos</span>
+            </motion.a>
+
+            <motion.a
+              href="#contact"
+              className="relative px-5 py-2 text-sm font-semibold rounded-full overflow-hidden group"
+              style={{
+                background: 'linear-gradient(135deg, var(--nav-cta-from) 0%, var(--nav-cta-to) 100%)',
+                color: 'white',
+                boxShadow: '0 2px 12px var(--nav-cta-shadow)',
+              }}
+              whileHover={{ scale: 1.05, boxShadow: '0 4px 20px var(--nav-cta-shadow)' }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <motion.span
+                className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              />
+              <span className="relative">Kontakt</span>
+            </motion.a>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -999,15 +1029,25 @@ function MainNav() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Mobile floating dark mode toggle - bottom right */}
+      <motion.div
+        className="md:hidden fixed bottom-6 right-6 z-[100]"
+        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
+      >
+        <DarkModeToggle />
+      </motion.div>
     </>
   );
 }
 
-// Glowing scroll indicator
+// Glowing scroll indicator (large desktop only)
 function ScrollIndicator() {
   return (
     <motion.div
-      className="absolute bottom-12 left-1/2 -translate-x-1/2"
+      className="hidden xl:block absolute bottom-12 left-1/2 -translate-x-1/2"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.5 }}
@@ -1096,13 +1136,13 @@ export default function HomePage() {
         <FloatingParticles />
 
         {/* Hero Section */}
-        <section className="relative min-h-screen flex flex-col justify-center items-center px-6 md:px-12 lg:px-20 pt-32 pb-24 md:pt-32 md:pb-32">
+        <section className="relative min-h-0 sm:min-h-0 xl:min-h-screen flex flex-col justify-start xl:justify-center items-center px-6 md:px-12 lg:px-20 pt-20 sm:pt-20 xl:pt-32 pb-4 sm:pb-6 xl:pb-32">
           {/* Navigation */}
           <MainNav />
 
           {/* Hero content */}
           <div className="max-w-7xl mx-auto w-full text-center">
-            <div className="space-y-8">
+            <div className="space-y-4 sm:space-y-6 xl:space-y-8">
               {/* Availability Badge */}
               <motion.div
                 className="flex justify-center"
@@ -1194,9 +1234,7 @@ export default function HomePage() {
                     className="inline-flex items-center justify-center h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-medium rounded-xl transition-colors duration-300"
                     style={{
                       color: 'var(--hero-text)',
-                      borderWidth: '1px',
-                      borderStyle: 'solid',
-                      borderColor: 'var(--color-border)'
+                      border: '1px solid var(--kontakt-border)',
                     }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
