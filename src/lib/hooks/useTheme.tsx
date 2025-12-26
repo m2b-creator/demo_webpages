@@ -34,9 +34,22 @@ export function ThemeProvider({ theme, children }: ThemeProviderProps) {
 
   useEffect(() => {
     const root = document.documentElement;
+    const appliedProperties: string[] = [];
+
+    // Apply theme CSS variables
     Object.entries(currentScheme.colors).forEach(([key, value]) => {
-      root.style.setProperty(`--color-${kebabCase(key)}`, value);
+      const propertyName = `--color-${kebabCase(key)}`;
+      root.style.setProperty(propertyName, value);
+      appliedProperties.push(propertyName);
     });
+
+    // Cleanup: remove inline styles when unmounting or changing schemes
+    // This allows the base CSS variables from globals.css to take effect again
+    return () => {
+      appliedProperties.forEach((propertyName) => {
+        root.style.removeProperty(propertyName);
+      });
+    };
   }, [currentScheme]);
 
   const setScheme = (schemeId: string) => {

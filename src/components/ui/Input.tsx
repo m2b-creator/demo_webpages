@@ -39,7 +39,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const variantStyles = {
       default: cn(
-        "bg-[var(--color-background)] border-2 border-[var(--color-border)] rounded-xl",
+        "bg-[var(--color-card)] border-2 border-[var(--color-border)] rounded-xl",
         "hover:border-[var(--color-muted-foreground)]",
         isFocused && "border-[var(--color-primary)] ring-4 ring-[var(--color-primary)]/10",
         error && "border-red-500 hover:border-red-500"
@@ -47,7 +47,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       filled: cn(
         "bg-[var(--color-muted)] border-2 border-transparent rounded-xl",
         "hover:bg-[var(--color-muted)]/80",
-        isFocused && "bg-[var(--color-background)] border-[var(--color-primary)] ring-4 ring-[var(--color-primary)]/10",
+        isFocused && "bg-[var(--color-card)] border-[var(--color-primary)] ring-4 ring-[var(--color-primary)]/10",
         error && "border-red-500"
       ),
       underline: cn(
@@ -239,7 +239,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           disabled={disabled}
           className={cn(
             "w-full min-h-[120px] px-4 py-4",
-            "bg-[var(--color-background)] border-2 border-[var(--color-border)] rounded-xl",
+            "bg-[var(--color-card)] border-2 border-[var(--color-border)] rounded-xl",
             "text-[var(--color-foreground)] placeholder:text-[var(--color-muted-foreground)]",
             "transition-all duration-200 resize-y",
             "hover:border-[var(--color-muted-foreground)]",

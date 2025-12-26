@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 
 type CursorVariant = "default" | "hover" | "click" | "text" | "hidden" | "view" | "drag";
@@ -15,6 +15,8 @@ export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(true); // Default to true
   const [isPointer, setIsPointer] = useState(false);
   const [hasMoved, setHasMoved] = useState(false);
+  const [isActivelyMoving, setIsActivelyMoving] = useState(true); // Track if cursor is actively moving
+  const inactivityTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -24,19 +26,83 @@ export function CustomCursor() {
   const trailXSpring = useSpring(cursorX, trailConfig);
   const trailYSpring = useSpring(cursorY, trailConfig);
 
+  // Reset inactivity timeout
+  const resetInactivityTimeout = useCallback(() => {
+    // Clear existing timeout
+    if (inactivityTimeoutRef.current) {
+      clearTimeout(inactivityTimeoutRef.current);
+    }
+    
+    // Show cursor when there's activity
+    setIsActivelyMoving(true);
+    
+    // Set new timeout to hide cursor after 1 second of inactivity
+    inactivityTimeoutRef.current = setTimeout(() => {
+      setIsActivelyMoving(false);
+    }, 1000);
+  }, []);
+
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
       if (!hasMoved) setHasMoved(true);
+      resetInactivityTimeout();
     },
-    [cursorX, cursorY, hasMoved]
+    [cursorX, cursorY, hasMoved, resetInactivityTimeout]
   );
+
+  // Handle touch events for mobile/tablet
+  const handleTouchStart = useCallback(
+    (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        cursorX.set(touch.clientX);
+        cursorY.set(touch.clientY);
+        if (!hasMoved) setHasMoved(true);
+        setIsVisible(true);
+        resetInactivityTimeout();
+      }
+    },
+    [cursorX, cursorY, hasMoved, resetInactivityTimeout]
+  );
+
+  const handleTouchMove = useCallback(
+    (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        cursorX.set(touch.clientX);
+        cursorY.set(touch.clientY);
+        resetInactivityTimeout();
+      }
+    },
+    [cursorX, cursorY, resetInactivityTimeout]
+  );
+
+  const handleTouchEnd = useCallback(() => {
+    // On touch end, start the inactivity timer
+    resetInactivityTimeout();
+  }, [resetInactivityTimeout]);
 
   useEffect(() => {
     // Check if device supports hover (not touch)
     const hasHover = window.matchMedia("(hover: hover)").matches;
-    if (!hasHover) return;
+    
+    // For touch devices, add touch event listeners
+    if (!hasHover) {
+      window.addEventListener("touchstart", handleTouchStart);
+      window.addEventListener("touchmove", handleTouchMove);
+      window.addEventListener("touchend", handleTouchEnd);
+      
+      return () => {
+        window.removeEventListener("touchstart", handleTouchStart);
+        window.removeEventListener("touchmove", handleTouchMove);
+        window.removeEventListener("touchend", handleTouchEnd);
+        if (inactivityTimeoutRef.current) {
+          clearTimeout(inactivityTimeoutRef.current);
+        }
+      };
+    }
 
     const handleMouseEnter = () => setIsVisible(true);
     const handleMouseLeave = () => setIsVisible(false);
@@ -51,11 +117,17 @@ export function CustomCursor() {
 
     // Fire once to get initial position
     document.addEventListener("mousemove", checkInitialPosition, { once: true });
-    const handleMouseDown = () => setCursorState((prev) => ({ ...prev, variant: "click" }));
-    const handleMouseUp = () => setCursorState((prev) => ({
-      ...prev,
-      variant: prev.variant === "click" ? (isPointer ? "hover" : "default") : prev.variant
-    }));
+    const handleMouseDown = () => {
+      setCursorState((prev) => ({ ...prev, variant: "click" }));
+      resetInactivityTimeout();
+    };
+    const handleMouseUp = () => {
+      setCursorState((prev) => ({
+        ...prev,
+        variant: prev.variant === "click" ? (isPointer ? "hover" : "default") : prev.variant
+      }));
+      resetInactivityTimeout();
+    };
 
     // Handle interactive elements
     const handleElementMouseEnter = (e: Event) => {
@@ -118,13 +190,14 @@ export function CustomCursor() {
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
       observer.disconnect();
+      if (inactivityTimeoutRef.current) {
+        clearTimeout(inactivityTimeoutRef.current);
+      }
     };
-  }, [handleMouseMove, isPointer]);
+  }, [handleMouseMove, handleTouchStart, handleTouchMove, handleTouchEnd, isPointer, resetInactivityTimeout]);
 
-  // Don't render on touch devices
-  if (typeof window !== "undefined" && !window.matchMedia("(hover: hover)").matches) {
-    return null;
-  }
+  // Check if we're on a touch-only device (no hover capability at all)
+  const isTouchOnly = typeof window !== "undefined" && !window.matchMedia("(hover: hover)").matches;
 
   const cursorVariants = {
     default: {
@@ -200,7 +273,7 @@ export function CustomCursor() {
         }}
         animate={{
           ...cursorVariants[cursorState.variant],
-          opacity: isVisible && hasMoved ? 1 : 0,
+          opacity: isVisible && hasMoved && (isTouchOnly ? isActivelyMoving : true) ? 1 : 0,
         }}
         transition={{
           width: { type: "spring", stiffness: 400, damping: 25 },
@@ -232,7 +305,7 @@ export function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          opacity: isVisible && hasMoved && cursorState.variant === "default" ? 1 : 0,
+          opacity: isVisible && hasMoved && cursorState.variant === "default" && (isTouchOnly ? isActivelyMoving : true) ? 1 : 0,
           scale: cursorState.variant === "click" ? 0.5 : 1,
         }}
         transition={{ duration: 0.15 }}

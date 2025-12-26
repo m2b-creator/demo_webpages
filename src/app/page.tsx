@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, Mail, MapPin, Phone, Send, Menu, X } from "lucide-react";
 import { demos } from "@/lib/themes";
 import { DemoGrid } from "@/components/showcase";
@@ -8,12 +8,12 @@ import { CustomCursor } from "@/components/effects";
 import { CookieConsentProvider, useCookieConsent } from "@/components/ui/CookieBanner";
 import { DarkModeProvider } from "@/lib/hooks/useDarkMode";
 import { DarkModeToggle } from "@/components/showcase/DarkModeToggle";
-import { useState, FormEvent, useRef } from "react";
+import { useState, FormEvent } from "react";
 import { Magnetic } from "@/components/animations/ParallaxScroll";
 
 // Animated text reveal component with hover effects
 function AnimatedTitle() {
-  const titleWords = ["Wir schaffen", "Einzigartige", "Webseiten"];
+  const titleWords = ["WIR SCHAFFEN", "EINZIGARTIGE", "WEBSEITEN "];
 
   return (
     <motion.h1
@@ -81,6 +81,9 @@ function AnimatedTitle() {
   );
 }
 
+// Transition style helper for theme switching
+const themeTransition = { transition: 'background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease' };
+
 // Contact form component with webhook integration
 function ContactForm() {
   const [formState, setFormState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -120,7 +123,7 @@ function ContactForm() {
     return (
       <motion.div
         className="relative backdrop-blur-sm border border-emerald-500/30 rounded-2xl p-8 flex flex-col items-center justify-center min-h-[400px]"
-        style={{ backgroundColor: 'var(--color-muted)' }}
+        style={{ backgroundColor: 'var(--color-muted)', ...themeTransition }}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
       >
@@ -134,12 +137,12 @@ function ContactForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </motion.div>
-        <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--hero-text)' }}>Nachricht gesendet!</h3>
-        <p className="text-center mb-6" style={{ color: 'var(--hero-text)' }}>Vielen Dank für Ihre Nachricht. Wir melden uns in Kürze bei Ihnen.</p>
+        <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--hero-text)', ...themeTransition }}>Nachricht gesendet!</h3>
+        <p className="text-center mb-6" style={{ color: 'var(--hero-text)', ...themeTransition }}>Vielen Dank für Ihre Nachricht. Wir melden uns in Kürze bei Ihnen.</p>
         <button
           onClick={() => setFormState('idle')}
           className="font-medium transition-colors"
-          style={{ color: 'var(--hero-accent)' }}
+          style={{ color: 'var(--hero-accent)', ...themeTransition }}
         >
           Weitere Nachricht senden
         </button>
@@ -157,12 +160,13 @@ function ContactForm() {
           backgroundColor: 'var(--color-muted)',
           borderWidth: '1px',
           borderStyle: 'solid',
-          borderColor: 'var(--color-border)'
+          borderColor: 'var(--color-border)',
+          ...themeTransition
         }}
       >
         <div className="grid sm:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)' }}>
+            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)', ...themeTransition }}>
               Name
             </label>
             <input
@@ -177,12 +181,13 @@ function ContactForm() {
                 color: 'var(--hero-text)',
                 borderWidth: '1px',
                 borderStyle: 'solid',
-                borderColor: 'var(--color-border)'
+                borderColor: 'var(--color-border)',
+                ...themeTransition
               }}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)' }}>
+            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)', ...themeTransition }}>
               E-Mail
             </label>
             <input
@@ -197,7 +202,8 @@ function ContactForm() {
                 color: 'var(--hero-text)',
                 borderWidth: '1px',
                 borderStyle: 'solid',
-                borderColor: 'var(--color-border)'
+                borderColor: 'var(--color-border)',
+                ...themeTransition
               }}
             />
           </div>
@@ -205,8 +211,8 @@ function ContactForm() {
 
         <div className="grid sm:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)' }}>
-              Telefon <span style={{ color: 'var(--hero-text)', opacity: 0.6 }}>(optional)</span>
+            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)', ...themeTransition }}>
+              Telefon <span style={{ color: 'var(--hero-text)', opacity: 0.6, ...themeTransition }}>(optional)</span>
             </label>
             <input
               type="tel"
@@ -219,12 +225,13 @@ function ContactForm() {
                 color: 'var(--hero-text)',
                 borderWidth: '1px',
                 borderStyle: 'solid',
-                borderColor: 'var(--color-border)'
+                borderColor: 'var(--color-border)',
+                ...themeTransition
               }}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)' }}>
+            <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)', ...themeTransition }}>
               Projektart
             </label>
             <select
@@ -237,7 +244,8 @@ function ContactForm() {
                 color: 'var(--hero-text)',
                 borderWidth: '1px',
                 borderStyle: 'solid',
-                borderColor: 'var(--color-border)'
+                borderColor: 'var(--color-border)',
+                ...themeTransition
               }}
             >
               <option value="">Projektart auswählen</option>
@@ -252,7 +260,7 @@ function ContactForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)' }}>
+          <label className="block text-sm font-medium mb-2" style={{ color: 'var(--hero-text)', ...themeTransition }}>
             Nachricht
           </label>
           <textarea
@@ -267,7 +275,8 @@ function ContactForm() {
               color: 'var(--hero-text)',
               borderWidth: '1px',
               borderStyle: 'solid',
-              borderColor: 'var(--color-border)'
+              borderColor: 'var(--color-border)',
+              ...themeTransition
             }}
           />
         </div>
@@ -419,7 +428,7 @@ function ContactSection() {
   const { consent } = useCookieConsent();
 
   return (
-    <section id="contact" className="relative px-6 md:px-12 lg:px-20 pt-16 pb-32 text-center">
+    <section id="contact" className="relative px-6 md:px-12 lg:px-20 pt-16 pb-32 text-center" style={themeTransition}>
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <motion.div
@@ -434,7 +443,7 @@ function ContactSection() {
         >
           <motion.span
             className="inline-block text-sm font-medium uppercase tracking-widest"
-            style={{ color: 'var(--hero-accent)' }}
+            style={{ color: 'var(--hero-accent)', ...themeTransition }}
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.9 },
               visible: { opacity: 1, y: 0, scale: 1 },
@@ -458,7 +467,7 @@ function ContactSection() {
           </motion.span>
           <motion.h2
             className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
-            style={{ color: 'var(--hero-text)' }}
+            style={{ color: 'var(--hero-text)', ...themeTransition }}
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: { opacity: 1, y: 0 },
@@ -480,7 +489,7 @@ function ContactSection() {
           </motion.h2>
           <motion.p
             className="mt-4 text-lg max-w-2xl mx-auto"
-            style={{ color: 'var(--hero-text)' }}
+            style={{ color: 'var(--hero-text)', ...themeTransition }}
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0 },
@@ -511,8 +520,8 @@ function ContactSection() {
               transition={{ delay: 0.3 }}
             >
               <div className="text-center lg:text-left">
-                <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--hero-text)' }}>Kontaktinformationen</h3>
-                <p style={{ color: 'var(--hero-text)' }} className="leading-relaxed">
+                <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--hero-text)', ...themeTransition }}>Kontaktinformationen</h3>
+                <p style={{ color: 'var(--hero-text)', ...themeTransition }} className="leading-relaxed">
                   Ob Sie eine Frage haben, ein Projekt starten möchten oder einfach in Kontakt treten wollen — wir freuen uns auf Ihre Nachricht.
                 </p>
               </div>
@@ -525,16 +534,17 @@ function ContactSection() {
                     backgroundColor: 'var(--color-muted)',
                     borderWidth: '1px',
                     borderStyle: 'solid',
-                    borderColor: 'var(--color-border)'
+                    borderColor: 'var(--color-border)',
+                    ...themeTransition
                   }}
                   whileHover={{ x: 5 }}
                 >
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 flex items-center justify-center">
-                    <Mail className="w-5 h-5" style={{ color: 'var(--hero-accent)' }} />
+                    <Mail className="w-5 h-5" style={{ color: 'var(--hero-accent)', ...themeTransition }} />
                   </div>
                   <div>
-                    <div className="text-sm" style={{ color: 'var(--hero-text)' }}>E-Mail</div>
-                    <div style={{ color: 'var(--hero-text)' }} className="group-hover:opacity-70 transition-opacity">info@m2b.solutions</div>
+                    <div className="text-sm" style={{ color: 'var(--hero-text)', ...themeTransition }}>E-Mail</div>
+                    <div style={{ color: 'var(--hero-text)', ...themeTransition }} className="group-hover:opacity-70 transition-opacity">info@m2b.solutions</div>
                   </div>
                 </motion.a>
 
@@ -545,7 +555,8 @@ function ContactSection() {
                     backgroundColor: 'var(--color-muted)',
                     borderWidth: '1px',
                     borderStyle: 'solid',
-                    borderColor: 'var(--color-border)'
+                    borderColor: 'var(--color-border)',
+                    ...themeTransition
                   }}
                   whileHover={{ x: 5 }}
                 >
@@ -553,8 +564,8 @@ function ContactSection() {
                     <Phone className="w-5 h-5 text-emerald-500" />
                   </div>
                   <div>
-                    <div className="text-sm" style={{ color: 'var(--hero-text)' }}>Telefon</div>
-                    <div style={{ color: 'var(--hero-text)' }} className="group-hover:opacity-70 transition-opacity">+49 176 56127211</div>
+                    <div className="text-sm" style={{ color: 'var(--hero-text)', ...themeTransition }}>Telefon</div>
+                    <div style={{ color: 'var(--hero-text)', ...themeTransition }} className="group-hover:opacity-70 transition-opacity">+49 176 56127211</div>
                   </div>
                 </motion.a>
 
@@ -564,7 +575,8 @@ function ContactSection() {
                     backgroundColor: 'var(--color-muted)',
                     borderWidth: '1px',
                     borderStyle: 'solid',
-                    borderColor: 'var(--color-border)'
+                    borderColor: 'var(--color-border)',
+                    ...themeTransition
                   }}
                   whileHover={{ x: 5 }}
                 >
@@ -572,8 +584,8 @@ function ContactSection() {
                     <MapPin className="w-5 h-5 text-blue-500" />
                   </div>
                   <div>
-                    <div className="text-sm" style={{ color: 'var(--hero-text)' }}>Standort</div>
-                    <div style={{ color: 'var(--hero-text)' }}>Weltweit verfügbar (Remote)</div>
+                    <div className="text-sm" style={{ color: 'var(--hero-text)', ...themeTransition }}>Standort</div>
+                    <div style={{ color: 'var(--hero-text)', ...themeTransition }}>Weltweit verfügbar (Remote)</div>
                   </div>
                 </motion.div>
               </div>
@@ -593,17 +605,18 @@ function ContactSection() {
                 backgroundColor: 'var(--color-muted)',
                 borderWidth: '1px',
                 borderStyle: 'solid',
-                borderColor: 'var(--color-border)'
+                borderColor: 'var(--color-border)',
+                ...themeTransition
               }}
             >
-              <p className="mb-6" style={{ color: 'var(--hero-text)' }}>
+              <p className="mb-6" style={{ color: 'var(--hero-text)', ...themeTransition }}>
                 Um unser Kontaktformular zu nutzen, müssen Sie unsere Datenschutzrichtlinien akzeptieren.
               </p>
               <div className="space-y-4">
                 <motion.a
                   href="mailto:info@m2b.solutions"
                   className="inline-flex items-center gap-2 transition-opacity hover:opacity-70"
-                  style={{ color: 'var(--hero-accent)' }}
+                  style={{ color: 'var(--hero-accent)', ...themeTransition }}
                   whileHover={{ x: 5 }}
                 >
                   <Mail className="w-5 h-5" />
