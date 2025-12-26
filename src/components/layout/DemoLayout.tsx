@@ -7,7 +7,6 @@ import { ArrowLeft, Palette, Menu, X } from "lucide-react";
 import { ThemeProvider } from "@/lib/hooks/useTheme";
 import { DarkModeProvider } from "@/lib/hooks/useDarkMode";
 import { ThemeSwitcherMinimal } from "@/components/showcase/ThemeSwitcher";
-import { DarkModeToggle } from "@/components/showcase/DarkModeToggle";
 import { CustomCursor } from "@/components/effects";
 import type { DemoTheme } from "@/lib/themes/types";
 
@@ -34,7 +33,7 @@ export function DemoLayout({
         {/* Back to Overview floating button */}
         {showBackButton && (
           <motion.div
-            className="fixed top-20 left-4 sm:top-6 sm:left-6 z-[100]"
+            className="fixed top-20 left-4 sm:left-6 z-[100]"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
@@ -60,16 +59,6 @@ export function DemoLayout({
             </motion.button>
           </motion.div>
         )}
-
-        {/* Dark mode toggle - bottom right on mobile, top right on desktop */}
-        <motion.div
-          className="fixed bottom-6 right-6 sm:bottom-auto sm:top-6 z-[100]"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
-        >
-          <DarkModeToggle />
-        </motion.div>
 
         {/* Theme switcher */}
         {showThemeSwitcher && <ThemeSwitcherMinimal />}

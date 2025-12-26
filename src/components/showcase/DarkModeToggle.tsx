@@ -110,7 +110,7 @@ export function DarkModeToggle() {
         ref={buttonRef}
         onClick={handleClick}
         className={cn(
-          "relative w-14 h-14 rounded-full overflow-hidden cursor-pointer",
+          "relative w-[72px] h-[72px] rounded-full overflow-hidden cursor-pointer",
           "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
           isDark
             ? "bg-gradient-to-br from-slate-800 via-slate-900 to-indigo-950 shadow-lg shadow-indigo-500/20 focus-visible:ring-indigo-400"
@@ -175,9 +175,9 @@ export function DarkModeToggle() {
               {[...Array(8)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-0.5 h-3 bg-gradient-to-t from-orange-400 to-yellow-200 rounded-full origin-bottom"
+                  className="absolute w-1 h-4 bg-gradient-to-t from-orange-400 to-yellow-200 rounded-full origin-bottom"
                   style={{
-                    transform: `rotate(${i * 45}deg) translateY(-18px)`,
+                    transform: `rotate(${i * 45}deg) translateY(-22px)`,
                   }}
                   animate={{
                     scaleY: [1, 1.4, 1],
@@ -209,7 +209,7 @@ export function DarkModeToggle() {
             {/* Sun core / Moon */}
             <motion.div
               className={cn(
-                "w-7 h-7 rounded-full relative overflow-hidden",
+                "w-9 h-9 rounded-full relative overflow-hidden",
                 isDark
                   ? "bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300"
                   : "bg-gradient-to-br from-yellow-200 via-amber-300 to-orange-400"
@@ -264,14 +264,14 @@ export function DarkModeToggle() {
 
             {/* Eclipse overlay */}
             <motion.div
-              className="absolute top-0 right-0 w-7 h-7 rounded-full"
+              className="absolute top-0 right-0 w-9 h-9 rounded-full"
               style={{
                 background: isDark
                   ? "transparent"
                   : "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
               }}
               animate={{
-                x: isDark ? 20 : 0,
+                x: isDark ? 26 : 0,
                 opacity: isDark ? 0 : 1,
               }}
               transition={fluidSpring}

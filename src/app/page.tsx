@@ -885,10 +885,6 @@ function MainNav() {
           />
         </a>
 
-        {/* Center - Dark Mode Toggle (desktop only, mobile is floating) */}
-        <div className="hidden md:block absolute left-1/2 -translate-x-1/2">
-          <DarkModeToggle />
-        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center">
@@ -1030,9 +1026,9 @@ function MainNav() {
         )}
       </AnimatePresence>
 
-      {/* Mobile floating dark mode toggle - bottom right */}
+      {/* Floating dark mode toggle - bottom right */}
       <motion.div
-        className="md:hidden fixed bottom-6 right-6 z-[100]"
+        className="fixed bottom-6 right-6 z-[100]"
         initial={{ opacity: 0, scale: 0.8, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
